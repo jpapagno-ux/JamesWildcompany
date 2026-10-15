@@ -70,3 +70,22 @@
     io.observe(el);
   });
 })();
+
+// Stays dropdown: caret toggles the sample-listings menu (touch and keyboard).
+(function () {
+  document.querySelectorAll(".nav__drop").forEach(function (d) {
+    var b = d.querySelector(".nav__caret");
+    if (!b) return;
+    b.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = d.classList.toggle("open");
+      b.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.addEventListener("click", function (e) {
+      if (!d.contains(e.target)) { d.classList.remove("open"); b.setAttribute("aria-expanded", "false"); }
+    });
+    d.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { d.classList.remove("open"); b.setAttribute("aria-expanded", "false"); b.focus(); }
+    });
+  });
+})();
