@@ -1653,3 +1653,4 @@ h3 sup,
 .folio-fig{margin:0 0 1.4rem}
 .folio-fig img{display:block;width:100%;height:auto;filter:saturate(.8) sepia(.08);-webkit-mask-image:linear-gradient(to bottom,#000 75%,transparent);mask-image:linear-gradient(to bottom,#000 75%,transparent)}
 .folio-fig figcaption{font-family:var(--mono);font-size:var(--t-2xs);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:-.4rem}
+.sent-grid--4{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
