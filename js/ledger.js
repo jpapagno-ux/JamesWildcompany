@@ -89,3 +89,19 @@
     });
   });
 })();
+
+// From the road: share a founder line (native share sheet, else copy to clipboard).
+(function () {
+  document.querySelectorAll(".road__share").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var card = b.closest(".road__card");
+      var line = card.querySelector("blockquote p").textContent.trim() + " — James Papagno, James Wild & Co";
+      var done = function (msg) { var t = b.textContent; b.textContent = msg; setTimeout(function () { b.textContent = t; }, 2000); };
+      if (navigator.share) {
+        navigator.share({ text: line, url: location.href }).catch(function () {});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(line + " " + location.href).then(function () { done("Copied"); }, function () { done("Copy failed"); });
+      }
+    });
+  });
+})();
