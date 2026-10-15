@@ -152,6 +152,13 @@ header.site{
   }
   .btn.outline:hover{background:var(--charcoal); color:var(--paper);}
   .navToggle{display:none; position:absolute; right:var(--edge); top:50%; transform:translateY(-50%);}
+  /* Wild & Co Voyages: keep the five-link nav on one line at mid widths */
+  @media (max-width:1180px){ nav.links{gap:16px;} }
+  @media (max-width:1040px){
+    nav.links{display:none;}
+    .navToggle{display:block; background:none; border:1px solid var(--charcoal); color:var(--charcoal); font-family:var(--mono); font-size:11px; padding:8px 12px; letter-spacing:.08em; text-transform:uppercase;}
+  }
+
 
   /* ---------- FOUNDER WELCOME ---------- */
   .welcome{
@@ -956,6 +963,7 @@ header.site{
     <nav class="links">
       <a href="./wild-earth-stays">Wild Earth Stays</a>
       <a href="./wild-co-safaris">Wild &amp; Co Safaris</a>
+      <a href="./voyages">Wild &amp; Co Voyages</a>
       <a href="./brand-system">The Brand System</a>
       <a href="./traveler-preview">Traveler Preview</a>
       <a href="#connect" class="btn outline">Start the Conversation</a>

@@ -152,6 +152,13 @@ header.site{
   }
   .btn.outline:hover{background:var(--charcoal); color:var(--paper);}
   .navToggle{display:none; position:absolute; right:var(--edge); top:50%; transform:translateY(-50%);}
+  /* Wild & Co Voyages: keep the five-link nav on one line at mid widths */
+  @media (max-width:1180px){ nav.links{gap:16px;} }
+  @media (max-width:1040px){
+    nav.links{display:none;}
+    .navToggle{display:block; background:none; border:1px solid var(--charcoal); color:var(--charcoal); font-family:var(--mono); font-size:11px; padding:8px 12px; letter-spacing:.08em; text-transform:uppercase;}
+  }
+
 
   /* ---------- FOUNDER WELCOME ---------- */
   .welcome{
@@ -516,6 +523,10 @@ header.site{
   }
   .otherLink a:hover{color:var(--charcoal); border-color:var(--charcoal);}
 
+  .chooserGrid{grid-template-columns:repeat(3,1fr);}
+  .offerCard--voyages .region{color:#365e73;}
+  .offerCard--voyages .bignum{color:#b6cbd7;}
+  .offerCard--voyages:hover{background:#edf1f3;}
   @media (max-width:880px){
     .chooserGrid{grid-template-columns:1fr;}
   }
@@ -830,6 +841,9 @@ header.site{
   }
   .offerCard .cardPhoto span{font-family:var(--mono); font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--charcoal); opacity:0.55; max-width:75%;}
   .offerCard .cardBody{padding:36px 32px;}
+  .offerCard .cardPhoto{overflow:hidden;}
+  .offerCard .cardPhoto img{display:block;}
+  @media (min-width:881px) and (max-width:1100px){.offerCard .cardBody{padding:30px 24px;}}
   .offerCard .bignum{top:20px; right:20px;}
 
   /* ================= TIMELESS VOYAGES TEASER ================= */
@@ -882,6 +896,7 @@ header.site{
     <nav class="links">
       <a href="./wild-earth-stays">Wild Earth Stays</a>
       <a href="./wild-co-safaris">Wild &amp; Co Safaris</a>
+      <a href="./voyages">Wild &amp; Co Voyages</a>
       <a href="./brand-system">The Brand System</a>
       <a href="./traveler-preview">Traveler Preview</a>
       <a href="#connect" class="btn outline">Start the Conversation</a>
@@ -938,7 +953,7 @@ header.site{
     <div class="wrap">
       <div class="entry"><span class="no">Entry No. 0</span><span class="label">The Story So Far</span></div>
       <div class="head reveal">
-        <h2>Forty-four years, two platforms, one standard.</h2>
+        <h2>Forty-four years, three platforms, one standard.</h2>
         <p>This didn't start as a company. It started as one person's notes on where to go back to, and it's stayed that way longer than it probably should have.</p>
       </div>
       <div class="criteriaList reveal">
@@ -969,10 +984,10 @@ header.site{
   <!-- PLATFORM CHOOSER -->
   <section class="chooser" id="platforms">
     <div class="wrap">
-      <div class="entry"><span class="no">Entry No. 1</span><span class="label">Two Platforms, One Standard</span></div>
+      <div class="entry"><span class="no">Entry No. 1</span><span class="label">Three Platforms, One Standard</span></div>
       <div class="head reveal">
-        <h2>Two platforms. Choose where to start.</h2>
-        <p>Wild Earth Stays and Wild &amp; Co Safaris run as distinct platforms, split by region. Every property and every operator on either one passes through the same founder-led vetting before it's ever recommended to a client. Open the one that fits what you're building.</p>
+        <h2>Three platforms. Choose where to start.</h2>
+        <p>Wild Earth Stays, Wild &amp; Co Safaris and Wild &amp; Co Voyages run as distinct platforms, split by region and by way of travel. Every property, operator and vessel on any one of them passes through the same founder-led vetting before it's ever recommended to a client. Open the one that fits what you're building.</p>
       </div>
 
       <div class="chooserGrid reveal">
@@ -998,19 +1013,19 @@ header.site{
             <span class="go">View the platform</span>
           </div>
         </a>
+        <a href="./voyages" class="offerCard offerCard--voyages">
+          <span class="bignum">03</span>
+          <div class="cardPhoto" style="background:none; padding:0;"><img src="./img/stillness-antarctica.jpg" alt="Wild &amp; Co Voyages, concept image of a pale Antarctic iceberg on still water" style="width:100%; height:100%; object-fit:cover;" loading="lazy"></div>
+          <div class="cardBody">
+            <div class="region">By Water · Expedition Voyages</div>
+            <h3>Wild &amp; Co Voyages</h3>
+            <div class="tag">Small ships, where the voyage is part of the place.</div>
+            <p>Expedition and small-ship journeys, recorded vessel by vessel. The first entry: Antarctica21&rsquo;s Magellan Discoverer Inaugural Air-Cruise, south from Punta Arenas to the Antarctic Peninsula.</p>
+            <span class="go">View the platform</span>
+          </div>
+        </a>
       </div>
 
-      <div class="voyageTeaser reveal">
-        <div class="vt-photo" style="background:none;"><img src="./assets/photo-voyage-sunset.jpg" alt="Timeless Voyages, expedition sailing at sunset" style="width:100%; height:100%; object-fit:cover;"></div>
-        <div class="vt-body">
-          <div class="vt-tag">Coming 2027</div>
-          <h3>Timeless Voyages</h3>
-          <p>A third platform, currently in development: small-ship and expedition journeys, recorded with the same ship's-log editorial system already used for entries like the Kimberley Expedition. Early details for trade partners on request.</p>
-          <div style="margin-top:18px; border:1.4px solid var(--charcoal); aspect-ratio:16/9; overflow:hidden;">
-            <img src="./assets/photo-voyage-deck.jpg" alt="Timeless Voyages, expedition ship deck" style="width:100%; height:100%; object-fit:cover;">
-          </div>
-        </div>
-      </div>
 
       <div class="otherLink reveal">
         <a href="./brand-system">Prefer the brand &amp; design overview instead? View The Ledger brand system →</a>
