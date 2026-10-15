@@ -2,7 +2,7 @@
 // Reads the Wild Earth Stays booking engine (book.wildearthstays.com, built by
 // Tag Albie) for one property and date range, parses the "Best Available Rate"
 // rooms the same way the Intelligence Console's fetchBookingEngineRates does,
-// and returns JSON. Cached 15 minutes in memory and at Vercel's edge.
+// and returns JSON. Engine prices are stay totals; price is total / nights. Cached 15 minutes in memory and at Vercel's edge.
 
 const ENGINE_BASE = "https://book.wildearthstays.com/en/property/";
 const CACHE_TTL_MS = 15 * 60 * 1000;
@@ -76,9 +76,11 @@ module.exports = async function handler(req, res) {
     if (bar === -1) throw new Error("No rates for these dates");
     const barSection = html.slice(bar, los > bar ? los : end > bar ? end : html.length);
     const losSection = los > -1 ? html.slice(los, end > los ? end : html.length) : null;
-    const rooms = parseRooms(barSection);
+    // The engine quotes the whole stay; we show per night and keep the total.
+    const perNight = (list) => list.map((x) => ({ name: x.name, total: x.price, total_display: x.display, price: Math.round((x.price / nights) * 100) / 100 }));
+    const rooms = perNight(parseRooms(barSection));
     if (!rooms.length) throw new Error("No rooms available for these dates");
-    const promo = losSection ? parseRooms(losSection) : [];
+    const promo = losSection ? perNight(parseRooms(losSection)) : [];
     const payload = {
       property,
       engine_url: engineUrl,

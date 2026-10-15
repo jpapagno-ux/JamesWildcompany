@@ -47,7 +47,7 @@
         fromEl.textContent = money(d.from_price);
         metaEl.innerHTML = "/ night &middot; excl. taxes and fees &middot; <span class=\"live__dot\">Live</span> &middot; updated " + esc(time(d.fetched_at));
         tbody.innerHTML = d.rooms.map(function (r) {
-          return "<tr><th scope=\"row\">" + esc(r.name) + "</th><td>" + money(r.price) + "</td><td>" + money(r.price * d.nights) + "</td></tr>";
+          return "<tr><th scope=\"row\">" + esc(r.name) + "</th><td>" + money(r.price) + "</td><td>" + money(r.total) + "</td></tr>";
         }).join("");
         if (d.promo && d.promo.rooms.length) {
           var best = Math.min.apply(null, d.promo.rooms.map(function (r) { return r.price; }));
@@ -55,7 +55,7 @@
           promoEl.textContent = d.promo.name + " also showing for these dates, from " + money(best) + " / night.";
         } else { promoEl.hidden = true; }
         band.setAttribute("data-state", "ok");
-        statusEl.textContent = d.rooms.length + " room types available, " + d.nights + " nights, " + d.adults + " adults.";
+        statusEl.textContent = d.rooms.length + " room types available · " + d.nights + " night" + (d.nights > 1 ? "s" : "") + " · " + d.adults + " adult" + (d.adults > 1 ? "s" : "") + " · stay totals before taxes in the last column.";
       })
       .catch(function () {
         band.setAttribute("data-state", "fallback");
