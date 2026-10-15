@@ -1225,3 +1225,35 @@ h3 sup,
   .masthead__in { flex-direction: column; align-items: flex-start; gap: 0.7rem; padding-top: 0.7rem; padding-bottom: 0.55rem; }
   .nav { width: 100%; flex-wrap: wrap; gap: 0.6rem 1.4rem; }
 }
+
+/* ---------- Ink stamps + surreal fades (house-wide) ---------- */
+.hero__body { position: relative; }
+.ink-stamp {
+  position: absolute; right: var(--gutter); top: 0;
+  width: clamp(70px, 8.5vw, 108px); height: auto;
+  transform: translateY(-62%) rotate(-8deg);
+  z-index: 3; pointer-events: none;
+  filter: drop-shadow(0 1px 0 rgba(244, 241, 233, 0.6));
+}
+.plate { position: relative; }
+.ink-stamp--plate { top: -30px; bottom: auto; right: -18px; transform: rotate(-8deg); }
+.hero:has(.ink-stamp) .hero__caption { right: auto; left: var(--gutter); text-align: left; }
+@media (max-width: 700px) {
+  .ink-stamp { width: 66px; transform: translateY(-58%) rotate(-8deg); }
+  .ink-stamp--plate { top: -22px; right: -6px; transform: rotate(-8deg); }
+}
+/* Images dissolve gently into the paper at the bottom */
+.hero__img { background: var(--paper); }
+.hero__img img {
+  -webkit-mask-image: linear-gradient(to bottom, #000 62%, rgba(0,0,0,.55) 84%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 62%, rgba(0,0,0,.55) 84%, transparent 100%);
+}
+.house__img { background: var(--paper-card); }
+.house__img img, .frame img, .plate img, .voyage-card img, .g-hero__plate svg {
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,.42) 100%);
+          mask-image: linear-gradient(to bottom, #000 78%, rgba(0,0,0,.42) 100%);
+}
+/* Alignment: stamps, labels and cards share one baseline rhythm */
+.hero__eyebrow { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; padding-right: clamp(5rem, 11vw, 8rem); }
+.house__meta { align-items: center; }
+.stamp { line-height: 1.2; }
