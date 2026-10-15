@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Ledger &amp; Folio — James Wild &amp; Company</title>
+<meta name="description" content="The Ledger &amp; Folio: how James Wild &amp; Co records every place and every journey. A first look, not yet open.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="The Ledger &amp; Folio — James Wild &amp; Company">
+<meta property="og:description" content="Forty-four years of notes, finally kept in one book. A first look.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/hero-home.jpg">
+<meta name="theme-color" content="#f4f1e9">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:wght@400;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/ledger.css">
+<style>
+.lf-cover{padding:clamp(4rem,10vw,8rem) 0 clamp(3rem,6vw,5rem);border-bottom:1px solid var(--rule);background:radial-gradient(ellipse at 80% 0%,var(--paper-deep),transparent 60%),var(--paper)}
+.lf-title{font-family:var(--display);font-size:clamp(3.4rem,10vw,8rem);line-height:.95;letter-spacing:-.02em;margin:1.4rem 0 1.2rem;font-weight:400}
+.lf-title em{font-style:italic;color:var(--oxblood)}
+.lf-sub{font-family:var(--display);font-size:var(--t-xl);line-height:1.3;max-width:30ch;margin:0}
+.lf-sig,.lf-small,.lf-wall__sig{font-family:var(--mono);font-size:var(--t-2xs);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-top:1.6rem}
+.lf-marks{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.lf-marks li{display:flex;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;padding:.95rem 0;border-bottom:1px solid var(--rule)}
+.lf-marks b{font-family:var(--display);font-weight:400;font-size:var(--t-lg)}
+.lf-marks span{font-family:var(--mono);font-size:var(--t-xs);color:var(--ink-soft);align-self:center}
+.lf-marks li:first-child b{color:var(--oxblood)}
+.lf-folio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,2.5vw,2rem)}
+.lf-folio>div{border-top:1px solid var(--ink);padding-top:1rem}
+.lf-step{font-family:var(--mono);font-size:var(--t-2xs);letter-spacing:.16em;text-transform:uppercase;color:var(--oxblood)}
+.lf-folio p{font-family:var(--display);font-size:var(--t-lg);line-height:1.35;margin:.7rem 0 0}
+.lf-vols{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(.9rem,2vw,1.4rem)}
+.lf-vol{grid-column:span 2;display:flex;flex-direction:column;gap:.9rem;padding:clamp(1.2rem,2.4vw,1.8rem);border:1px solid var(--rule);border-top:5px solid var(--vol);background:linear-gradient(180deg,var(--vol-tint),var(--paper-card) 70%)}
+.lf-vol:nth-child(4),.lf-vol:nth-child(5){grid-column:span 3}
+.lf-vol--stays{--vol:#621819;--vol-tint:#efe1dc}
+.lf-vol--voyages{--vol:#2c5566;--vol-tint:#e0e8ea}
+.lf-vol--gatherings{--vol:#55613a;--vol-tint:#e6e8da}
+.lf-vol--safaris{--vol:#7f5320;--vol-tint:#efe4d3}
+.lf-vol--expeditions{--vol:#3b4250;--vol-tint:#e2e3e6}
+.lf-vol__name{font-family:var(--display);font-size:var(--t-2xl);color:var(--vol);line-height:1}
+.lf-vol__sub{font-family:var(--mono);font-size:var(--t-2xs);letter-spacing:.14em;text-transform:uppercase;color:var(--vol);margin-top:-.4rem}
+.lf-vol__why{margin:0;color:var(--ink)}
+.lf-vol blockquote{margin:0;flex:1;font-family:var(--display);font-style:italic;font-size:var(--t-lg);line-height:1.35;color:var(--ink);border-left:2px solid var(--vol);padding-left:.9rem}
+.lf-vol__tag{font-family:var(--mono);font-size:var(--t-2xs);letter-spacing:.12em;text-transform:uppercase;color:var(--vol);border-top:1px solid var(--rule);padding-top:.8rem}
+.lf-words{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(1rem,2.5vw,2rem)}
+.lf-words li{display:flex;flex-direction:column;gap:.35rem;padding:1rem 0;border-bottom:1px solid var(--rule)}
+.lf-words s{font-family:var(--display);font-size:var(--t-lg);color:var(--oxblood);text-decoration-thickness:1px}
+.lf-words span{font-family:var(--mono);font-size:var(--t-xs);color:var(--ink-soft)}
+.lf-wall{background:var(--ink);color:var(--paper);padding:clamp(4rem,9vw,7rem) 0}
+.lf-wall__label{color:#d9c9a8}
+.lf-wall__grid{columns:3 280px;column-gap:clamp(1.5rem,3vw,2.6rem);margin-top:2rem}
+.lf-q{break-inside:avoid;margin:0 0 clamp(1.6rem,3vw,2.4rem);font-family:var(--display);font-size:var(--t-lg);line-height:1.35;border-top:1px solid rgba(244,241,233,.25);padding-top:1rem}
+.lf-q--big{font-size:var(--t-2xl);line-height:1.2}
+.lf-wall__sig{color:#cfc5b5}
+.lf-close{font-family:var(--display);font-size:var(--t-xl);margin:1rem 0;font-weight:400}
+@media(max-width:900px){.lf-vols{grid-template-columns:1fr 1fr}.lf-vol,.lf-vol:nth-child(4){grid-column:span 1}.lf-vol:nth-child(5){grid-column:span 2}.lf-words{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.lf-vols,.lf-folio,.lf-words{grid-template-columns:1fr}.lf-vol,.lf-vol:nth-child(5){grid-column:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="masthead__in">
+    <a class="brandmark" href="index.html">
+      <svg viewBox="0 0 64 64" role="img" aria-label="James Wild and Company founder seal" fill="none">
+  <circle cx="32" cy="32" r="30.5" stroke="currentColor" stroke-width="1"/>
+  <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="0.6" opacity="0.55"/>
+  <path d="M32 12.5v39M12.5 32h39" stroke="currentColor" stroke-width="0.5" opacity="0.18"/>
+  <path d="M18.5 23.5h10.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+  <path d="M24.6 23.5v12.9c0 2.9-1.8 4.7-4.7 4.7-2.4 0-4.1-1.2-4.9-3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"/>
+  <path d="M31.6 23.5l3.4 17 3.6-13.2 3.7 13.2 3.4-17" stroke="currentColor" stroke-width="1.7" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M29.4 23.5h18.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" opacity="0.9"/>
+  <path d="M17 47.5h30" stroke="currentColor" stroke-width="0.7" opacity="0.5"/>
+</svg>
+      <span class="brandmark__txt">James Wild &amp; Co.<small>Est. 1982</small></span>
+    </a>
+    <nav class="nav" aria-label="Primary"><a href="index.html">The House</a><span class="nav__drop"><a href="stays.html">Stays</a><button class="nav__caret" type="button" aria-expanded="false" aria-controls="stays-menu" aria-label="Show sample stay listings"></button><span class="nav__menu" id="stays-menu"><a href="stay-sample-monwana.html">Sample 01 · The listing</a><a href="stay-sample-leeu-live.html">Sample 02 · Live pricing</a></span></span><a href="safaris.html">Safaris</a><a href="voyages.html">Voyages</a><a href="gatherings.html">Gatherings</a><a href="founder.html">Founder</a><a href="advisors.html">Advisor Invitation</a></nav>
+  </div>
+</header>
+<main id="main">
+<section class="lf-cover">
+  <div class="wrap">
+    <div class="hero__eyebrow"><span class="stamp">The Ledger &amp; Folio</span><span class="stamp stamp--ink">Proprietary</span><span class="stamp">Not yet open</span></div>
+    <h1 class="lf-title">The Ledger<br><em>&amp; Folio</em></h1>
+    <p class="lf-sub">Forty-four years of notes, finally kept in one book. You&rsquo;re looking at the cover. The pages stay closed a little longer.</p>
+    <p class="lf-sig">James Wild &amp; Co &middot; Kept since 1982</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sechead rv"><span class="sechead__no">00</span><h2 class="sechead__title">A note before the curtain</h2><span class="sechead__note">The forward</span></div>
+    <div class="split rv">
+      <div><p class="serif-lead">Every travel company has a brochure. We have a ledger. One tells you where you could go. The other tells you where James has been.</p></div>
+      <div>
+        <p>What he slept on. Who picked up the phone. Whether he went back. Travelers stopped believing adjectives a while ago; they want proof, a host who answers, and enough nights to actually know a place.</p>
+        <p>That isn&rsquo;t a trend we spotted. It&rsquo;s how James has travelled since 1982. The rest of the industry is simply arriving &mdash; and they&rsquo;re welcome. We kept the good table.</p>
+        <p>We won&rsquo;t show you how the book works yet. Some things you earn by staying the third night.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sechead rv"><span class="sechead__no">01</span><h2 class="sechead__title">The Ledger</h2><span class="sechead__note">Six marks &middot; earned in person</span></div>
+    <div class="split rv">
+      <div><p class="serif-lead">Every place in the house carries a mark. None of them can be bought, and none are guessed.</p><p class="lf-small">We&rsquo;ll show you the marks. The proof stays in the book.</p></div>
+      <ul class="lf-marks">
+        <li><b>I Know a Place</b><span>I slept here.</span></li>
+        <li><b>I&rsquo;ve Walked It</b><span>Inspected in person.</span></li>
+        <li><b>I Know the Host</b><span>The house will patch you in.</span></li>
+        <li><b>I Keep Going Back</b><span>A founder favorite.</span></li>
+        <li><b>I Know Who Knows</b><span>Vetted by a partner I trust.</span></li>
+        <li><b>I&rsquo;ll Know Soon</b><span>On my list, not yet in my bed.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sechead rv"><span class="sechead__no">02</span><h2 class="sechead__title">The Folio</h2><span class="sechead__note">Every journey gets a number</span></div>
+    <div class="lf-folio rv">
+      <div><span class="lf-step">Before</span><p>Your journey is entered under its own number. Everything we know, it knows.</p></div>
+      <div><span class="lf-step">Along the way</span><p>The house travels with you. If something needs a person, someone picks up.</p></div>
+      <div><span class="lf-step">After</span><p>The folio goes on your shelf &mdash; not into your camera roll. Open it in ten years. It&rsquo;ll still know where you had lunch.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sechead rv"><span class="sechead__no">03</span><h2 class="sechead__title">Five volumes, one book</h2><span class="sechead__note">Why James knows</span></div>
+    <div class="lf-vols">
+      <article class="lf-vol lf-vol--stays rv"><span class="lf-vol__name">Stays</span><p class="lf-vol__why">People don&rsquo;t want more choice. They want the one room someone they trust has already slept in.</p><blockquote>&ldquo;If I haven&rsquo;t slept in it, I&rsquo;ll tell you. If I have, I&rsquo;ll tell you more.&rdquo;</blockquote><span class="lf-vol__tag">Time rewarded &middot; Worth Another Night</span></article>
+      <article class="lf-vol lf-vol--voyages rv"><span class="lf-vol__name">Voyages</span><p class="lf-vol__why">The ship is the easy part. Knowing what to do before you board and after you land is where the trip is made.</p><blockquote>&ldquo;Arrive a day early. Ships leave &mdash; that&rsquo;s the whole point of ships.&rdquo;</blockquote><span class="lf-vol__tag">Time rewarded &middot; One More Night Ashore</span></article>
+      <article class="lf-vol lf-vol--gatherings rv"><span class="lf-vol__name">Gatherings</span><p class="lf-vol__why">Families don&rsquo;t want an itinerary. They want everyone in one place, happy, and nobody playing travel agent.</p><blockquote>&ldquo;Grandparents want the pool, kids want the boat, everyone wants a fourth night.&rdquo;</blockquote><span class="lf-vol__tag">Time rewarded &middot; Another Day Together</span></article>
+      <article class="lf-vol lf-vol--safaris rv"><span class="lf-vol__name">Safaris</span><p class="lf-vol__why">Africa rewards patience and punishes schedules. We plan for the first one.</p><blockquote>&ldquo;The leopard doesn&rsquo;t care about your flight. Stay the third night.&rdquo;</blockquote><span class="lf-vol__tag">Time rewarded &middot; The Third Sunrise</span></article>
+      <article class="lf-vol lf-vol--expeditions rv"><span class="lf-vol__name">Expeditions</span><span class="lf-vol__sub">Designed from 44 years on the road</span><p class="lf-vol__why">The sea shows you one side of a place; the land shows you the other. Most people only ever see half.</p><blockquote>&ldquo;The ship shows you the coast. The land shows you who lives behind it.&rdquo;</blockquote><span class="lf-vol__tag">Time rewarded &middot; Another Day on the Road</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sechead rv"><span class="sechead__no">04</span><h2 class="sechead__title">Words we left on the road</h2><span class="sechead__note">You&rsquo;ll notice</span></div>
+    <ul class="lf-words rv">
+      <li><s>Bucket list</s><span>Buckets are for bailing.</span></li>
+      <li><s>Hidden gem</s><span>If it&rsquo;s on your feed, it isn&rsquo;t hidden.</span></li>
+      <li><s>Bespoke</s><span>That&rsquo;s for suits.</span></li>
+      <li><s>Seamless</s><span>Travel has seams. We know where.</span></li>
+      <li><s>Once in a lifetime</s><span>Then why only once?</span></li>
+      <li><s>Authentic</s><span>If it has to say so, it isn&rsquo;t.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="lf-wall" aria-label="Lines from the ledger">
+  <div class="wrap">
+    <span class="label lf-wall__label">From the margins of the book</span>
+    <div class="lf-wall__grid">
+      <blockquote class="lf-q lf-q--big rv">&ldquo;Two nights is a visit. Three is when the place starts talking back.&rdquo;</blockquote>
+      <blockquote class="lf-q rv">&ldquo;The best itinerary I ever wrote had a blank afternoon in it.&rdquo;</blockquote>
+      <blockquote class="lf-q rv">&ldquo;The views are free. The judgment took forty-four years.&rdquo;</blockquote>
+      <blockquote class="lf-q rv">&ldquo;A good host picks up the phone. A great one already knows why you&rsquo;re calling.&rdquo;</blockquote>
+      <blockquote class="lf-q rv">&ldquo;If the brochure needs that many adjectives, the room needs work.&rdquo;</blockquote>
+      <blockquote class="lf-q lf-q--big rv">&ldquo;Anyone can sell a room. I&rsquo;d rather sell the reason to stay in it.&rdquo;</blockquote>
+      <blockquote class="lf-q rv">&ldquo;A good guide tells you what you&rsquo;re seeing. A great one tells you when to stop looking.&rdquo;</blockquote>
+      <blockquote class="lf-q rv">&ldquo;I don&rsquo;t have favorites. I have places I keep going back to. Same thing.&rdquo;</blockquote>
+      <blockquote class="lf-q rv">&ldquo;Photos disappear into your phone. A folio stays on the shelf.&rdquo;</blockquote>
+      <blockquote class="lf-q lf-q--big rv">&ldquo;Forty-four years taught me one thing: pack less, stay longer.&rdquo;</blockquote>
+    </div>
+    <p class="lf-wall__sig">James Papagno &middot; Founder</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split rv">
+    <div><span class="label">The book opens soon</span><h2 class="lf-close">Those already travelling with the house see it first.</h2></div>
+    <div><p>Not a waitlist. A short note to James, and he&rsquo;ll let you know when the pages open.</p>
+      <p style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.2rem"><a class="stamp" href="mailto:james@jameswildco.com?subject=The%20Ledger%20%26%20Folio%20%C2%B7%20First%20look">Ask for a first look &rarr;</a><a class="stamp stamp--ink" href="index.html">Back to the house</a></p></div>
+  </div>
+</section>
+</main>
+</main>
+<footer class="foot" id="enquire">
+  <div class="wrap">
+    <div class="foot__top">
+      <div>
+        <div class="foot__seal"><svg viewBox="0 0 200 200" role="img" aria-label="1982 seal" fill="none">
+  <defs>
+    <path id="arcTf" d="M100,100 m-78,0 a78,78 0 0,1 156,0"/>
+    <path id="arcBf" d="M100,100 m-70,0 a70,70 0 0,0 140,0"/>
+  </defs>
+  <circle cx="100" cy="100" r="97" stroke="currentColor" stroke-width="1.6"/>
+  <circle cx="100" cy="100" r="88" stroke="currentColor" stroke-width="0.8" opacity="0.6"/>
+  <circle cx="100" cy="100" r="61" stroke="currentColor" stroke-width="0.8" opacity="0.45"/>
+  <text font-family="Courier Prime, monospace" font-size="13" letter-spacing="3.1"
+        fill="currentColor" text-anchor="middle">
+    <textPath href="#arcTf" startOffset="50%">JAMES WILD &amp; COMPANY</textPath>
+  </text>
+  <text font-family="Courier Prime, monospace" font-size="10.5" letter-spacing="2.4"
+        fill="currentColor" text-anchor="middle" opacity="0.85">
+    <textPath href="#arcBf" startOffset="50%">RECORDED FROM EXPERIENCE</textPath>
+  </text>
+  <text x="100" y="82" font-family="Courier Prime, monospace" font-size="9.5"
+        letter-spacing="2.2" fill="currentColor" text-anchor="middle" opacity="0.8">FOUNDED</text>
+  <path d="M62 88h76" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <text x="100" y="112" font-family="Libre Caslon Display, Georgia, serif" font-size="25"
+        letter-spacing="0" fill="currentColor" text-anchor="middle">1982</text>
+  <path d="M62 119h76" stroke="currentColor" stroke-width="0.8" opacity="0.5"/>
+  <text x="100" y="134" font-family="Courier Prime, monospace" font-size="9.5"
+        letter-spacing="2.2" fill="currentColor" text-anchor="middle" opacity="0.8">J. W.</text>
+</svg></div>
+        <span class="label">Enquiry</span>
+        <h2>Personal reply. No automation.</h2>
+        <p>Every enquiry is answered by someone who has been to the place you are
+        asking about. If we have not been, we will say so, and then we will go.</p>
+      </div>
+      <div>
+        <span class="label">Trade &amp; partnerships</span>
+        <ul class="foot__list">
+          <li>Agent and consortium access</li>
+          <li>Rate and availability feeds</li>
+          <li>Property and house submissions</li>
+          <li>Journey Intelligence licensing</li>
+        </ul>
+        <p class="mono" style="margin-top:1.2rem;font-size:0.75rem;letter-spacing:0.08em;line-height:1.9;color:var(--sand)"><a href="mailto:james@jameswildco.com">james@jameswildco.com</a><br><a href="tel:+15614796355">561.479.6355</a><br><a href="mailto:james@wildearthstay.com">james@wildearthstay.com</a><br>FL Seller of Travel: ST45327<br>IATAN ID: 10783883</p>
+      </div>
+      <div>
+        <span class="label">The house</span>
+        <ul class="foot__list">
+          <li><a href="index.html">James Wild &amp; Company</a></li>
+          <li><a href="stays.html">James Wild Stays</a></li>
+          <li><a href="safaris.html">Wild &amp; Co Safaris</a></li>
+          <li><a href="voyages.html">Wild &amp; Co Voyages</a></li>
+          <li><a href="gatherings.html">Wild &amp; Co Gatherings</a></li>
+          <li><a href="founder.html">The Founder</a></li>
+          <li><a href="advisors.html">Advisor Invitation</a></li>
+        </ul>
+        <p class="mono" style="margin-top:1.2rem;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sand)">
+          Follow Wild Earth Stays
+        </p>
+        <ul class="foot__list" style="margin-top:0.3rem">
+          <li><a href="https://www.youtube.com/@WildEarthStays1" target="_blank" rel="noopener">Youtube</a></li>
+          <li><a href="https://www.instagram.com/wild_earth_stays/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=100094279719768" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+        <p class="mono" style="margin-top:1.2rem;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sand)">
+          Prepared for ILTM<br>28 September 2026
+        </p>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <span>James Wild &amp; Company · Recorded from experience</span>
+      <span>Ledger last verified 26 August 2026</span>
+      <span>Total entries 591 · 14 regions</span>
+    </div>
+  </div>
+</footer>
+<script src="js/ledger.js" defer></script>
+</body>
+</html>
