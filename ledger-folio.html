@@ -9,7 +9,7 @@
 <meta property="og:title" content="The Ledger &amp; Folio — James Wild &amp; Company">
 <meta property="og:description" content="Forty-four years of notes, finally kept in one book. A first look.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="img/hero-home.jpg">
+<meta property="og:image" content="img/stillness-antarctica.jpg">
 <meta name="theme-color" content="#f4f1e9">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,46 +17,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:wght@400;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/ledger.css">
 <style>
-.lf-cover{padding:clamp(4rem,10vw,8rem) 0 clamp(3rem,6vw,5rem);border-bottom:1px solid var(--rule);background:radial-gradient(ellipse at 80% 0%,var(--paper-deep),transparent 60%),var(--paper)}
-.lf-title{font-family:var(--display);font-size:clamp(3.4rem,10vw,8rem);line-height:.95;letter-spacing:-.02em;margin:1.4rem 0 1.2rem;font-weight:400}
-.lf-title em{font-style:italic;color:var(--oxblood)}
-.lf-sub{font-family:var(--display);font-size:var(--t-xl);line-height:1.3;max-width:30ch;margin:0}
-.lf-sig,.lf-small,.lf-wall__sig{font-family:var(--mono);font-size:var(--t-2xs);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-top:1.6rem}
-.lf-marks{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
-.lf-marks li{display:flex;justify-content:space-between;gap:1.2rem;flex-wrap:wrap;padding:.95rem 0;border-bottom:1px solid var(--rule)}
-.lf-marks b{font-family:var(--display);font-weight:400;font-size:var(--t-lg)}
-.lf-marks span{font-family:var(--mono);font-size:var(--t-xs);color:var(--ink-soft);align-self:center}
-.lf-marks li:first-child b{color:var(--oxblood)}
-.lf-folio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,2.5vw,2rem)}
-.lf-folio>div{border-top:1px solid var(--ink);padding-top:1rem}
-.lf-step{font-family:var(--mono);font-size:var(--t-2xs);letter-spacing:.16em;text-transform:uppercase;color:var(--oxblood)}
-.lf-folio p{font-family:var(--display);font-size:var(--t-lg);line-height:1.35;margin:.7rem 0 0}
-.lf-vols{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(.9rem,2vw,1.4rem)}
-.lf-vol{grid-column:span 2;display:flex;flex-direction:column;gap:.9rem;padding:clamp(1.2rem,2.4vw,1.8rem);border:1px solid var(--rule);border-top:5px solid var(--vol);background:linear-gradient(180deg,var(--vol-tint),var(--paper-card) 70%)}
-.lf-vol:nth-child(4),.lf-vol:nth-child(5){grid-column:span 3}
-.lf-vol--stays{--vol:#621819;--vol-tint:#efe1dc}
-.lf-vol--voyages{--vol:#2c5566;--vol-tint:#e0e8ea}
-.lf-vol--gatherings{--vol:#55613a;--vol-tint:#e6e8da}
-.lf-vol--safaris{--vol:#7f5320;--vol-tint:#efe4d3}
-.lf-vol--expeditions{--vol:#3b4250;--vol-tint:#e2e3e6}
-.lf-vol__name{font-family:var(--display);font-size:var(--t-2xl);color:var(--vol);line-height:1}
-.lf-vol__sub{font-family:var(--mono);font-size:var(--t-2xs);letter-spacing:.14em;text-transform:uppercase;color:var(--vol);margin-top:-.4rem}
-.lf-vol__why{margin:0;color:var(--ink)}
-.lf-vol blockquote{margin:0;flex:1;font-family:var(--display);font-style:italic;font-size:var(--t-lg);line-height:1.35;color:var(--ink);border-left:2px solid var(--vol);padding-left:.9rem}
-.lf-vol__tag{font-family:var(--mono);font-size:var(--t-2xs);letter-spacing:.12em;text-transform:uppercase;color:var(--vol);border-top:1px solid var(--rule);padding-top:.8rem}
-.lf-words{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(1rem,2.5vw,2rem)}
-.lf-words li{display:flex;flex-direction:column;gap:.35rem;padding:1rem 0;border-bottom:1px solid var(--rule)}
-.lf-words s{font-family:var(--display);font-size:var(--t-lg);color:var(--oxblood);text-decoration-thickness:1px}
-.lf-words span{font-family:var(--mono);font-size:var(--t-xs);color:var(--ink-soft)}
-.lf-wall{background:var(--ink);color:var(--paper);padding:clamp(4rem,9vw,7rem) 0}
-.lf-wall__label{color:#d9c9a8}
-.lf-wall__grid{columns:3 280px;column-gap:clamp(1.5rem,3vw,2.6rem);margin-top:2rem}
-.lf-q{break-inside:avoid;margin:0 0 clamp(1.6rem,3vw,2.4rem);font-family:var(--display);font-size:var(--t-lg);line-height:1.35;border-top:1px solid rgba(244,241,233,.25);padding-top:1rem}
-.lf-q--big{font-size:var(--t-2xl);line-height:1.2}
-.lf-wall__sig{color:#cfc5b5}
-.lf-close{font-family:var(--display);font-size:var(--t-xl);margin:1rem 0;font-weight:400}
-@media(max-width:900px){.lf-vols{grid-template-columns:1fr 1fr}.lf-vol,.lf-vol:nth-child(4){grid-column:span 1}.lf-vol:nth-child(5){grid-column:span 2}.lf-words{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.lf-vols,.lf-folio,.lf-words{grid-template-columns:1fr}.lf-vol,.lf-vol:nth-child(5){grid-column:auto}}
+.lf-vol{display:flex;flex-direction:column;gap:.2rem;border-top:3px solid var(--vol)}
+.lf-vol .card__no{color:var(--vol)}
+.lf-vol .stamp{align-self:flex-start;margin-top:auto;color:var(--vol);border-color:var(--vol)}
+.lf-line{font-family:var(--display);font-size:var(--t-lg)!important;line-height:1.35!important;color:var(--ink)!important;margin:.4rem 0 1rem}
+.card--ink .lf-line{color:var(--paper-card)!important;margin:0}
+.lf-words s{text-decoration-thickness:1px;color:var(--oxblood)}
 </style>
 </head>
 <body>
@@ -80,12 +46,18 @@
   </div>
 </header>
 <main id="main">
-<section class="lf-cover">
-  <div class="wrap">
-    <div class="hero__eyebrow"><span class="stamp">The Ledger &amp; Folio</span><span class="stamp stamp--ink">Proprietary</span><span class="stamp">Not yet open</span></div>
-    <h1 class="lf-title">The Ledger<br><em>&amp; Folio</em></h1>
-    <p class="lf-sub">Forty-four years of notes, finally kept in one book. You&rsquo;re looking at the cover. The pages stay closed a little longer.</p>
-    <p class="lf-sig">James Wild &amp; Co &middot; Kept since 1982</p>
+<section class="hero">
+  <div class="hero__img">
+    <img src="img/stillness-antarctica.jpg" width="1672" height="941" alt="Pale iceberg on quiet Antarctic water" fetchpriority="high">
+    <p class="hero__caption">The cover, not the pages</p>
+  </div>
+  <div class="wrap hero__body"><svg class="ink-stamp" viewBox="0 0 200 200" role="img" aria-label="Ledger stamp: Kept since 1982"><defs><path id="stlf1" d="M 24,100 A 76,76 0 0 1 176,100"/><path id="sblf1" d="M 13,100 A 87,87 0 0 0 187,100"/><filter id="sklf1" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="31" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" result="d"/><feTurbulence type="fractalNoise" baseFrequency="1.3" numOctaves="2" seed="51" result="s"/><feColorMatrix in="s" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  6 0 0 0 -1.7" result="m"/><feComposite in="d" in2="m" operator="in"/></filter></defs><g filter="url(#sklf1)" fill="#7A1E1E" stroke="#7A1E1E" opacity=".93"><circle cx="100" cy="100" r="95" fill="none" stroke-width="3.4"/><circle cx="100" cy="100" r="89" fill="none" stroke-width=".9"/><text stroke="none" font-family="Libre Caslon Text, Georgia, serif" font-weight="700" font-size="15"><textPath href="#stlf1" startOffset="50%" text-anchor="middle" textLength="200" lengthAdjust="spacing">THE LEDGER &amp; FOLIO</textPath></text><text stroke="none" font-family="Courier Prime, monospace" font-weight="700" font-size="10.5"><textPath href="#sblf1" startOffset="50%" text-anchor="middle" textLength="180" lengthAdjust="spacing">★ LEDGERED &amp; VETTED ★</textPath></text><line x1="44" y1="98" x2="156" y2="98" stroke-width="1"/><line x1="44" y1="140" x2="156" y2="140" stroke-width="1"/><text stroke="none" x="100" y="80" text-anchor="middle" font-family="Libre Caslon Display, Georgia, serif" font-size="22">&#9733;</text><text stroke="none" x="100" y="113" text-anchor="middle" font-family="Courier Prime, monospace" font-size="8.5" letter-spacing="2.4">KEPT SINCE</text><text stroke="none" x="100" y="133" text-anchor="middle" font-family="Libre Caslon Text, Georgia, serif" font-weight="700" font-size="21" textLength="56.0" lengthAdjust="spacingAndGlyphs">1982</text><text stroke="none" x="100" y="160" text-anchor="middle" font-family="Libre Caslon Text, Georgia, serif" font-style="italic" font-size="17">J. W.</text></g></svg>
+    <div class="hero__eyebrow">
+      <span class="stamp">The Ledger &amp; Folio</span>
+      <span class="stamp stamp--ink">Proprietary · Not yet open</span>
+    </div>
+    <h1>The Ledger &amp; Folio</h1>
+    <p class="hero__sub">Forty-four years of notes, finally kept in one book. You&rsquo;re looking at the cover. The pages stay closed a little longer.</p>
   </div>
 </section>
 
@@ -105,28 +77,30 @@
 
 <section class="section" style="padding-top:0">
   <div class="wrap">
-    <div class="sechead rv"><span class="sechead__no">01</span><h2 class="sechead__title">The Ledger</h2><span class="sechead__note">Six marks &middot; earned in person</span></div>
+    <div class="sechead rv"><span class="sechead__no">01</span><h2 class="sechead__title">The Ledger</h2><span class="sechead__note">Six marks · Earned in person</span></div>
     <div class="split rv">
-      <div><p class="serif-lead">Every place in the house carries a mark. None of them can be bought, and none are guessed.</p><p class="lf-small">We&rsquo;ll show you the marks. The proof stays in the book.</p></div>
-      <ul class="lf-marks">
-        <li><b>I Know a Place</b><span>I slept here.</span></li>
-        <li><b>I&rsquo;ve Walked It</b><span>Inspected in person.</span></li>
-        <li><b>I Know the Host</b><span>The house will patch you in.</span></li>
-        <li><b>I Keep Going Back</b><span>A founder favorite.</span></li>
-        <li><b>I Know Who Knows</b><span>Vetted by a partner I trust.</span></li>
-        <li><b>I&rsquo;ll Know Soon</b><span>On my list, not yet in my bed.</span></li>
-      </ul>
+      <div><p class="serif-lead">Every place in the house carries a mark. None of them can be bought, and none are guessed.</p><p class="mono dim" style="font-size:var(--t-2xs);letter-spacing:.1em;text-transform:uppercase">We&rsquo;ll show you the marks. The proof stays in the book.</p></div>
+      <dl class="fields">
+        <div><dt>I Know a Place</dt><dd>I slept here.</dd></div>
+        <div><dt>I&rsquo;ve Walked It</dt><dd>Inspected in person.</dd></div>
+        <div><dt>I Know the Host</dt><dd>The house will patch you in.</dd></div>
+        <div><dt>I Keep Going Back</dt><dd>A founder favorite.</dd></div>
+        <div><dt>I Know Who Knows</dt><dd>Vetted by a partner I trust.</dd></div>
+        <div><dt>I&rsquo;ll Know Soon</dt><dd>On my list, not yet in my bed.</dd></div>
+      </dl>
     </div>
   </div>
 </section>
 
+<section class="section" style="padding-top:0"><div class="wrap"><blockquote class="pull rv"><p>&ldquo;Two nights is a visit. Three is when the place starts talking back.&rdquo;</p><footer>James Papagno · On the Ledger</footer></blockquote></div></section>
+
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="sechead rv"><span class="sechead__no">02</span><h2 class="sechead__title">The Folio</h2><span class="sechead__note">Every journey gets a number</span></div>
-    <div class="lf-folio rv">
-      <div><span class="lf-step">Before</span><p>Your journey is entered under its own number. Everything we know, it knows.</p></div>
-      <div><span class="lf-step">Along the way</span><p>The house travels with you. If something needs a person, someone picks up.</p></div>
-      <div><span class="lf-step">After</span><p>The folio goes on your shelf &mdash; not into your camera roll. Open it in ten years. It&rsquo;ll still know where you had lunch.</p></div>
+    <div class="grid grid--3 rv">
+      <div class="card"><div class="card__no">01 · Before</div><h3>Entered in the book</h3><p>Your journey is filed under its own number. Everything we know, it knows.</p></div>
+      <div class="card"><div class="card__no">02 · Along the way</div><h3>The house travels with you</h3><p>If something needs a person, someone picks up. That&rsquo;s the point of knowing the host.</p></div>
+      <div class="card"><div class="card__no">03 · After</div><h3>On your shelf</h3><p>Not in your camera roll. Open it in ten years and it will still know where you had lunch.</p></div>
     </div>
   </div>
 </section>
@@ -134,12 +108,13 @@
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="sechead rv"><span class="sechead__no">03</span><h2 class="sechead__title">Five volumes, one book</h2><span class="sechead__note">Why James knows</span></div>
-    <div class="lf-vols">
-      <article class="lf-vol lf-vol--stays rv"><span class="lf-vol__name">Stays</span><p class="lf-vol__why">People don&rsquo;t want more choice. They want the one room someone they trust has already slept in.</p><blockquote>&ldquo;If I haven&rsquo;t slept in it, I&rsquo;ll tell you. If I have, I&rsquo;ll tell you more.&rdquo;</blockquote><span class="lf-vol__tag">Time rewarded &middot; Worth Another Night</span></article>
-      <article class="lf-vol lf-vol--voyages rv"><span class="lf-vol__name">Voyages</span><p class="lf-vol__why">The ship is the easy part. Knowing what to do before you board and after you land is where the trip is made.</p><blockquote>&ldquo;Arrive a day early. Ships leave &mdash; that&rsquo;s the whole point of ships.&rdquo;</blockquote><span class="lf-vol__tag">Time rewarded &middot; One More Night Ashore</span></article>
-      <article class="lf-vol lf-vol--gatherings rv"><span class="lf-vol__name">Gatherings</span><p class="lf-vol__why">Families don&rsquo;t want an itinerary. They want everyone in one place, happy, and nobody playing travel agent.</p><blockquote>&ldquo;Grandparents want the pool, kids want the boat, everyone wants a fourth night.&rdquo;</blockquote><span class="lf-vol__tag">Time rewarded &middot; Another Day Together</span></article>
-      <article class="lf-vol lf-vol--safaris rv"><span class="lf-vol__name">Safaris</span><p class="lf-vol__why">Africa rewards patience and punishes schedules. We plan for the first one.</p><blockquote>&ldquo;The leopard doesn&rsquo;t care about your flight. Stay the third night.&rdquo;</blockquote><span class="lf-vol__tag">Time rewarded &middot; The Third Sunrise</span></article>
-      <article class="lf-vol lf-vol--expeditions rv"><span class="lf-vol__name">Expeditions</span><span class="lf-vol__sub">Designed from 44 years on the road</span><p class="lf-vol__why">The sea shows you one side of a place; the land shows you the other. Most people only ever see half.</p><blockquote>&ldquo;The ship shows you the coast. The land shows you who lives behind it.&rdquo;</blockquote><span class="lf-vol__tag">Time rewarded &middot; Another Day on the Road</span></article>
+    <div class="grid rv" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))">
+      <div class="card lf-vol" style="--vol:#621819"><div class="card__no">Volume I · Stays</div><h3>One room, already slept in</h3><p>People don&rsquo;t want more choice. They want the room someone they trust has already slept in.</p><p class="lf-line">&ldquo;If I haven&rsquo;t slept in it, I&rsquo;ll tell you. If I have, I&rsquo;ll tell you more.&rdquo;</p><span class="stamp">Worth Another Night</span></div>
+      <div class="card lf-vol" style="--vol:#2c5566"><div class="card__no">Volume II · Voyages</div><h3>The ship is the easy part</h3><p>What you do before you board and after you land is where the trip is made.</p><p class="lf-line">&ldquo;Arrive a day early. Ships leave &mdash; that&rsquo;s the whole point of ships.&rdquo;</p><span class="stamp">One More Night Ashore</span></div>
+      <div class="card lf-vol" style="--vol:#55613a"><div class="card__no">Volume III · Gatherings</div><h3>Everyone, one place</h3><p>Families don&rsquo;t want an itinerary. They want everyone happy and nobody playing travel agent.</p><p class="lf-line">&ldquo;Grandparents want the pool, kids want the boat, everyone wants a fourth night.&rdquo;</p><span class="stamp">Another Day Together</span></div>
+      <div class="card lf-vol" style="--vol:#7f5320"><div class="card__no">Volume IV · Safaris</div><h3>Patience, not schedules</h3><p>Africa rewards patience and punishes schedules. We plan for the first one.</p><p class="lf-line">&ldquo;The leopard doesn&rsquo;t care about your flight. Stay the third night.&rdquo;</p><span class="stamp">The Third Sunrise</span></div>
+      <div class="card lf-vol" style="--vol:#3b4250"><div class="card__no">Volume V · Expeditions</div><h3>Designed from 44 years on the road</h3><p>The sea shows you one side of a place; the land shows you the other. Most people only see half.</p><p class="lf-line">&ldquo;The ship shows you the coast. The land shows you who lives behind it.&rdquo;</p><span class="stamp">Another Day on the Road</span></div>
+      <div class="card card--ink"><div class="card__no" style="color:var(--sand)">Coming to the book</div><h3>The pages open soon</h3><p>Those already travelling with the house see them first.</p></div>
     </div>
   </div>
 </section>
@@ -147,41 +122,38 @@
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="sechead rv"><span class="sechead__no">04</span><h2 class="sechead__title">Words we left on the road</h2><span class="sechead__note">You&rsquo;ll notice</span></div>
-    <ul class="lf-words rv">
-      <li><s>Bucket list</s><span>Buckets are for bailing.</span></li>
-      <li><s>Hidden gem</s><span>If it&rsquo;s on your feed, it isn&rsquo;t hidden.</span></li>
-      <li><s>Bespoke</s><span>That&rsquo;s for suits.</span></li>
-      <li><s>Seamless</s><span>Travel has seams. We know where.</span></li>
-      <li><s>Once in a lifetime</s><span>Then why only once?</span></li>
-      <li><s>Authentic</s><span>If it has to say so, it isn&rsquo;t.</span></li>
-    </ul>
+    <dl class="fields rv lf-words">
+      <div><dt><s>Bucket list</s></dt><dd>Buckets are for bailing.</dd></div>
+      <div><dt><s>Hidden gem</s></dt><dd>If it&rsquo;s on your feed, it isn&rsquo;t hidden.</dd></div>
+      <div><dt><s>Bespoke</s></dt><dd>That&rsquo;s for suits. Your trip just has to fit.</dd></div>
+      <div><dt><s>Seamless</s></dt><dd>Travel has seams. We know where they are, and who to call.</dd></div>
+      <div><dt><s>Once in a lifetime</s></dt><dd>If it&rsquo;s that good, why only once? Go back.</dd></div>
+      <div><dt><s>Authentic</s></dt><dd>If a place has to tell you, it isn&rsquo;t.</dd></div>
+    </dl>
   </div>
 </section>
 
-<section class="lf-wall" aria-label="Lines from the ledger">
+<section class="section" style="padding-top:0">
   <div class="wrap">
-    <span class="label lf-wall__label">From the margins of the book</span>
-    <div class="lf-wall__grid">
-      <blockquote class="lf-q lf-q--big rv">&ldquo;Two nights is a visit. Three is when the place starts talking back.&rdquo;</blockquote>
-      <blockquote class="lf-q rv">&ldquo;The best itinerary I ever wrote had a blank afternoon in it.&rdquo;</blockquote>
-      <blockquote class="lf-q rv">&ldquo;The views are free. The judgment took forty-four years.&rdquo;</blockquote>
-      <blockquote class="lf-q rv">&ldquo;A good host picks up the phone. A great one already knows why you&rsquo;re calling.&rdquo;</blockquote>
-      <blockquote class="lf-q rv">&ldquo;If the brochure needs that many adjectives, the room needs work.&rdquo;</blockquote>
-      <blockquote class="lf-q lf-q--big rv">&ldquo;Anyone can sell a room. I&rsquo;d rather sell the reason to stay in it.&rdquo;</blockquote>
-      <blockquote class="lf-q rv">&ldquo;A good guide tells you what you&rsquo;re seeing. A great one tells you when to stop looking.&rdquo;</blockquote>
-      <blockquote class="lf-q rv">&ldquo;I don&rsquo;t have favorites. I have places I keep going back to. Same thing.&rdquo;</blockquote>
-      <blockquote class="lf-q rv">&ldquo;Photos disappear into your phone. A folio stays on the shelf.&rdquo;</blockquote>
-      <blockquote class="lf-q lf-q--big rv">&ldquo;Forty-four years taught me one thing: pack less, stay longer.&rdquo;</blockquote>
+    <div class="sechead rv"><span class="sechead__no">05</span><h2 class="sechead__title">From the margins of the book</h2><span class="sechead__note">A first look</span></div>
+    <div class="grid grid--3 rv">
+      <div class="card card--ink"><p class="lf-line">&ldquo;The best itinerary I ever wrote had a blank afternoon in it.&rdquo;</p></div>
+      <div class="card card--ink"><p class="lf-line">&ldquo;The views are free. The judgment took forty-four years.&rdquo;</p></div>
+      <div class="card card--ink"><p class="lf-line">&ldquo;A good host picks up the phone. A great one already knows why you&rsquo;re calling.&rdquo;</p></div>
+      <div class="card card--ink"><p class="lf-line">&ldquo;If the brochure needs that many adjectives, the room needs work.&rdquo;</p></div>
+      <div class="card card--ink"><p class="lf-line">&ldquo;A good guide tells you what you&rsquo;re seeing. A great one tells you when to stop looking.&rdquo;</p></div>
+      <div class="card card--ink"><p class="lf-line">&ldquo;Photos disappear into your phone. A folio stays on the shelf.&rdquo;</p></div>
     </div>
-    <p class="lf-wall__sig">James Papagno &middot; Founder</p>
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="padding-top:0"><div class="wrap"><blockquote class="pull rv"><p>&ldquo;Anyone can sell a room. I&rsquo;d rather sell the reason to stay in it. Forty-four years taught me one thing: pack less, stay longer.&rdquo;</p><footer>James Papagno · Founder</footer></blockquote></div></section>
+
+<section class="section" style="padding-top:0">
   <div class="wrap split rv">
-    <div><span class="label">The book opens soon</span><h2 class="lf-close">Those already travelling with the house see it first.</h2></div>
+    <div><span class="label">The book opens soon</span><h2 style="font-family:var(--display);font-size:var(--t-xl);margin:1rem 0">Those already travelling with the house see it first.</h2></div>
     <div><p>Not a waitlist. A short note to James, and he&rsquo;ll let you know when the pages open.</p>
-      <p style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.2rem"><a class="stamp" href="mailto:james@jameswildco.com?subject=The%20Ledger%20%26%20Folio%20%C2%B7%20First%20look">Ask for a first look &rarr;</a><a class="stamp stamp--ink" href="index.html">Back to the house</a></p></div>
+      <p style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.2rem"><a class="stamp" href="mailto:james@jameswildco.com?subject=The%20Ledger%20%26%20Folio%20%C2%B7%20First%20look">Ask for a first look →</a><a class="stamp stamp--ink" href="index.html">Back to the house</a></p></div>
   </div>
 </section>
 </main>
