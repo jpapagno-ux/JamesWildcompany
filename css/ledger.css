@@ -1544,7 +1544,7 @@ h3 sup,
 .mono-id{font-family:var(--mono);font-size:var(--t-2xs);letter-spacing:.14em;text-transform:uppercase;color:var(--oxblood)}
 .adv-card{display:grid;grid-template-columns:minmax(200px,280px) 1fr;gap:clamp(1.4rem,4vw,3rem);background:#faf6ec;border:1px solid var(--rule);padding:clamp(1.2rem,3vw,2.2rem);box-shadow:0 1px 0 var(--rule),0 18px 40px -30px rgba(60,50,40,.45)}
 .adv-card__photo{position:relative;align-self:start}
-.adv-card__photo img{width:100%;height:auto;display:block;filter:saturate(.8) contrast(.96);border:1px solid var(--rule)}
+.adv-card__photo img{width:100%;height:auto;display:block;filter:saturate(.72) sepia(.12) contrast(.96);border:1px solid var(--rule)}
 .adv-card__seal{position:absolute;right:-.6rem;bottom:-.8rem;background:rgba(250,246,236,.85);font-size:.7rem}
 .adv-card__body h2{font-family:var(--display);font-weight:400;font-size:var(--t-xl);margin:.4rem 0 .3rem;line-height:1.05}
 .adv-card__role{color:var(--ink-soft);margin:0 0 1rem;font-size:var(--t-sm)}
