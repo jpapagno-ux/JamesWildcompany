@@ -332,7 +332,7 @@ p:last-child {
 }
 
 .hero__body {
-  padding: clamp(2.25rem, 5vw, 4rem) 0 clamp(2.5rem, 5vw, 4rem);
+  padding: clamp(2.25rem, 5vw, 4rem) var(--gutter) clamp(2.5rem, 5vw, 4rem);
 }
 
 .hero__eyebrow {
