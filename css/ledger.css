@@ -1509,3 +1509,31 @@ h3 sup,
 .ink-index a{font-family:var(--mono);font-size:var(--t-2xs);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink);border:1px solid var(--rule);padding:.5rem .8rem}
 .ink-index a[aria-current]{border-color:var(--oxblood);color:var(--oxblood)}
 .ink-index a span{display:inline-block;width:.6rem;height:.6rem;margin-right:.5rem;vertical-align:middle}
+
+/* ---------- One inked ledger line on volume pages (light touch) ---------- */
+.lline .lsheet{padding:clamp(1rem,2.4vw,1.6rem) clamp(.6rem,2vw,1.4rem) clamp(1rem,2.4vw,1.6rem)}
+.lline .lsheet--ink{padding-bottom:clamp(1rem,2.4vw,1.6rem)}
+.lline table{min-width:760px}
+.lline__foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1rem}
+.lline__foot .mono{font-size:var(--t-2xs);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ---------- The Ledgers & Folios page ---------- */
+.co{display:inline-flex;align-items:center;justify-content:center;width:1.35rem;height:1.35rem;border-radius:50%;border:1px solid var(--oxblood);color:var(--oxblood);font-family:var(--mono);font-size:.62rem;font-style:normal;vertical-align:middle;margin-left:.35rem;background:rgba(251,248,240,.8)}
+.marks-board{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:clamp(1rem,2vw,1.6rem)}
+.marks-board>div{background:#faf6ec;border:1px solid var(--rule);padding:1.4rem 1.2rem;display:flex;flex-direction:column;gap:.8rem;align-items:flex-start}
+.marks-board p{margin:0;font-size:var(--t-sm);color:var(--ink-soft);line-height:1.6}
+.marks-board .istamp{font-size:.66rem;filter:url(#ink-rough)}
+.vol-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(1rem,2vw,1.4rem)}
+.vol-card{display:flex;flex-direction:column;gap:.7rem;padding:1.4rem;border:1px solid var(--rule);border-top:4px solid var(--vc);background:var(--paper-card);text-decoration:none;color:var(--ink)}
+.vol-card .label{color:var(--vc)}
+.vol-card h3{font-family:var(--display);font-weight:400;font-size:var(--t-xl);margin:0}
+.vol-card p{margin:0;font-size:var(--t-sm);color:var(--ink-soft);line-height:1.6}
+.vol-card .hand{font-size:1.2rem}
+.vol-card:hover h3{color:var(--vc)}
+.drafts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(1rem,2vw,1.4rem)}
+.drafts>div{border-top:1px solid var(--ink);padding-top:1rem;display:flex;flex-direction:column;gap:.6rem}
+.drafts .card__no{margin:0}
+.drafts h3{font-family:var(--display);font-weight:400;font-size:var(--t-lg);margin:0}
+.drafts p{margin:0;font-size:var(--t-sm);line-height:1.65;color:var(--ink-soft)}
+.drafts .verdict{font-family:"Caveat",cursive;color:#1f2f52;font-size:1.25rem;line-height:1.1}
+.lsheet td.no .co{display:flex;margin:.35rem 0 0}
