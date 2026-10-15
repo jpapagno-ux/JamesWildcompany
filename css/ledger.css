@@ -1418,3 +1418,37 @@ h3 sup,
  .lg-page--voyages .lg-log{grid-area:log}
  .lg-page--voyages .lg-night{grid-area:meta;flex-direction:row;justify-content:flex-start}
 }
+
+/* ---------- Ledger sheet: text-only, printed-rule ledger (after an old account book) ---------- */
+.lsheet{--ink:#2b2620;--ink-soft:#5d554a;--vol:#621819;--rule-h:rgba(43,38,32,.34);position:relative;background:#efe6cf url("https://res.cloudinary.com/jhlnq5h5/image/upload/w_2000/f_auto,q_auto/wildco/ledger/ledger-paper-blank") center/cover;border:1px solid #d3c5a3;box-shadow:0 24px 40px -30px rgba(60,50,40,.55);padding:clamp(1rem,2.5vw,2rem) clamp(.6rem,2vw,1.6rem) clamp(1.4rem,3vw,2.2rem)}
+.lsheet--voyages{--vol:#24485a}
+.lsheet__scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.lsheet__title{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:0 .2rem .7rem}
+.lsheet__title b{font-family:var(--display);font-weight:400;font-size:var(--t-xl);color:var(--ink)}
+.lsheet__title i{font-family:var(--serif);color:var(--vol);font-size:var(--t-base)}
+.lsheet table{border-collapse:collapse;width:100%;min-width:1040px;color:var(--ink);font-family:var(--serif)}
+.lsheet thead tr:first-child th{border-top:3px solid var(--ink)}
+.lsheet th{font-family:var(--mono);font-weight:400;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:.55rem .6rem;border-left:1px solid var(--ink);border-bottom:1px solid var(--ink);vertical-align:bottom}
+.lsheet thead tr:first-child th{font-size:.7rem;color:var(--vol);padding:.7rem .6rem .5rem}
+.lsheet thead tr:last-child th{border-bottom:2px solid var(--ink)}
+.lsheet td{border-left:1px solid var(--ink);border-bottom:1px solid var(--rule-h);padding:.5rem .6rem;vertical-align:baseline;line-height:1.45}
+.lsheet th:first-child,.lsheet td:first-child{border-left:0}
+.lsheet .g{border-left:3px double var(--ink)}
+.lsheet tr.ent td{padding-top:1rem;padding-bottom:.6rem;border-top:1px solid var(--ink)}
+.lsheet tr.ent:first-child td{border-top:0}
+.lsheet .no{font-family:var(--mono);font-size:.74rem;color:var(--ink-soft);white-space:nowrap}
+.lsheet .lid{font-family:var(--mono);font-size:.76rem;color:var(--vol);white-space:nowrap;letter-spacing:.02em}
+.lsheet tr.sub .lid{color:var(--ink-soft);padding-left:1.4rem}
+.lsheet .nm{font-family:var(--display);font-size:1.12rem;line-height:1.2}
+.lsheet tr.sub .nm{font-family:var(--serif);font-style:italic;font-size:.94rem;padding-left:1.1rem}
+.lsheet tr.sub .nm:before{content:"\2013\00a0";font-style:normal;color:var(--ink-soft)}
+.lsheet .ds{font-style:italic;font-size:.9rem;color:var(--ink-soft)}
+.lsheet tr.ent .ds{color:var(--ink)}
+.lsheet .num{font-family:var(--mono);font-size:.8rem;text-align:center;white-space:nowrap}
+.lsheet .mk{font-style:italic;font-size:.86rem;color:var(--vol);white-space:nowrap}
+.lsheet .pen{color:#958e82;font-style:italic;font-size:.84rem}
+.lsheet tfoot td{border-left:0;border-top:3px double var(--ink);border-bottom:0;padding-top:.8rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.lsheet tfoot .cf{font-family:var(--serif);font-style:italic;letter-spacing:0;text-transform:none;font-size:var(--t-base);color:var(--vol);text-align:right}
+.lsheet__note{font-family:var(--mono);font-size:var(--t-2xs);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-top:1rem}
+@media(max-width:700px){.lsheet__scroll{margin:0 -.4rem}.lsheet__hint{display:block}}
+.lsheet__hint{display:none;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 .5rem}
