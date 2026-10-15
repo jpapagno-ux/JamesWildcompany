@@ -1495,3 +1495,17 @@ h3 sup,
   .lsheet--ink.rv.in tr:nth-child(n+5) .istamp,.lsheet--ink.rv.in tr:nth-child(n+5) .hand{transition-delay:.35s}
   .lsheet--ink.rv.in .postmark{transition-delay:.6s}
 }
+/* inked sheets tinted per volume (the house seal stays oxblood on every volume) */
+.lsheet--v-stays{--red:rgba(164,42,52,.62);--stampc:#8a1c22}
+.lsheet--v-voyages{--red:rgba(36,72,90,.5);--stampc:#24485a;--vol:#24485a}
+.lsheet--v-gatherings{--red:rgba(85,97,58,.55);--stampc:#4a5530;--vol:#55613a}
+.lsheet--v-safaris{--red:rgba(127,83,32,.55);--stampc:#7a4c1a;--vol:#7f5320}
+.lsheet--v-expeditions{--red:rgba(59,66,80,.5);--stampc:#3b4250;--vol:#3b4250}
+.lsheet--ink .istamp{color:var(--stampc,#8a1c22);border-color:var(--stampc,#8a1c22)}
+.istamp--pencil{color:#8d877c!important;border-color:#8d877c!important;border-style:dashed!important;opacity:.75}
+.lsheet--ink tr.void td{color:#8d877c}
+.lsheet--ink tr.void .lid,.lsheet--ink tr.void .vname{text-decoration:line-through;text-decoration-color:#a32a34;text-decoration-thickness:1.5px}
+.ink-index{display:flex;flex-wrap:wrap;gap:.6rem}
+.ink-index a{font-family:var(--mono);font-size:var(--t-2xs);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink);border:1px solid var(--rule);padding:.5rem .8rem}
+.ink-index a[aria-current]{border-color:var(--oxblood);color:var(--oxblood)}
+.ink-index a span{display:inline-block;width:.6rem;height:.6rem;margin-right:.5rem;vertical-align:middle}
