@@ -6,3 +6,59 @@
 .journey-layout{display:grid;grid-template-columns:1.4fr 1fr;gap:2.5rem;align-items:start}.map-frame{background:#303b44;position:relative;border:1px solid var(--rule);overflow:hidden}.map-frame svg{display:block;width:100%;height:auto;font-family:var(--mono)}.map-key{position:absolute;bottom:1rem;left:1rem;color:#d8e8f2;font:11px var(--mono);display:flex;gap:2rem}.journey-panel{padding:1.5rem 0}.journey-panel h3{font:2.2rem/1.15 var(--display);margin:1rem 0;min-height:2.3em}.journey-panel output{font:clamp(14px,1.8vw,19px) var(--mono);display:block;border-top:1px solid var(--rule);padding-top:1rem;margin-top:1.5rem}.journey-panel .action{background:transparent;color:var(--ink);cursor:pointer}.journey-panel .action:hover{background:var(--ink);color:var(--paper)}#route-progress{width:100%;margin:1rem 0;accent-color:var(--oxblood)}.day-controls{display:flex;gap:.4rem;flex-wrap:wrap}.day-controls button{font:11px var(--mono);padding:.65rem .7rem;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}.day-controls .is-active{background:#365e73;color:#f0f5f8;border-color:#365e73}.vessel-photo{width:100%;aspect-ratio:16/8;object-fit:cover;filter:saturate(.65)}@media(max-width:850px){.journey-layout{grid-template-columns:1fr;gap:.5rem}.journey-panel h3{min-height:0}.map-frame{max-height:none}.vessel-photo{aspect-ratio:4/3}}
 
 .brandmark img{height:48px;width:auto;display:block}.foot-contact{font:13px var(--mono);margin-top:1.4rem}.foot-contact a{text-decoration:underline;text-underline-offset:3px}@media(max-width:700px){.brandmark img{height:40px}}
+
+/* ===== Nautical chart frames (Wild & Co Voyages) =====
+   A chart "neatline": outer rule, alternating graduated scale band,
+   inner rule, corner coordinates. Wrap any figure in .chart-frame. */
+.chart-frame{position:relative;padding:16px;border:1px solid var(--ink);background:var(--paper-card)}
+.chart-frame::before{content:"";position:absolute;inset:5px;pointer-events:none;z-index:2;
+  border:1px solid var(--ink);
+  background:
+    repeating-linear-gradient(90deg,var(--ink) 0 22px,transparent 22px 44px) top/100% 3px no-repeat,
+    repeating-linear-gradient(90deg,var(--ink) 0 22px,transparent 22px 44px) bottom/100% 3px no-repeat,
+    repeating-linear-gradient(180deg,var(--ink) 0 22px,transparent 22px 44px) left/3px 100% no-repeat,
+    repeating-linear-gradient(180deg,var(--ink) 0 22px,transparent 22px 44px) right/3px 100% no-repeat}
+.chart-frame::after{content:"";position:absolute;inset:11px;border:1px solid var(--rule);pointer-events:none;z-index:2}
+.chart-frame>*{position:relative;z-index:1}
+.chart-frame>img,.chart-frame>.map-frame{display:block;width:100%}
+.chart-coord{position:absolute!important;z-index:3!important;font:9px/1 var(--mono);letter-spacing:.12em;color:var(--ink-soft);background:var(--paper-card);padding:0 5px}
+.chart-coord--tl{top:0;left:28px;transform:translateY(-50%)}
+.chart-coord--tr{top:0;right:28px;transform:translateY(-50%)}
+.chart-coord--bl{bottom:0;left:28px;transform:translateY(50%)}
+.chart-coord--br{bottom:0;right:28px;transform:translateY(50%)}
+.chart-frame--deep{background:#30383d;border-color:#30383d}
+.chart-frame--deep::before{border-color:#b6cbd7;background:
+    repeating-linear-gradient(90deg,#b6cbd7 0 22px,transparent 22px 44px) top/100% 3px no-repeat,
+    repeating-linear-gradient(90deg,#b6cbd7 0 22px,transparent 22px 44px) bottom/100% 3px no-repeat,
+    repeating-linear-gradient(180deg,#b6cbd7 0 22px,transparent 22px 44px) left/3px 100% no-repeat,
+    repeating-linear-gradient(180deg,#b6cbd7 0 22px,transparent 22px 44px) right/3px 100% no-repeat}
+.chart-frame--deep::after{border-color:rgba(182,203,215,.35)}
+.chart-frame--deep .chart-coord{background:#30383d;color:#b6cbd7}
+.chart-frame--deep .map-frame{border:0}
+.chart-frame .itinerary{border-top:0;padding:.4rem clamp(.5rem,2vw,1.5rem)}
+.chart-frame .itinerary li:last-child{border-bottom:0}
+.compass{position:absolute!important;right:clamp(14px,3vw,36px);top:clamp(14px,3vw,30px);width:clamp(70px,10vw,120px);height:auto;color:var(--oxblood);opacity:.38;z-index:0!important;pointer-events:none}
+.voyage-card.chart-frame{padding:16px;display:grid}
+.voyage-card.chart-frame img{min-height:340px}
+@media(max-width:700px){.chart-frame{padding:12px}.chart-frame::before{inset:4px}.chart-frame::after{inset:9px}.chart-coord{font-size:8px}.chart-coord--tr,.chart-coord--bl{display:none}.compass{opacity:.22}}
+
+/* ===== Captain's Log ===== */
+.log-hero{padding:clamp(3rem,7vw,6rem) 0 2rem;border-bottom:1px solid var(--rule)}
+.log-hero h1{font-family:var(--display);font-size:clamp(2.8rem,6.5vw,5.6rem);line-height:1;margin:1.2rem 0;max-width:14ch}
+.log-hero .byline{font:12px/1.8 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.log-meta{display:flex;flex-wrap:wrap;gap:.6rem 2rem;padding:1.1rem 0;border-bottom:1px solid var(--rule);font:12px var(--mono)}
+.log-entry{display:grid;grid-template-columns:150px 1fr;gap:2rem;padding:clamp(2.5rem,5vw,4rem) 0;border-bottom:1px solid var(--rule)}
+.log-entry__date{font:12px/1.7 var(--mono);color:var(--oxblood);letter-spacing:.06em}
+.log-entry__date b{display:block;font:2.2rem/1 var(--display);color:var(--ink);letter-spacing:0;margin-bottom:.4rem}
+.log-entry h2{font:clamp(1.9rem,3.4vw,2.6rem)/1.1 var(--display);margin-bottom:1rem}
+.log-entry figure{margin:1.8rem 0 0}
+.log-entry figcaption{font:11px/1.7 var(--mono);color:var(--ink-soft);margin-top:.7rem}
+.photo-slot{aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;font:11px/1.7 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);
+  background:repeating-linear-gradient(0deg,transparent 0 39px,var(--rule-soft) 39px 40px),repeating-linear-gradient(90deg,transparent 0 39px,var(--rule-soft) 39px 40px),var(--paper)}
+.pending{border-left:2px solid var(--oxblood);padding:.2rem 0 .2rem 1rem;font:13px/1.8 var(--mono);color:var(--ink-soft)}
+.log-index{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem}
+.log-card{text-decoration:none;display:flex;flex-direction:column}
+.log-card .chart-frame{margin-bottom:1.2rem}
+.log-card h3{font:1.9rem/1.15 var(--display);margin:.6rem 0}
+.log-card:hover h3{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:700px){.log-entry{grid-template-columns:1fr;gap:.8rem}}
