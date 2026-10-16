@@ -1663,3 +1663,26 @@ h3 sup,
 .film__frame .hand--adv{margin-top:0;font-size:1.12rem;line-height:1.1}
 @media (prefers-reduced-motion:no-preference){.film__frame.rv .hand{clip-path:inset(-20% 100% -20% 0);transition:clip-path 1.2s cubic-bezier(.6,.1,.3,1) .4s}.film__frame.rv.in .hand{clip-path:inset(-20% -5% -20% -5%)}}
 @media (max-width:860px){.film{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- James's secret (dark ink card) ---------- */
+.secret__card{display:grid;grid-template-columns:1.15fr 1fr;background:#2b241d;color:#efe8da;border:1px solid #3c3228;box-shadow:0 30px 60px -40px rgba(30,24,18,.8)}
+.secret__plate{position:relative;background:#f4f1e9;margin:0;overflow:hidden}
+.secret__plate img{display:block;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;filter:sepia(.25) contrast(1.02)}
+.secret__seal{position:absolute;right:1.2rem;bottom:1.2rem;width:clamp(96px,11vw,140px)}
+.secret__seal .ink-stamp{position:static;transform:rotate(-12deg);width:100%;filter:none}
+.secret__body{padding:clamp(1.6rem,4vw,3rem)}
+.secret__body h2{font-family:var(--display);font-weight:400;font-size:var(--t-xl);line-height:1.08;margin:.8rem 0 1rem;color:#f9f6ef}
+.secret__body p{color:#d7d0c6;line-height:1.7}
+.secret__rules{list-style:none;margin:1.2rem 0;padding:0;border-top:1px solid rgba(201,183,159,.35)}
+.secret__rules li{padding:.7rem 0;border-bottom:1px solid rgba(201,183,159,.25);color:#d7d0c6;font-size:var(--t-sm)}
+.secret__rules b{color:#f9f6ef;font-weight:600}
+.secret__id{display:flex;flex-direction:column;gap:.4rem;margin-top:1rem}
+.hand--secret{font-size:1.6rem;color:#e7a39b;transform:rotate(-2deg);transform-origin:left center;display:block}
+.secret__cta{color:#f9f6ef!important;border-color:#c9b79f!important}
+@media (prefers-reduced-motion:no-preference){
+  .secret__card.rv .secret__seal{opacity:0;transform:scale(1.6) rotate(-20deg);transition:opacity .35s ease .8s,transform .55s cubic-bezier(.2,1.7,.4,1) .8s}
+  .secret__card.rv.in .secret__seal{opacity:.95;transform:none}
+  .secret__card.rv .hand--secret{clip-path:inset(-20% 100% -20% 0);transition:clip-path 1.4s cubic-bezier(.6,.1,.3,1) 1.3s}
+  .secret__card.rv.in .hand--secret{clip-path:inset(-20% -5% -20% -5%)}
+}
+@media (max-width:900px){.secret__card{grid-template-columns:1fr}.secret__plate{aspect-ratio:16/9}}
