@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /voyages/
+Disallow: /voyages/sitemap.html
+Disallow: /voyages/sample-roll.html
+
+# AI answer engines are welcome to read and cite these pages
+User-agent: GPTBot
+Allow: /voyages/
+User-agent: ClaudeBot
+Allow: /voyages/
+User-agent: PerplexityBot
+Allow: /voyages/
+User-agent: Google-Extended
+Allow: /voyages/
+
+Sitemap: https://jameswildco.com/voyages/sitemap.xml
