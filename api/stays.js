@@ -16,7 +16,10 @@ const F = {
   name: "fldD3NXdKkapSk6T5", region: "flda34Ytw0xcAgt20", country: "fldSiKxZi505ooQtO", area: "fldHhgbc5ZqZPCSkC",
   lat: "fldDdOSAdhV9zel6p", lng: "fldEaTLffFEMzSgdF", mark: "fldxYf1Xp6NcEW99l", line: "fldvSmzHFDhl2TQ5C",
   year: "fldwG9pBjpfUTsZVV", residence: "fldgNhf6YYFBvxCmF", url: "fldbbWpENinfCKpsc", show: "fldK8JCituEJcHmDK",
+  type: "fldJzvjJcHgfbHajF",
 };
+// Airtable "Type" → what the maps draw: a pin, an anchor, a square, or a 2 km area (never a pin)
+const TYPE = { "Stay": "stay", "Vessel launch": "port", "Reserve": "reserve", "Family residence": "residence" };
 const HOST = /^https:\/\/(www\.)?(jameswildco\.com|james-wild-and-company\.vercel\.app)/;
 
 function sitePath(u) {   // keep links on whatever domain the page is served from
@@ -46,7 +49,8 @@ module.exports = async function handler(req, res) {
         out.push({
           name: f[F.name] || "", region: f[F.region] || "", country: f[F.country] || "", area: f[F.area] || "",
           lat: f[F.lat], lng: f[F.lng], mark: f[F.mark] || "I know a place", line: f[F.line] || "", year: f[F.year] || "",
-          residence: !!f[F.residence], url: sitePath(f[F.url]), show: true,
+          residence: !!f[F.residence] || f[F.type] === "Family residence", url: sitePath(f[F.url]), show: true,
+          type: TYPE[f[F.type]] || (f[F.residence] ? "residence" : "stay"),
         });
       }
       offset = d.offset || "";

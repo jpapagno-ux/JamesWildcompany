@@ -15,7 +15,8 @@ while True:
         url = (f.get("Page URL") or "").replace("https://jameswildco.com", "").replace("https://james-wild-and-company.vercel.app", "")
         rows.append(dict(name=f.get("Stay", ""), region=f.get("Region", ""), country=f.get("Country", ""), area=f.get("Area", ""),
                          lat=f.get("Latitude"), lng=f.get("Longitude"), mark=f.get("Mark", "I know a place"), line=f.get("James's Line", ""),
-                         year=f.get("Year", ""), url=url, residence=bool(f.get("Residence")), show=bool(f.get("Show on Map")) and f.get("Latitude") is not None))
+                         year=f.get("Year", ""), url=url, residence=bool(f.get("Residence")) or f.get("Type") == "Family residence",
+                         type={"Stay": "stay", "Vessel launch": "port", "Reserve": "reserve", "Family residence": "residence"}.get(f.get("Type"), "residence" if f.get("Residence") else "stay"), show=bool(f.get("Show on Map")) and f.get("Latitude") is not None))
     offset = d.get("offset")
     if not offset: break
 json.dump({"source": "Airtable Guide Library · Map Stays", "stays": rows}, open(os.path.join(HERE, "..", "data", "stays.json"), "w"), ensure_ascii=False, separators=(",", ":"))
