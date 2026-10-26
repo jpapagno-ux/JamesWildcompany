@@ -5,7 +5,7 @@
  *
  *   JWMaps.atlas(el, { destination, stays, departures, routes, title, sub })
  *   JWMaps.stay(el,  { destination, stay, nearby, others, residence })
- *   JWMaps.itinerary(el, route, { daysEl, playEl })     // route.type: "voyage" | "overland"
+ *   JWMaps.itinerary(el, route, { daysEl, playEl, accent })   // route.type: "voyage" | "overland"; accent optional
  *
  * Route format (jw-route v1): see tools/ROUTE_FORMAT.md
  */
@@ -67,10 +67,10 @@
           map.addImage("jw-hatch", hatch());
           map.addSource("jw-base", { type: "geojson", data: d.base });
           map.addSource("jw-relief", { type: "image", url: meta.relief.url, coordinates: meta.relief.coordinates });
-          var pad = o.wide ? 40 : 2, hp = o.wide ? 60 : 5;   // region maps: sea, grid and world land run past the data frame
+          var pad = (o.wide || o.world) ? 40 : 2, hp = (o.wide || o.world) ? 60 : 5;   // sea, grid and world land run past the data frame when the map can zoom out   // region maps: sea, grid and world land run past the data frame
           map.addSource("jw-grat", { type: "geojson", data: grat([b[0] - pad, Math.max(b[1] - pad, -80), b[2] + pad, Math.min(b[3] + pad, 84)], o.gstep || (b[2] - b[0] > 40 ? 10 : b[2] - b[0] > 8 ? 2 : b[2] - b[0] > 3 ? .5 : .25)) });
           map.addSource("jw-world", { type: "geojson", data: fc([{ type: "Feature", properties: {}, geometry: { type: "Polygon", coordinates: [[[b[0] - hp, Math.max(b[1] - hp, -85)], [b[2] + hp, Math.max(b[1] - hp, -85)], [b[2] + hp, Math.min(b[3] + hp, 85)], [b[0] - hp, Math.min(b[3] + hp, 85)], [b[0] - hp, Math.max(b[1] - hp, -85)]]] } }]) });
-          if (o.world) map.addSource("jw-wland", { type: "geojson", data: CFG.base + "world.geojson" });
+          if (o.world) map.addSource("jw-wland", { type: "geojson", data: (CFG.dataInline && CFG.dataInline.__world) || CFG.base + "world.geojson" });   // inline copy for offline previews
           var L = function (id) { return ["==", ["get", "layer"], id]; };
           var LH = o.wide ? ["all", L("land"), ["==", ["get", "home"], true]] : L("land");   // region maps outline only the region's own countries
           map.addLayer({ id: "jw-seahatch", type: "fill", source: "jw-world", paint: { "fill-pattern": "jw-hatch", "fill-opacity": .9 } });
@@ -120,6 +120,26 @@
     heli: function (a) { return '<svg viewBox="0 0 30 30"><ellipse cx="15" cy="17" rx="7" ry="5" fill="#1E2A30" stroke="#FBF8F1"/><path d="M4 10h22M15 10v3M22 17h6" stroke="#1E2A30" stroke-width="2"/></svg>'; }
   };
 
+  /* ---------- one feature set for every map: stays, vessel launches, reserves, family residences ---------- */
+  var TYPES = { stay: "Stays", port: "Vessel launches", reserve: "Reserves", residence: "Family residences" };
+  function ftype(s) { return s.type || (s.residence ? "residence" : "stay"); }
+  function feature(map, s, opt) {
+    var t = ftype(s), c = s.c || [s.lng, s.lat], m;
+    if (t === "port") m = dep(map, s);
+    else if (t === "residence") {   // house rule: a private house shows a 2 km area, never a pin
+      var id = "jw-res-" + Math.random().toString(36).slice(2, 8);
+      map.addSource(id, { type: "geojson", data: fc([{ type: "Feature", properties: {}, geometry: { type: "Polygon", coordinates: [circle([c[0] + .006, c[1] - .004], 2)] } }]) });
+      map.addLayer({ id: id, type: "fill", source: id, paint: { "fill-color": C.stays, "fill-opacity": .16 } });
+      map.addLayer({ id: id + "-e", type: "line", source: id, paint: { "line-color": C.stays, "line-width": 1, "line-blur": 2 } });
+      m = new ML.Marker({ element: mk("jw-ring jw-res", esc(s.name) + " · area"), anchor: "bottom" }).setLngLat([c[0], c[1] + .03]).addTo(map);
+      m._jwLayers = [id, id + "-e"];
+    } else m = pin(map, t === "reserve" ? Object.assign({}, s, { mark: "reserve" }) : s, opt);
+    m._jwType = t; return m;
+  }
+  function toggleType(map, list, t, on) {
+    list.forEach(function (m) { if (m._jwType !== t) return; m.getElement().hidden = !on; (m._jwLayers || []).forEach(function (l) { map.setLayoutProperty(l, "visibility", on ? "visible" : "none"); }); });
+  }
+
   /* ---------- plate I · atlas ---------- */
   function atlas(el, o) {
     return baseMap(el, { destination: o.destination, bounds: o.bounds, coordEl: o.coordEl, places: o.places, minZoom: o.minZoom || 5, maxBounds: o.maxBounds, world: o.world, wide: o.wide, worldCopies: o.worldCopies, pad: o.pad }).then(function (r) {
@@ -129,11 +149,12 @@
         map.addSource("jw-r" + i, { type: "geojson", data: fc([line(c)]) });
         map.addLayer({ id: "jw-r" + i, type: "line", source: "jw-r" + i, layout: { "line-cap": "round" }, paint: { "line-color": rt.type === "voyage" ? C.voyages : C.overland, "line-width": 2, "line-dasharray": rt.type === "voyage" ? [2, 1.6] : [.5, 2], "line-opacity": .85 } });
       });
-      (o.stays || []).forEach(function (s) { out.stays.push(pin(map, s, { label: !PHONE || (o.phoneLabels !== false && (s.mark === "know" || s.mark === "keep")) })); });
+      (o.stays || []).forEach(function (s) { out.stays.push(feature(map, s, { label: !PHONE || (o.phoneLabels !== false && (s.mark === "know" || s.mark === "keep")) })); });
       (o.departures || []).forEach(function (d) { out.departures.push(dep(map, d)); });
       (o.highlights || []).forEach(function (h) { pin(map, h); });
       out.toggle = function (what, on) {
-        if (what === "stays" || what === "departures") out[what].forEach(function (k) { k.getElement().hidden = !on; });
+        if (TYPES[what]) toggleType(map, out.stays, what, on);
+        else if (what === "stays" || what === "departures") out[what].forEach(function (k) { k.getElement().hidden = !on; });
         else if (what === "routes") (o.routes || []).forEach(function (_, i) { map.setLayoutProperty("jw-r" + i, "visibility", on ? "visible" : "none"); });
         else if (what === "reef") map.setLayoutProperty("jw-reef", "visibility", on ? "visible" : "none");
       };
@@ -170,7 +191,7 @@
   /* ---------- plates III & IV · itineraries ---------- */
   function itinerary(el, route, o) {
     o = o || {};
-    var voyage = route.type === "voyage", acc = voyage ? C.voyages : C.overland;
+    var voyage = route.type === "voyage", acc = o.accent || route.accent || (voyage ? C.voyages : C.overland);   // optional destination accent
     var stops = route.stops.map(function (s) { return Object.assign({ c: [s.lng, s.lat] }, s); });
     var legs = stops.slice(1).map(function (s, i) { var p = s.path && s.path.length > 1 ? s.path : [stops[i].c, s.c]; var km = 0; for (var k = 1; k < p.length; k++) km += hav(p[k - 1], p[k]); return { path: p, mode: s.mode || (voyage ? "sea" : "road"), km: km }; });
     var days = []; stops.forEach(function (s) { if (days.indexOf(s.day) < 0) days.push(s.day); });
@@ -179,24 +200,37 @@
     var state = { progress: 0, playing: false, raf: 0 }, dayBtns = {}, wps = [];
     function at(path, t) { if (path.length === 2) return [path[0][0] + (path[1][0] - path[0][0]) * t, path[0][1] + (path[1][1] - path[0][1]) * t]; var tot = 0, d = [0]; for (var i = 1; i < path.length; i++) { tot += hav(path[i - 1], path[i]); d.push(tot); } var g = t * tot; for (i = 1; i < path.length; i++) if (d[i] >= g) { var f = (g - d[i - 1]) / Math.max(d[i] - d[i - 1], 1e-9); return [path[i - 1][0] + (path[i][0] - path[i - 1][0]) * f, path[i - 1][1] + (path[i][1] - path[i - 1][1]) * f]; } return path[path.length - 1]; }
     function partial(path, t) { if (t <= 0) return [path[0]]; if (t >= 1) return path.slice(); var tot = 0, d = [0], i; for (i = 1; i < path.length; i++) { tot += hav(path[i - 1], path[i]); d.push(tot); } var g = t * tot, out = [path[0]]; for (i = 1; i < path.length; i++) { if (d[i] < g) out.push(path[i]); else break; } out.push(at(path, t)); return out; }
-    return baseMap(el, { destination: route.destination, bounds: fullB, coordEl: o.coordEl, places: o.places, maxZoom: o.maxZoom || 13, minZoom: o.minZoom || 5 }).then(function (r) {
+    return baseMap(el, { destination: route.destination, bounds: fullB, coordEl: o.coordEl, places: o.places, maxZoom: o.maxZoom || 13, minZoom: o.minZoom || 5, world: o.world }).then(function (r) {
       var map = r.map;
+      if (o.world) {   // zoomed out to the region: fade the country's detailed relief and depth so its data frame never shows as a box
+        var mb = r.data.meta.bbox, zc = map.cameraForBounds([[mb[0], mb[1]], [mb[2], mb[3]]]).zoom;
+        map.setPaintProperty("jw-relief", "raster-opacity", ["interpolate", ["linear"], ["zoom"], zc - 1.4, 0, zc - .4, 1]);
+        map.setPaintProperty("jw-depth", "line-opacity", ["interpolate", ["linear"], ["zoom"], zc - 1.4, 0, zc - .4, .6]);
+      }
       map.addSource("jw-ghost", { type: "geojson", data: fc(legs.map(function (l) { return line(l.path, { mode: l.mode }); })) });
       map.addSource("jw-live", { type: "geojson", data: fc() });
       map.addLayer({ id: "jw-ghost", type: "line", source: "jw-ghost", layout: { "line-cap": "round" }, paint: { "line-color": acc, "line-opacity": .45, "line-width": 1.6, "line-dasharray": [.1, 2.4] } });
       map.addLayer({ id: "jw-live", type: "line", source: "jw-live", layout: { "line-cap": "round", "line-join": "round" }, paint: { "line-color": acc, "line-width": 2.6, "line-dasharray": voyage ? [2.2, 1.4] : [.6, 1.6] } });
+      var num = 0;   // number labelled stops only, so a nolabel waypoint never leaves a gap
       stops.forEach(function (s, i) {
         if (s.nolabel || s.offmap) { wps.push(null); return; }
-        var e = mk("jw-wp", (i === 0 ? "●" : String(i)) + '<span class="jw-lb">' + esc(s.name) + "</span>"); e.style.setProperty("--acc", acc); e.title = s.name; e.setAttribute("aria-label", "Day " + s.day + ": " + s.name);
+        var lab = num === 0 ? "●" : String(num); num++;
+        var e = mk("jw-wp" + (s.kind === "port" ? " port" : ""), lab + '<span class="jw-lb">' + esc(s.name) + "</span>"); e.style.setProperty("--acc", acc); e.title = s.name; e.setAttribute("aria-label", "Day " + s.day + ": " + s.name);
         new ML.Marker({ element: e, anchor: "center" }).setLngLat(s.c).addTo(map); wps.push(e);
       });
       var veh = new ML.Marker({ element: mk("jw-veh"), anchor: "center" }).setLngLat(stops[0].c).addTo(map), lastIcon = "";
+      var ctx = (o.context || []).map(function (x) { return feature(map, x, { label: !PHONE }); });   // stays, launches, reserves, residences nearby
+      var rose = mk("jw-compass", '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" class="r"/><path d="M32 7v6M32 51v6M7 32h6M51 32h6" class="t"/><text x="32" y="5.6" class="n">N</text>' +
+        '<g class="ndl"><path d="M32 13 L36 32 L32 29 L28 32 Z" class="h"/><path d="M32 51 L36 32 L32 35 L28 32 Z" class="b"/></g><circle cx="32" cy="32" r="2.4" class="h"/></svg><span class="hd">N</span>');
+      rose.setAttribute("aria-hidden", "true"); map.getContainer().appendChild(rose);
+      var needle = rose.querySelector(".ndl"), hdg = rose.querySelector(".hd"), PTS = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"], roseT = 0;
       function draw(p) {
         state.progress = p; var L = Math.floor(p), done = [], head, mode, ang;
         legs.forEach(function (l, i) { if (i < L) done.push(line(l.path)); });
         if (L < legs.length) { var l = legs[L], t = ease(p - L); done.push(line(partial(l.path, t))); head = at(l.path, t); mode = l.mode; var nx = at(l.path, Math.min(1, t + .02)); ang = bearing(head, nx); }
         else { var z = legs[legs.length - 1]; head = z.path[z.path.length - 1]; mode = z.mode; ang = bearing(z.path[z.path.length - 2], head); }
         map.getSource("jw-live").setData(fc(done)); veh.setLngLat(head);
+        if (isFinite(ang)) { var a360 = (ang + 360) % 360; needle.style.transform = "rotate(" + a360 + "deg)"; hdg.textContent = PTS[Math.round(a360 / 45) % 8] + " " + Math.round(a360) + "°"; }
         var key = mode + Math.round(ang / 5); if (key !== lastIcon) { veh.getElement().innerHTML = (ICON[mode] || ICON.road)(ang); lastIcon = key; }
         wps.forEach(function (e, i) { if (e) e.classList.toggle("on", i <= Math.floor(p + .02)); });
       }
@@ -207,10 +241,10 @@
         draw(last);
         if (fly) map.fitBounds(boundsOf(pts), { padding: PHONE ? 60 : 110, maxZoom: o.dayMaxZoom || 10, duration: RM ? 0 : 1400 });
       }
-      function stop() { state.playing = false; cancelAnimationFrame(state.raf); if (o.playEl) { o.playEl.setAttribute("aria-pressed", "false"); o.playEl.textContent = o.playLabel || (voyage ? "Play voyage" : "Play journey"); } }
+      function stop() { state.playing = false; cancelAnimationFrame(state.raf); clearTimeout(roseT); roseT = setTimeout(function () { rose.classList.remove("on"); }, 2500); if (o.playEl) { o.playEl.setAttribute("aria-pressed", "false"); o.playEl.textContent = o.playLabel || (voyage ? "Play voyage" : "Play journey"); } }
       function play() {
         if (state.playing) return stop();
-        state.playing = true; if (o.playEl) { o.playEl.setAttribute("aria-pressed", "true"); o.playEl.textContent = "Pause"; }
+        state.playing = true; clearTimeout(roseT); rose.classList.add("on"); if (o.playEl) { o.playEl.setAttribute("aria-pressed", "true"); o.playEl.textContent = "Pause"; }
         if (state.progress >= legs.length - .001) state.progress = 0;
         map.fitBounds(fullB, { padding: 30, duration: RM ? 0 : 900 });
         if (RM) { draw(legs.length); return stop(); }
@@ -226,7 +260,7 @@
       if (o.playEl) o.playEl.addEventListener("click", play);
       draw(RM ? legs.length : 0); setDay(days[0], false);
       if (!RM && o.autoplay !== false && "IntersectionObserver" in root) { var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io.disconnect(); setTimeout(play, 500); } }, { threshold: .5 }); io.observe(map.getContainer()); }
-      return { map: map, play: play, stop: stop, setDay: setDay };
+      return { map: map, play: play, stop: stop, setDay: setDay, bounds: fullB, context: ctx, toggle: function (t, on) { toggleType(map, ctx, t, on); } };
     });
   }
 
@@ -240,5 +274,5 @@
       itinerary: { "@type": "ItemList", itemListElement: route.stops.filter(function (s) { return !s.nolabel; }).map(function (s, i) { return { "@type": "ListItem", position: i + 1, item: { "@type": "Place", name: s.name, geo: { "@type": "GeoCoordinates", latitude: s.lat, longitude: s.lng } } }; }) } };
   }
 
-  root.JWMaps = { config: function (o) { Object.assign(CFG, o); return CFG; }, colors: C, marks: MARKS, atlas: atlas, stay: stay, itinerary: itinerary, itineraryHTML: itineraryHTML, jsonLD: jsonLD, loadDestination: loadDestination };
+  root.JWMaps = { types: TYPES, featureType: ftype, config: function (o) { Object.assign(CFG, o); return CFG; }, colors: C, marks: MARKS, atlas: atlas, stay: stay, itinerary: itinerary, itineraryHTML: itineraryHTML, jsonLD: jsonLD, loadDestination: loadDestination };
 })(typeof window !== "undefined" ? window : this);

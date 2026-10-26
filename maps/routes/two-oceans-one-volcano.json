@@ -1,0 +1,503 @@
+{
+ "id": "two-oceans-one-volcano",
+ "type": "overland",
+ "destination": "costa-rica",
+ "title": "Two Oceans, One Volcano",
+ "subtitle": "12 days · 11 nights · San José to Liberia · small plane, boat and private 4×4",
+ "code": "JW-CR-C01",
+ "mark": "keep",
+ "days": {
+  "1": "San José to Tortuguero",
+  "2": "The canals",
+  "3": "The turtle beach",
+  "4": "Tortuguero to Arenal",
+  "5": "Hot springs and hanging bridges",
+  "6": "The volcano at dawn",
+  "7": "Arenal to Monteverde",
+  "8": "Into the cloud forest",
+  "9": "Monteverde to Nosara",
+  "10": "Surf and slow mornings",
+  "11": "A sea kayak",
+  "12": "Home through Liberia"
+ },
+ "stops": [
+  {
+   "day": 1,
+   "name": "San José — met at SJO airport",
+   "lat": 9.992,
+   "lng": -84.212,
+   "kind": "airstrip",
+   "label": [
+    16,
+    26
+   ]
+  },
+  {
+   "day": 1,
+   "name": "Tortuguero — the canals, by small plane",
+   "lat": 10.54,
+   "lng": -83.5,
+   "mode": "air",
+   "time": "~25 min",
+   "kind": "lodge",
+   "stay": "Tortuga Lodge & Gardens",
+   "path": [
+    [
+     -84.212,
+     9.992
+    ],
+    [
+     -83.908,
+     10.383
+    ],
+    [
+     -83.5,
+     10.54
+    ]
+   ],
+   "label": [
+    20,
+    -8
+   ]
+  },
+  {
+   "day": 4,
+   "name": "Canal landing — boat to the road",
+   "lat": 10.44,
+   "lng": -83.68,
+   "mode": "boat",
+   "time": "~1 hr",
+   "nolabel": true,
+   "path": [
+    [
+     -83.5,
+     10.54
+    ],
+    [
+     -83.575,
+     10.473
+    ],
+    [
+     -83.68,
+     10.44
+    ]
+   ]
+  },
+  {
+   "day": 4,
+   "name": "Arenal — hot springs under the volcano",
+   "lat": 10.472,
+   "lng": -84.644,
+   "mode": "road",
+   "time": "~4 hr",
+   "kind": "lodge",
+   "stay": "Nayara Springs",
+   "path": [
+    [
+     -83.68,
+     10.44
+    ],
+    [
+     -84.151,
+     10.328
+    ],
+    [
+     -84.644,
+     10.472
+    ]
+   ],
+   "label": [
+    16,
+    30
+   ],
+   "volcano": {
+    "name": "Arenal Volcano",
+    "lat": 10.4626,
+    "lng": -84.7032
+   }
+  },
+  {
+   "day": 7,
+   "name": "Monteverde — the cloud forest",
+   "lat": 10.3,
+   "lng": -84.824,
+   "mode": "road",
+   "time": "~3–3.5 hr around Lake Arenal",
+   "kind": "lodge",
+   "stay": "Monteverde Lodge & Gardens",
+   "path": [
+    [
+     -84.644,
+     10.472
+    ],
+    [
+     -84.775,
+     10.576
+    ],
+    [
+     -84.936,
+     10.616
+    ],
+    [
+     -84.983,
+     10.54
+    ],
+    [
+     -84.964,
+     10.464
+    ],
+    [
+     -84.907,
+     10.367
+    ],
+    [
+     -84.824,
+     10.3
+    ]
+   ],
+   "label": [
+    -18,
+    30
+   ]
+  },
+  {
+   "day": 9,
+   "name": "Nosara — Playa Guiones and the Pacific",
+   "lat": 9.936,
+   "lng": -85.664,
+   "mode": "road",
+   "time": "~4 hr",
+   "kind": "lodge",
+   "stay": "Harmony Hotel Nosara",
+   "path": [
+    [
+     -84.824,
+     10.3
+    ],
+    [
+     -85.232,
+     10.069
+    ],
+    [
+     -85.664,
+     9.936
+    ]
+   ],
+   "label": [
+    -6,
+    36
+   ]
+  },
+  {
+   "day": 12,
+   "name": "Liberia — home through LIR",
+   "lat": 10.592,
+   "lng": -85.544,
+   "mode": "road",
+   "time": "~2.5 hr",
+   "kind": "airstrip",
+   "path": [
+    [
+     -85.664,
+     9.936
+    ],
+    [
+     -85.646,
+     10.276
+    ],
+    [
+     -85.544,
+     10.592
+    ]
+   ],
+   "label": [
+    18,
+    -8
+   ]
+  }
+ ],
+ "fallback": {
+  "bbox": [
+   -86.12,
+   8.2,
+   -82.28,
+   11.24
+  ],
+  "country": "Costa Rica",
+  "neighbours": [
+   "Nicaragua",
+   "Panama"
+  ],
+  "zones": [
+   {
+    "tint": "terrB",
+    "opacity": 0.55,
+    "poly": [
+     [
+      -86.2,
+      11.4
+     ],
+     [
+      -84.86,
+      11.4
+     ],
+     [
+      -84.86,
+      10.42
+     ],
+     [
+      -85.152,
+      10.2
+     ],
+     [
+      -84.86,
+      9.52
+     ],
+     [
+      -86.2,
+      9.52
+     ]
+    ]
+   },
+   {
+    "tint": "terrA",
+    "opacity": 0.34,
+    "poly": [
+     [
+      -84.86,
+      11.4
+     ],
+     [
+      -82.2,
+      11.4
+     ],
+     [
+      -82.2,
+      9.28
+     ],
+     [
+      -82.98,
+      9.86
+     ],
+     [
+      -83.96,
+      10.2
+     ],
+     [
+      -84.32,
+      10.352
+     ],
+     [
+      -84.48,
+      10.472
+     ],
+     [
+      -84.86,
+      10.472
+     ]
+    ]
+   },
+   {
+    "tint": "accent",
+    "opacity": 0.26,
+    "poly": [
+     [
+      -84.86,
+      10.472
+     ],
+     [
+      -84.48,
+      10.472
+     ],
+     [
+      -84.32,
+      10.352
+     ],
+     [
+      -83.96,
+      10.2
+     ],
+     [
+      -82.98,
+      9.86
+     ],
+     [
+      -82.58,
+      9.52
+     ],
+     [
+      -82.752,
+      8.9
+     ],
+     [
+      -83.4,
+      8.9
+     ],
+     [
+      -83.96,
+      9.32
+     ],
+     [
+      -84.52,
+      9.78
+     ],
+     [
+      -84.86,
+      10.072
+     ]
+    ]
+   },
+   {
+    "tint": "terrA",
+    "opacity": 0.3,
+    "poly": [
+     [
+      -84.86,
+      10.072
+     ],
+     [
+      -84.52,
+      9.78
+     ],
+     [
+      -83.96,
+      9.32
+     ],
+     [
+      -83.4,
+      8.9
+     ],
+     [
+      -82.752,
+      8.9
+     ],
+     [
+      -82.36,
+      7.8
+     ],
+     [
+      -84.86,
+      7.8
+     ]
+    ]
+   }
+  ],
+  "mist": [
+   {
+    "lng": -84.8,
+    "lat": 10.312,
+    "rx": 50,
+    "ry": 28
+   }
+  ],
+  "features": [
+   {
+    "kind": "lake",
+    "name": "Lake Arenal",
+    "poly": [
+     [
+      -84.762,
+      10.488
+     ],
+     [
+      -84.79,
+      10.497
+     ],
+     [
+      -84.83,
+      10.508
+     ],
+     [
+      -84.87,
+      10.517
+     ],
+     [
+      -84.905,
+      10.53
+     ],
+     [
+      -84.935,
+      10.548
+     ],
+     [
+      -84.958,
+      10.572
+     ],
+     [
+      -84.972,
+      10.596
+     ],
+     [
+      -84.958,
+      10.604
+     ],
+     [
+      -84.935,
+      10.585
+     ],
+     [
+      -84.905,
+      10.565
+     ],
+     [
+      -84.87,
+      10.552
+     ],
+     [
+      -84.83,
+      10.543
+     ],
+     [
+      -84.795,
+      10.528
+     ],
+     [
+      -84.768,
+      10.508
+     ]
+    ]
+   }
+  ],
+  "labels": [
+   {
+    "text": "Caribbean Sea",
+    "kind": "sea",
+    "lng": -83.22,
+    "lat": 10.84
+   },
+   {
+    "text": "Pacific Ocean",
+    "kind": "sea",
+    "lng": -85.84,
+    "lat": 8.84
+   },
+   {
+    "text": "TALAMANCA",
+    "kind": "region",
+    "lng": -83.96,
+    "lat": 8.96
+   },
+   {
+    "text": "NICOYA",
+    "kind": "region",
+    "lng": -85.5,
+    "lat": 9.52
+   },
+   {
+    "text": "OSA",
+    "kind": "region",
+    "lng": -83.26,
+    "lat": 8.58
+   },
+   {
+    "text": "NICARAGUA",
+    "kind": "region",
+    "lng": -83.98,
+    "lat": 10.96
+   }
+  ],
+  "note": "POSITIONS APPROXIMATE"
+ },
+ "source": "Costa Rica Field Guide No. 03 (Edition 2027), page 12 — Cloudinary: wildco/voyages/field-guides/costa-rica-field-guide/costa-rica-field-guide-james-wild-co.pdf",
+ "map_note": "Positions approximate. Pins sit on land where the lodge or town is; legs follow the real roads and the canal in outline. Transfer times confirmed by James (Oct 2026)."
+}

@@ -1,0 +1,1362 @@
+{
+ "version": 2,
+ "updated": "2026-10-26",
+ "rules": "Colours come from the destination's own terrain. Six roles (ground, ink, accent, terrA, terrB, water) plus head and eye; ink, accent, head and eye must reach 4.5:1 on ground. terrain_key = the five colours shown across the page and map frame.",
+ "region_bounds": {
+  "Central America": [
+   [
+    -93.0,
+    6.5
+   ],
+   [
+    -76.5,
+    18.8
+   ]
+  ],
+  "Asia": [
+   [
+    62.0,
+    -11.5
+   ],
+   [
+    150.0,
+    46.0
+   ]
+  ],
+  "Africa": [
+   [
+    -19.0,
+    -36.0
+   ],
+   [
+    53.0,
+    38.0
+   ]
+  ],
+  "USA & Canada": [
+   [
+    -170.0,
+    17.5
+   ],
+   [
+    -50.0,
+    72.0
+   ]
+  ],
+  "Caribbean & Mexico": [
+   [
+    -118.0,
+    13.5
+   ],
+   [
+    -59.0,
+    32.8
+   ]
+  ],
+  "Oceania": [
+   [
+    110.0,
+    -48.5
+   ],
+   [
+    230.0,
+    2.0
+   ]
+  ],
+  "South America": [
+   [
+    -92.5,
+    -56.5
+   ],
+   [
+    -33.0,
+    13.5
+   ]
+  ],
+  "Europe": [
+   [
+    -25.0,
+    34.0
+   ],
+   [
+    45.0,
+    71.5
+   ]
+  ],
+  "Antarctica": [
+   [
+    -75.0,
+    -72.0
+   ],
+   [
+    -33.0,
+    -50.0
+   ]
+  ],
+  "Arctic": [
+   [
+    -75.0,
+    58.0
+   ],
+   [
+    40.0,
+    81.5
+   ]
+  ]
+ },
+ "destinations": {
+  "costa-rica": {
+   "name": "Costa Rica",
+   "region": "Central America",
+   "ground": "#EEF1EC",
+   "ink": "#1F1D1B",
+   "accent": "#6B4A33",
+   "terrA": "#4F6B3A",
+   "terrB": "#D9BF85",
+   "water": "#1F6268",
+   "head": "#4F6B3A",
+   "eye": "#1F6268",
+   "card": "#F8F9F5",
+   "phbg": "#DCE3DA",
+   "terrain_key": [
+    [
+     "#1F6268",
+     "Pacific teal"
+    ],
+    [
+     "#4F6B3A",
+     "Rainforest moss"
+    ],
+    [
+     "#D9BF85",
+     "Dry-forest straw"
+    ],
+    [
+     "#6B4A33",
+     "Highland coffee"
+    ],
+    [
+     "#1F1D1B",
+     "Black sand"
+    ]
+   ],
+   "inkrgb": "31,29,27",
+   "contrast": {
+    "ink": 14.74,
+    "accent": 6.95,
+    "head": 5.27,
+    "eye": 6.13
+   }
+  },
+  "botswana-okavango": {
+   "name": "Botswana · Okavango",
+   "region": "Africa",
+   "ground": "#F2EBDD",
+   "ink": "#2B241C",
+   "accent": "#86591E",
+   "terrA": "#6E7F3E",
+   "terrB": "#CDBE84",
+   "water": "#2F6F78",
+   "head": "#2F6F78",
+   "eye": "#2F6F78",
+   "card": "#F8F5EE",
+   "phbg": "#DBDCD1",
+   "terrain_key": [
+    [
+     "#2F6F78",
+     "Delta channel"
+    ],
+    [
+     "#6E7F3E",
+     "Papyrus green"
+    ],
+    [
+     "#CDBE84",
+     "Floodplain grass"
+    ],
+    [
+     "#86591E",
+     "Lechwe gold"
+    ],
+    [
+     "#2B241C",
+     "Mopane bark"
+    ]
+   ],
+   "inkrgb": "43,36,28",
+   "contrast": {
+    "ink": 12.9,
+    "accent": 5.11,
+    "head": 4.83,
+    "eye": 4.83
+   }
+  },
+  "south-africa": {
+   "name": "South Africa",
+   "region": "Africa",
+   "ground": "#F3EEE6",
+   "ink": "#2A2522",
+   "accent": "#9C4A3E",
+   "terrA": "#5E6A3C",
+   "terrB": "#B98B5E",
+   "water": "#23475A",
+   "head": "#23475A",
+   "eye": "#23475A",
+   "card": "#F9F6F2",
+   "phbg": "#DADAD5",
+   "terrain_key": [
+    [
+     "#23475A",
+     "Atlantic cold"
+    ],
+    [
+     "#5E6A3C",
+     "Lowveld bush"
+    ],
+    [
+     "#B98B5E",
+     "Winelands loam"
+    ],
+    [
+     "#9C4A3E",
+     "Protea rose"
+    ],
+    [
+     "#2A2522",
+     "Ironstone"
+    ]
+   ],
+   "inkrgb": "42,37,34",
+   "contrast": {
+    "ink": 13.12,
+    "accent": 5.25,
+    "head": 8.58,
+    "eye": 8.58
+   }
+  },
+  "kenya-maasai-mara": {
+   "name": "Kenya · Maasai Mara",
+   "region": "Africa",
+   "ground": "#F3E9D8",
+   "ink": "#262019",
+   "accent": "#A23A26",
+   "terrA": "#C9A25A",
+   "terrB": "#7A5B3E",
+   "water": "#5F819A",
+   "head": "#A23A26",
+   "eye": "#262019",
+   "card": "#F9F4EC",
+   "phbg": "#E1DDD1",
+   "terrain_key": [
+    [
+     "#5F819A",
+     "Rift sky"
+    ],
+    [
+     "#C9A25A",
+     "Savannah gold"
+    ],
+    [
+     "#7A5B3E",
+     "Mara river mud"
+    ],
+    [
+     "#A23A26",
+     "Shúkà red"
+    ],
+    [
+     "#262019",
+     "Acacia shade"
+    ]
+   ],
+   "inkrgb": "38,32,25",
+   "contrast": {
+    "ink": 13.4,
+    "accent": 5.51,
+    "head": 5.51,
+    "eye": 13.4
+   }
+  },
+  "tanzania": {
+   "name": "Tanzania",
+   "region": "Africa",
+   "ground": "#F1E8D6",
+   "ink": "#2C2824",
+   "accent": "#954B20",
+   "terrA": "#6F7A45",
+   "terrB": "#CDB98A",
+   "water": "#2B7F86",
+   "head": "#954B20",
+   "eye": "#2C2824",
+   "card": "#F8F4EA",
+   "phbg": "#D9DBCC",
+   "terrain_key": [
+    [
+     "#2B7F86",
+     "Zanzibar lagoon"
+    ],
+    [
+     "#6F7A45",
+     "Whistling thorn"
+    ],
+    [
+     "#CDB98A",
+     "Crater floor"
+    ],
+    [
+     "#954B20",
+     "Ochre"
+    ],
+    [
+     "#2C2824",
+     "Kopje granite"
+    ]
+   ],
+   "inkrgb": "44,40,36",
+   "contrast": {
+    "ink": 12.01,
+    "accent": 5.22,
+    "head": 5.22,
+    "eye": 12.01
+   }
+  },
+  "namibia": {
+   "name": "Namibia",
+   "region": "Africa",
+   "ground": "#F6E7D6",
+   "ink": "#2A1F1A",
+   "accent": "#A94B25",
+   "terrA": "#6B7140",
+   "terrB": "#E3DCCB",
+   "water": "#5F7F87",
+   "head": "#A94B25",
+   "eye": "#2A1F1A",
+   "card": "#FAF3EA",
+   "phbg": "#E4DBCD",
+   "terrain_key": [
+    [
+     "#5F7F87",
+     "Skeleton Coast fog"
+    ],
+    [
+     "#6B7140",
+     "Welwitschia"
+    ],
+    [
+     "#E3DCCB",
+     "Pan white"
+    ],
+    [
+     "#A94B25",
+     "Sossusvlei red"
+    ],
+    [
+     "#2A1F1A",
+     "Desert varnish"
+    ]
+   ],
+   "inkrgb": "42,31,26",
+   "contrast": {
+    "ink": 13.23,
+    "accent": 4.66,
+    "head": 4.66,
+    "eye": 13.23
+   }
+  },
+  "raja-ampat": {
+   "name": "Raja Ampat",
+   "region": "Asia",
+   "ground": "#EEF2EE",
+   "ink": "#14211F",
+   "accent": "#A2442A",
+   "terrA": "#3F6B45",
+   "terrB": "#46B3AC",
+   "water": "#123B55",
+   "head": "#146663",
+   "eye": "#123B55",
+   "card": "#F7F9F7",
+   "phbg": "#D6E4E0",
+   "terrain_key": [
+    [
+     "#123B55",
+     "Deep Banda"
+    ],
+    [
+     "#3F6B45",
+     "Jungle karst"
+    ],
+    [
+     "#46B3AC",
+     "Lagoon turquoise"
+    ],
+    [
+     "#A2442A",
+     "Coral"
+    ],
+    [
+     "#14211F",
+     "Karst ink"
+    ]
+   ],
+   "inkrgb": "20,33,31",
+   "contrast": {
+    "ink": 14.66,
+    "accent": 5.47,
+    "head": 5.97,
+    "eye": 10.42
+   }
+  },
+  "antarctica": {
+   "name": "Antarctica",
+   "region": "Antarctica",
+   "ground": "#F2F5F7",
+   "ink": "#1C2228",
+   "accent": "#9A4E4A",
+   "terrA": "#A9C8DA",
+   "terrB": "#8A9A6A",
+   "water": "#1E3E57",
+   "head": "#1E3E57",
+   "eye": "#1E3E57",
+   "card": "#F8FAFB",
+   "phbg": "#D9DFE4",
+   "terrain_key": [
+    [
+     "#1E3E57",
+     "Southern Ocean"
+    ],
+    [
+     "#A9C8DA",
+     "Ice blue"
+    ],
+    [
+     "#8A9A6A",
+     "Moss lichen"
+    ],
+    [
+     "#9A4E4A",
+     "Krill pink"
+    ],
+    [
+     "#1C2228",
+     "Basalt"
+    ]
+   ],
+   "inkrgb": "28,34,40",
+   "contrast": {
+    "ink": 14.65,
+    "accent": 5.38,
+    "head": 10.19,
+    "eye": 10.19
+   }
+  },
+  "french-polynesia": {
+   "name": "French Polynesia",
+   "region": "Oceania",
+   "ground": "#F5F0E6",
+   "ink": "#1E2326",
+   "accent": "#B23F35",
+   "terrA": "#4C7A4A",
+   "terrB": "#4FB6B9",
+   "water": "#0F4F6F",
+   "head": "#0F4F6F",
+   "eye": "#0F4F6F",
+   "card": "#FAF8F2",
+   "phbg": "#D9DDD8",
+   "terrain_key": [
+    [
+     "#0F4F6F",
+     "Pacific deep"
+    ],
+    [
+     "#4C7A4A",
+     "Vanilla vine"
+    ],
+    [
+     "#4FB6B9",
+     "Lagoon"
+    ],
+    [
+     "#B23F35",
+     "Hibiscus"
+    ],
+    [
+     "#1E2326",
+     "Black pearl"
+    ]
+   ],
+   "inkrgb": "30,35,38",
+   "contrast": {
+    "ink": 13.97,
+    "accent": 5.06,
+    "head": 7.81,
+    "eye": 7.81
+   }
+  },
+  "bahamas-eleuthera-exumas": {
+   "name": "Bahamas · Eleuthera & Exumas",
+   "region": "Caribbean & Mexico",
+   "ground": "#F7ECE6",
+   "ink": "#2A2624",
+   "accent": "#9A4F45",
+   "terrA": "#4E6E4A",
+   "terrB": "#7FD3CF",
+   "water": "#12466B",
+   "head": "#12466B",
+   "eye": "#12466B",
+   "card": "#FBF6F2",
+   "phbg": "#DCD8D7",
+   "terrain_key": [
+    [
+     "#12466B",
+     "Tongue of the Ocean"
+    ],
+    [
+     "#4E6E4A",
+     "Casuarina"
+    ],
+    [
+     "#7FD3CF",
+     "Exuma shallows"
+    ],
+    [
+     "#9A4F45",
+     "Conch pink"
+    ],
+    [
+     "#2A2624",
+     "Coral rock"
+    ]
+   ],
+   "inkrgb": "42,38,36",
+   "contrast": {
+    "ink": 12.91,
+    "accent": 5.06,
+    "head": 8.56,
+    "eye": 8.56
+   }
+  },
+  "madagascar": {
+   "name": "Madagascar",
+   "region": "Africa",
+   "ground": "#EFECE6",
+   "ink": "#2A1E1A",
+   "accent": "#A6442A",
+   "terrA": "#9C8366",
+   "terrB": "#6B7A3C",
+   "water": "#22607A",
+   "head": "#22607A",
+   "eye": "#22607A",
+   "card": "#F7F6F2",
+   "phbg": "#D6DBD9",
+   "terrain_key": [
+    [
+     "#22607A",
+     "Mozambique Channel"
+    ],
+    [
+     "#9C8366",
+     "Baobab bark"
+    ],
+    [
+     "#6B7A3C",
+     "Spiny forest"
+    ],
+    [
+     "#A6442A",
+     "Laterite red"
+    ],
+    [
+     "#2A1E1A",
+     "Rosewood"
+    ]
+   ],
+   "inkrgb": "42,30,26",
+   "contrast": {
+    "ink": 13.71,
+    "accent": 5.12,
+    "head": 5.89,
+    "eye": 5.89
+   }
+  },
+  "galapagos": {
+   "name": "Galápagos",
+   "region": null,
+   "ground": "#EFEDE6",
+   "ink": "#1B1B1C",
+   "accent": "#2F6F90",
+   "terrA": "#B6A98B",
+   "terrB": "#6F8A3F",
+   "water": "#1F5B6E",
+   "head": "#1F5B6E",
+   "eye": "#1F5B6E",
+   "card": "#F7F6F2",
+   "phbg": "#D6DBD8",
+   "terrain_key": [
+    [
+     "#1F5B6E",
+     "Humboldt current"
+    ],
+    [
+     "#B6A98B",
+     "Palo santo"
+    ],
+    [
+     "#6F8A3F",
+     "Prickly pear"
+    ],
+    [
+     "#2F6F90",
+     "Booby blue"
+    ],
+    [
+     "#1B1B1C",
+     "Pahoehoe black"
+    ]
+   ],
+   "inkrgb": "27,27,28",
+   "contrast": {
+    "ink": 14.69,
+    "accent": 4.72,
+    "head": 6.45,
+    "eye": 6.45
+   }
+  },
+  "zambia": {
+   "name": "Zambia",
+   "region": "Africa",
+   "ground": "#F1ECE0",
+   "ink": "#26221C",
+   "accent": "#8C4A24",
+   "terrA": "#5E7340",
+   "terrB": "#C7A866",
+   "water": "#2C6470",
+   "head": "#2C6470",
+   "eye": "#2C6470",
+   "card": "#F8F5EE",
+   "phbg": "#DAD9CF",
+   "terrain_key": [
+    [
+     "#2C6470",
+     "Zambezi"
+    ],
+    [
+     "#5E7340",
+     "Miombo green"
+    ],
+    [
+     "#C7A866",
+     "Kafue grass"
+    ],
+    [
+     "#8C4A24",
+     "Copper"
+    ],
+    [
+     "#26221C",
+     "Ebony"
+    ]
+   ],
+   "inkrgb": "38,34,28",
+   "contrast": {
+    "ink": 13.41,
+    "accent": 5.71,
+    "head": 5.63,
+    "eye": 5.63
+   }
+  },
+  "belize": {
+   "name": "Belize",
+   "region": "Central America",
+   "ground": "#EEF0E6",
+   "ink": "#1F2622",
+   "accent": "#1C4E80",
+   "terrA": "#4F6B3A",
+   "terrB": "#CBBE9C",
+   "water": "#2E8C8A",
+   "head": "#1C4E80",
+   "eye": "#1C4E80",
+   "card": "#F7F8F2",
+   "phbg": "#D6DACD",
+   "terrain_key": [
+    [
+     "#1C4E80",
+     "Great Blue Hole"
+    ],
+    [
+     "#2E8C8A",
+     "Barrier reef"
+    ],
+    [
+     "#4F6B3A",
+     "Mountain Pine Ridge"
+    ],
+    [
+     "#CBBE9C",
+     "Maya limestone"
+    ],
+    [
+     "#7A3B22",
+     "Mahogany"
+    ]
+   ],
+   "inkrgb": "31,38,34",
+   "contrast": {
+    "ink": 13.43,
+    "accent": 7.44,
+    "head": 7.44,
+    "eye": 7.44
+   }
+  },
+  "mexico-riviera-nayarit": {
+   "name": "Mexico · Riviera Nayarit",
+   "region": "Caribbean & Mexico",
+   "ground": "#F5EEE4",
+   "ink": "#2A2220",
+   "accent": "#A3324A",
+   "terrA": "#4E6E3A",
+   "terrB": "#D9C49A",
+   "water": "#2B6A8C",
+   "head": "#A3324A",
+   "eye": "#A3324A",
+   "card": "#FBF7F1",
+   "phbg": "#E2D9CC",
+   "terrain_key": [
+    [
+     "#2B6A8C",
+     "Banderas Bay"
+    ],
+    [
+     "#4E6E3A",
+     "Sierra jungle"
+    ],
+    [
+     "#D9C49A",
+     "Punta Mita sand"
+    ],
+    [
+     "#A3324A",
+     "Bougainvillea"
+    ],
+    [
+     "#2A2220",
+     "Volcanic stone"
+    ]
+   ],
+   "inkrgb": "42,34,32",
+   "contrast": {
+    "ink": 13.52,
+    "accent": 5.86,
+    "head": 5.86,
+    "eye": 5.86
+   }
+  },
+  "st-barthelemy": {
+   "name": "St. Barthélemy",
+   "region": "Caribbean & Mexico",
+   "ground": "#F4F1EA",
+   "ink": "#1E2A33",
+   "accent": "#A3412A",
+   "terrA": "#5E7B4C",
+   "terrB": "#E8DCC4",
+   "water": "#1F6E8C",
+   "head": "#A3412A",
+   "eye": "#A3412A",
+   "card": "#FAF8F4",
+   "phbg": "#DCD8CF",
+   "terrain_key": [
+    [
+     "#1F6E8C",
+     "Côte Sauvage swell"
+    ],
+    [
+     "#5E7B4C",
+     "Sea-grape green"
+    ],
+    [
+     "#E8DCC4",
+     "Coral sand"
+    ],
+    [
+     "#A3412A",
+     "Red-roof terracotta"
+    ],
+    [
+     "#1E2A33",
+     "Night harbour"
+    ]
+   ],
+   "inkrgb": "30,42,51",
+   "contrast": {
+    "ink": 12.98,
+    "accent": 5.56,
+    "head": 5.56,
+    "eye": 5.56
+   }
+  },
+  "united-states-utah": {
+   "name": "United States · Utah",
+   "region": "USA & Canada",
+   "ground": "#F5ECE0",
+   "ink": "#2B2420",
+   "accent": "#A0452A",
+   "terrA": "#6F7A4A",
+   "terrB": "#D8B98A",
+   "water": "#3E6A8A",
+   "head": "#A0452A",
+   "eye": "#A0452A",
+   "card": "#FBF6EF",
+   "phbg": "#E3D8CA",
+   "terrain_key": [
+    [
+     "#3E6A8A",
+     "Colorado River"
+    ],
+    [
+     "#6F7A4A",
+     "Sage"
+    ],
+    [
+     "#D8B98A",
+     "Slickrock"
+    ],
+    [
+     "#A0452A",
+     "Redrock"
+    ],
+    [
+     "#2B2420",
+     "Desert varnish"
+    ]
+   ],
+   "inkrgb": "43,36,32",
+   "contrast": {
+    "ink": 13.05,
+    "accent": 5.31,
+    "head": 5.31,
+    "eye": 5.31
+   }
+  }
+ },
+ "regions": {
+  "africa": {
+   "name": "Africa",
+   "ground": "#F3EBDD",
+   "ink": "#2B241C",
+   "accent": "#8E4A1E",
+   "terrA": "#6B7A3E",
+   "terrB": "#C9A25A",
+   "water": "#2F6F78",
+   "head": "#2F6F78",
+   "eye": "#2F6F78",
+   "card": "#F9F5EE",
+   "phbg": "#DBDCD1",
+   "inkrgb": "43,36,28",
+   "terrain_key": [
+    [
+     "#2F6F78",
+     "Okavango channel"
+    ],
+    [
+     "#6B7A3E",
+     "Acacia green"
+    ],
+    [
+     "#C9A25A",
+     "Savannah gold"
+    ],
+    [
+     "#8E4A1E",
+     "Ochre earth"
+    ],
+    [
+     "#2B241C",
+     "Mopane bark"
+    ]
+   ],
+   "bounds": [
+    [
+     -19.0,
+     -36.0
+    ],
+    [
+     53.0,
+     38.0
+    ]
+   ],
+   "contrast": {
+    "ink": 12.93,
+    "accent": 5.63,
+    "head": 4.84,
+    "eye": 4.84
+   }
+  },
+  "asia": {
+   "name": "Asia",
+   "ground": "#F1EFE6",
+   "ink": "#1E1B1A",
+   "accent": "#A3392B",
+   "terrA": "#4E7A3F",
+   "terrB": "#7FB3A0",
+   "water": "#1F5A78",
+   "head": "#1F5A78",
+   "eye": "#1F5A78",
+   "card": "#F8F7F2",
+   "phbg": "#D8DDD9",
+   "inkrgb": "30,27,26",
+   "terrain_key": [
+    [
+     "#1F5A78",
+     "Andaman blue"
+    ],
+    [
+     "#4E7A3F",
+     "Rice-terrace green"
+    ],
+    [
+     "#7FB3A0",
+     "Monsoon jade"
+    ],
+    [
+     "#A3392B",
+     "Cinnabar"
+    ],
+    [
+     "#1E1B1A",
+     "Lacquer black"
+    ]
+   ],
+   "bounds": [
+    [
+     62.0,
+     -11.5
+    ],
+    [
+     150.0,
+     46.0
+    ]
+   ],
+   "contrast": {
+    "ink": 14.86,
+    "accent": 5.74,
+    "head": 6.53,
+    "eye": 6.53
+   }
+  },
+  "usa-canada": {
+   "name": "USA & Canada",
+   "ground": "#F1EEE6",
+   "ink": "#24272A",
+   "accent": "#9A4A2C",
+   "terrA": "#3F5E45",
+   "terrB": "#CDB27A",
+   "water": "#2E5B73",
+   "head": "#2E5B73",
+   "eye": "#2E5B73",
+   "card": "#F8F6F2",
+   "phbg": "#DADCD8",
+   "inkrgb": "36,39,42",
+   "terrain_key": [
+    [
+     "#2E5B73",
+     "Pacific slate"
+    ],
+    [
+     "#3F5E45",
+     "Boreal pine"
+    ],
+    [
+     "#CDB27A",
+     "Plains wheat"
+    ],
+    [
+     "#9A4A2C",
+     "Canyon red"
+    ],
+    [
+     "#24272A",
+     "Granite"
+    ]
+   ],
+   "bounds": [
+    [
+     -170.0,
+     17.5
+    ],
+    [
+     -50.0,
+     72.0
+    ]
+   ],
+   "contrast": {
+    "ink": 12.95,
+    "accent": 5.34,
+    "head": 6.33,
+    "eye": 6.33
+   }
+  },
+  "central-america": {
+   "name": "Central America",
+   "ground": "#EEF1EC",
+   "ink": "#1F1D1B",
+   "accent": "#6B4A33",
+   "terrA": "#4F6B3A",
+   "terrB": "#D8C9A3",
+   "water": "#1F6268",
+   "head": "#1F6268",
+   "eye": "#1F6268",
+   "card": "#F6F8F6",
+   "phbg": "#D5E0DC",
+   "inkrgb": "31,29,27",
+   "terrain_key": [
+    [
+     "#1F6268",
+     "Caribbean teal"
+    ],
+    [
+     "#4F6B3A",
+     "Rainforest moss"
+    ],
+    [
+     "#D8C9A3",
+     "Maya limestone"
+    ],
+    [
+     "#6B4A33",
+     "Highland coffee"
+    ],
+    [
+     "#1F1D1B",
+     "Black sand"
+    ]
+   ],
+   "bounds": [
+    [
+     -93.0,
+     6.5
+    ],
+    [
+     -76.5,
+     18.8
+    ]
+   ],
+   "contrast": {
+    "ink": 14.74,
+    "accent": 6.95,
+    "head": 6.13,
+    "eye": 6.13
+   }
+  },
+  "caribbean-mexico": {
+   "name": "Caribbean & Mexico",
+   "ground": "#F7EEE7",
+   "ink": "#2A2624",
+   "accent": "#9A4F45",
+   "terrA": "#4E6E4A",
+   "terrB": "#7FD3CF",
+   "water": "#12466B",
+   "head": "#12466B",
+   "eye": "#12466B",
+   "card": "#FBF6F3",
+   "phbg": "#DCDAD8",
+   "inkrgb": "42,38,36",
+   "terrain_key": [
+    [
+     "#12466B",
+     "Deep Caribbean"
+    ],
+    [
+     "#4E6E4A",
+     "Sea grape"
+    ],
+    [
+     "#7FD3CF",
+     "Turquoise shallows"
+    ],
+    [
+     "#9A4F45",
+     "Conch pink"
+    ],
+    [
+     "#2A2624",
+     "Coral rock"
+    ]
+   ],
+   "bounds": [
+    [
+     -118.0,
+     13.5
+    ],
+    [
+     -59.0,
+     32.8
+    ]
+   ],
+   "contrast": {
+    "ink": 13.09,
+    "accent": 5.12,
+    "head": 8.67,
+    "eye": 8.67
+   }
+  },
+  "oceania": {
+   "name": "Oceania",
+   "ground": "#F5F0E6",
+   "ink": "#1E2326",
+   "accent": "#A83A31",
+   "terrA": "#4C7A4A",
+   "terrB": "#4FB6B9",
+   "water": "#0F4F6F",
+   "head": "#0F4F6F",
+   "eye": "#0F4F6F",
+   "card": "#FAF8F2",
+   "phbg": "#D9DDD8",
+   "inkrgb": "30,35,38",
+   "terrain_key": [
+    [
+     "#0F4F6F",
+     "Pacific deep"
+    ],
+    [
+     "#4C7A4A",
+     "Fern"
+    ],
+    [
+     "#4FB6B9",
+     "Lagoon"
+    ],
+    [
+     "#A83A31",
+     "Hibiscus"
+    ],
+    [
+     "#1E2326",
+     "Black pearl"
+    ]
+   ],
+   "bounds": [
+    [
+     110.0,
+     -48.5
+    ],
+    [
+     230.0,
+     2.0
+    ]
+   ],
+   "contrast": {
+    "ink": 13.97,
+    "accent": 5.58,
+    "head": 7.81,
+    "eye": 7.81
+   }
+  },
+  "south-america": {
+   "name": "South America",
+   "ground": "#F2ECE2",
+   "ink": "#24211F",
+   "accent": "#9B4528",
+   "terrA": "#3F6A3A",
+   "terrB": "#CDB27C",
+   "water": "#1F5B6E",
+   "head": "#1F5B6E",
+   "eye": "#1F5B6E",
+   "card": "#F8F6F0",
+   "phbg": "#D9DBD4",
+   "inkrgb": "36,33,31",
+   "terrain_key": [
+    [
+     "#1F5B6E",
+     "Humboldt current"
+    ],
+    [
+     "#3F6A3A",
+     "Amazon green"
+    ],
+    [
+     "#CDB27C",
+     "Puna gold"
+    ],
+    [
+     "#9B4528",
+     "Inca terracotta"
+    ],
+    [
+     "#24211F",
+     "Andean basalt"
+    ]
+   ],
+   "bounds": [
+    [
+     -92.5,
+     -56.5
+    ],
+    [
+     -33.0,
+     13.5
+    ]
+   ],
+   "contrast": {
+    "ink": 13.62,
+    "accent": 5.46,
+    "head": 6.43,
+    "eye": 6.43
+   }
+  },
+  "europe": {
+   "name": "Europe",
+   "ground": "#F2F0EA",
+   "ink": "#22262A",
+   "accent": "#7E2F3A",
+   "terrA": "#4A5F3E",
+   "terrB": "#A79BC4",
+   "water": "#234E6B",
+   "head": "#234E6B",
+   "eye": "#234E6B",
+   "card": "#F8F8F4",
+   "phbg": "#D9DDDB",
+   "inkrgb": "34,38,42",
+   "terrain_key": [
+    [
+     "#234E6B",
+     "Atlantic"
+    ],
+    [
+     "#4A5F3E",
+     "Cypress"
+    ],
+    [
+     "#A79BC4",
+     "Lavender"
+    ],
+    [
+     "#7E2F3A",
+     "Burgundy"
+    ],
+    [
+     "#22262A",
+     "Slate"
+    ]
+   ],
+   "bounds": [
+    [
+     -25.0,
+     34.0
+    ],
+    [
+     45.0,
+     71.5
+    ]
+   ],
+   "contrast": {
+    "ink": 13.37,
+    "accent": 7.83,
+    "head": 7.76,
+    "eye": 7.76
+   }
+  },
+  "antarctica": {
+   "name": "Antarctica",
+   "ground": "#F2F5F7",
+   "ink": "#1C2228",
+   "accent": "#9A4E4A",
+   "terrA": "#8A9A6A",
+   "terrB": "#A9C8DA",
+   "water": "#1E3E57",
+   "head": "#1E3E57",
+   "eye": "#1E3E57",
+   "card": "#F8FAFB",
+   "phbg": "#D9DFE4",
+   "inkrgb": "28,34,40",
+   "terrain_key": [
+    [
+     "#1E3E57",
+     "Southern Ocean"
+    ],
+    [
+     "#8A9A6A",
+     "Moss lichen"
+    ],
+    [
+     "#A9C8DA",
+     "Ice blue"
+    ],
+    [
+     "#9A4E4A",
+     "Krill pink"
+    ],
+    [
+     "#1C2228",
+     "Basalt"
+    ]
+   ],
+   "bounds": [
+    [
+     -75.0,
+     -72.0
+    ],
+    [
+     -33.0,
+     -50.0
+    ]
+   ],
+   "contrast": {
+    "ink": 14.65,
+    "accent": 5.38,
+    "head": 10.19,
+    "eye": 10.19
+   }
+  },
+  "arctic": {
+   "name": "Arctic",
+   "ground": "#F2F4F5",
+   "ink": "#1A2129",
+   "accent": "#2F6F5A",
+   "terrA": "#6E7C4F",
+   "terrB": "#B9D3DE",
+   "water": "#1E4660",
+   "head": "#1E4660",
+   "eye": "#1E4660",
+   "card": "#F8FAFA",
+   "phbg": "#D9DFE3",
+   "inkrgb": "26,33,41",
+   "terrain_key": [
+    [
+     "#1E4660",
+     "Arctic Ocean"
+    ],
+    [
+     "#6E7C4F",
+     "Tundra moss"
+    ],
+    [
+     "#B9D3DE",
+     "Iceberg blue"
+    ],
+    [
+     "#2F6F5A",
+     "Aurora green"
+    ],
+    [
+     "#1A2129",
+     "Polar night"
+    ]
+   ],
+   "bounds": [
+    [
+     -75.0,
+     58.0
+    ],
+    [
+     40.0,
+     81.5
+    ]
+   ],
+   "contrast": {
+    "ink": 14.72,
+    "accent": 5.37,
+    "head": 9.06,
+    "eye": 9.06
+   }
+  }
+ }
+}

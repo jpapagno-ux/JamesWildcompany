@@ -96,3 +96,41 @@
 .jw-region .jw-pin{cursor:pointer}
 @media (max-width:600px){.jw-region .jw-back{top:auto;bottom:16px;right:auto;left:16px}}
 @media (max-width:600px){.jw-region:not(.jw-near) .jw-place{font-size:8.5px;letter-spacing:.14em}}
+
+/* itinerary plates on journey and voyage pages: the live map sits over the engraved fallback */
+.jw-site[data-jw-map=itinerary]{min-height:0}
+.jw-site[data-jw-map=itinerary] .jw-frame{position:relative}
+.jw-site[data-jw-map=itinerary] .jw-fallback figcaption{gap:6px 16px}
+.jw-play{margin-right:6px}
+
+/* one feature set: reserves and vessel launches on every map; residences are areas, never pins */
+.jw-pin.reserve{--c:#5B6B3A}.jw-pin.reserve i{border-radius:3px}.jw-pin.reserve i::after{border-radius:1px;inset:4px}
+.jw-res{font-size:11px}
+.jw-wp.port{box-shadow:0 0 0 3px rgba(31,86,115,.18)}
+/* compass: always there, wakes up and points the way while the journey plays */
+.jw-compass{position:absolute;z-index:3;right:12px;top:12px;width:64px;display:grid;justify-items:center;gap:2px;pointer-events:none;opacity:.55;transition:opacity .5s}
+.jw-compass.on{opacity:1}
+.jw-compass svg{width:64px;height:64px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.15))}
+.jw-compass .r{fill:rgba(251,248,241,.92);stroke:var(--jw-ink);stroke-width:1}
+.jw-compass .t{stroke:var(--jw-ink);stroke-width:1.2}
+.jw-compass .n{font:700 7px var(--jw-ui,monospace);fill:var(--jw-ink);text-anchor:middle}
+.jw-compass .ndl{transform-origin:32px 32px;transition:transform .25s linear}
+.jw-compass .h{fill:var(--jw-acc,var(--jw-overland))}.jw-compass .b{fill:var(--jw-ink);opacity:.35}
+.jw-compass .hd{font:700 10px var(--jw-ui,monospace);letter-spacing:.08em;color:var(--jw-ink);background:rgba(251,248,241,.92);padding:2px 5px;border:1px solid var(--jw-rule)}
+@media (prefers-reduced-motion: reduce){.jw-compass .ndl{transition:none}}
+/* trip maps: zoom steps and layer toggles */
+.jw-steps .jw-btn{padding:8px 10px}
+.jw-site[data-jw-map=itinerary]{scroll-margin-top:72px}
+.jw-layer{padding:7px 9px}
+/* terrain key: the destination's palette as a band (page header, map frame) */
+.jw-terrain{display:flex;height:8px}.jw-terrain i{flex:1}
+@media (max-width:600px){.jw-compass{width:44px;right:8px;top:8px}.jw-compass svg{width:44px;height:44px}.jw-compass .hd{font-size:9px}.jw-steps{left:8px!important;top:8px!important;gap:4px}.jw-steps .jw-btn{padding:7px 7px;font-size:10px;letter-spacing:.06em}}
+/* region maps in the region palette */
+.jw-region .jw-cart{border-left:4px solid var(--jw-acc,var(--jw-ink))}
+.jw-maps[style*="--jw-acc"] .jw-chip[aria-pressed="true"]{background:var(--jw-acc);border-color:var(--jw-acc)}
+.jw-key{margin:8px 0 0;font:12.5px/1.5 var(--serif,Georgia,serif);color:var(--jw-mute)}.jw-key span{font:600 10.5px var(--jw-ui,monospace);letter-spacing:.12em;text-transform:uppercase}
+/* country maps: the rest of the region's stays stay visible but faint */
+.jw-pin.jw-faint{filter:grayscale(1) opacity(.42)}.jw-pin.jw-faint .jw-lb{display:none}
+.jw-country-map .jw-steps .jw-btn[aria-pressed="true"]{background:var(--jw-acc,var(--jw-ink));border-color:var(--jw-acc,var(--jw-ink));color:#fff}
+.jw-site[data-jw-map=country] .jw-map{height:min(78vh,720px)}
+@media (max-width:600px){.jw-site[data-jw-map=country] .jw-map{height:480px}.jw-country-map .jw-cart{top:50px}}

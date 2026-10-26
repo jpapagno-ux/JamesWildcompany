@@ -24,7 +24,11 @@
    "lat": -0.876,
    "lng": 131.255,
    "mode": "air",
-   "kind": "airstrip"
+   "kind": "airstrip",
+   "label": [
+    14,
+    24
+   ]
   },
   {
    "day": 1,
@@ -32,7 +36,12 @@
    "lat": -0.86,
    "lng": 131.24,
    "mode": "land",
-   "time": "PM"
+   "time": "PM",
+   "label": [
+    14,
+    24
+   ],
+   "kind": "port"
   },
   {
    "day": 2,
@@ -40,7 +49,11 @@
    "lat": -0.556,
    "lng": 130.685,
    "mode": "sea",
-   "time": "AM"
+   "time": "AM",
+   "label": [
+    18,
+    -6
+   ]
   },
   {
    "day": 3,
@@ -48,7 +61,11 @@
    "lat": -0.43,
    "lng": 130.54,
    "mode": "sea",
-   "time": "AM"
+   "time": "AM",
+   "label": [
+    -16,
+    -10
+   ]
   },
   {
    "day": 3,
@@ -56,7 +73,11 @@
    "lat": -0.4,
    "lng": 130.6,
    "mode": "sea",
-   "time": "PM"
+   "time": "PM",
+   "label": [
+    16,
+    16
+   ]
   },
   {
    "day": 4,
@@ -64,7 +85,11 @@
    "lat": -0.565,
    "lng": 130.27,
    "mode": "sea",
-   "time": "AM"
+   "time": "AM",
+   "label": [
+    -16,
+    26
+   ]
   },
   {
    "day": 5,
@@ -72,7 +97,11 @@
    "lat": 0.17,
    "lng": 130.03,
    "mode": "sea",
-   "time": "AM"
+   "time": "AM",
+   "label": [
+    18,
+    -8
+   ]
   },
   {
    "day": 6,
@@ -80,7 +109,11 @@
    "lat": -0.1,
    "lng": 130.28,
    "mode": "sea",
-   "time": "AM"
+   "time": "AM",
+   "label": [
+    18,
+    -6
+   ]
   },
   {
    "day": 7,
@@ -88,7 +121,11 @@
    "lat": -0.565,
    "lng": 130.52,
    "mode": "sea",
-   "time": "AM"
+   "time": "AM",
+   "label": [
+    -16,
+    30
+   ]
   },
   {
    "day": 8,
@@ -96,7 +133,11 @@
    "lat": -0.6,
    "lng": 130.6,
    "mode": "sea",
-   "time": "AM"
+   "time": "AM",
+   "label": [
+    4,
+    34
+   ]
   },
   {
    "day": 9,
@@ -104,7 +145,11 @@
    "lat": -0.83,
    "lng": 130.75,
    "mode": "sea",
-   "time": "AM"
+   "time": "AM",
+   "label": [
+    18,
+    24
+   ]
   },
   {
    "day": 10,
@@ -112,7 +157,60 @@
    "lat": -0.86,
    "lng": 131.24,
    "mode": "sea",
-   "time": "AM"
+   "time": "AM",
+   "label": [
+    14,
+    24
+   ]
   }
- ]
+ ],
+ "fallback": {
+  "bbox": [
+   129.7,
+   -1.0,
+   131.5,
+   0.35
+  ],
+  "country": "Indonesia",
+  "neighbours": [],
+  "labels": [
+   {
+    "text": "Pacific Ocean",
+    "kind": "sea",
+    "lng": 130.852,
+    "lat": 0.224
+   },
+   {
+    "text": "Halmahera Sea",
+    "kind": "sea",
+    "lng": 129.808,
+    "lat": -0.838
+   },
+   {
+    "text": "Dampier Strait",
+    "kind": "sea-small",
+    "lng": 130.87,
+    "lat": -0.703
+   },
+   {
+    "text": "WAIGEO",
+    "kind": "region",
+    "lng": 130.852,
+    "lat": -0.172
+   },
+   {
+    "text": "BATANTA",
+    "kind": "region",
+    "lng": 130.852,
+    "lat": -0.91
+   },
+   {
+    "text": "NEW GUINEA",
+    "kind": "region",
+    "lng": 131.284,
+    "lat": -0.991
+   }
+  ],
+  "note": "POSITIONS APPROXIMATE"
+ }
 }
