@@ -79,3 +79,20 @@
 .jw-where b{font-family:var(--mono,monospace);font-weight:700;font-size:.78em;letter-spacing:.14em;text-transform:uppercase;color:var(--ink,#3c3228);margin-right:.5em}
 .jw-stays{list-style:none;margin:1rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:.35rem 1.4rem;font:400 var(--t-sm,15px)/1.5 var(--serif,Georgia,serif)}
 .jw-stays li span{display:block;font:700 .72em/1.4 var(--mono,monospace);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft,#6b6155)}
+
+/* region pages: full-width map, country zoom, chips, stay card */
+.jw-region .jw-map{height:min(78vh,720px)}
+@media (max-width:600px){.jw-region .jw-map{height:min(72vh,560px)}}
+.jw-region:not(.jw-near) .jw-pin .jw-lb{display:none}
+.jw-back{position:absolute;z-index:4;right:22px;top:22px}
+.jw-back[hidden],.jw-card[hidden]{display:none}
+.jw-card a.jw-more{font:700 11px var(--jw-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--jw-ink);margin-top:4px}
+.jw-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.jw-chip{font:600 11.5px/1 var(--jw-ui,monospace);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--jw-rule,#c8c0b3);background:var(--jw-sheet,#f9f8f3);color:var(--jw-mute,#6b6155);padding:9px 11px;cursor:pointer}
+.jw-chip.has{border-color:var(--jw-ink);color:var(--jw-ink)}
+.jw-chip span{display:inline-block;margin-left:6px;padding:2px 5px;background:var(--jw-ink);color:var(--jw-sheet);font-size:10px}
+.jw-chip[aria-pressed="true"]{background:var(--jw-ink);color:var(--jw-sheet)}
+.jw-chip:focus-visible,.jw-back:focus-visible{outline:2px solid #2AA9B8;outline-offset:2px}
+.jw-region .jw-pin{cursor:pointer}
+@media (max-width:600px){.jw-region .jw-back{top:auto;bottom:16px;right:auto;left:16px}}
+@media (max-width:600px){.jw-region:not(.jw-near) .jw-place{font-size:8.5px;letter-spacing:.14em}}

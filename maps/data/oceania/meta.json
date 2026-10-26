@@ -1,0 +1,36 @@
+{
+ "slug": "oceania",
+ "name": "Oceania",
+ "bbox": [
+  110.0,
+  -48.5,
+  230.0,
+  2.0
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    110.0,
+    2.0
+   ],
+   [
+    230.0,
+    2.0
+   ],
+   [
+    230.0,
+    -48.5
+   ],
+   [
+    110.0,
+    -48.5
+   ]
+  ],
+  "size": [
+   2730,
+   1310
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

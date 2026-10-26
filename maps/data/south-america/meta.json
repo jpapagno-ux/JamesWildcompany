@@ -1,0 +1,36 @@
+{
+ "slug": "south-america",
+ "name": "South America",
+ "bbox": [
+  -92.5,
+  -56.5,
+  -33.0,
+  13.5
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    -92.5,
+    13.5
+   ],
+   [
+    -33.0,
+    13.5
+   ],
+   [
+    -33.0,
+    -56.5
+   ],
+   [
+    -92.5,
+    -56.5
+   ]
+  ],
+  "size": [
+   1354,
+   1876
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

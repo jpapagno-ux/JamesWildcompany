@@ -1,0 +1,36 @@
+{
+ "slug": "usa-canada",
+ "name": "USA & Canada",
+ "bbox": [
+  -170.0,
+  17.5,
+  -50.0,
+  72.0
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    -170.0,
+    72.0
+   ],
+   [
+    -50.0,
+    72.0
+   ],
+   [
+    -50.0,
+    17.5
+   ],
+   [
+    -170.0,
+    17.5
+   ]
+  ],
+  "size": [
+   1366,
+   999
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

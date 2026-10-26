@@ -1,0 +1,36 @@
+{
+ "slug": "europe",
+ "name": "Europe",
+ "bbox": [
+  -25.0,
+  34.0,
+  45.0,
+  71.5
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    -25.0,
+    71.5
+   ],
+   [
+    45.0,
+    71.5
+   ],
+   [
+    45.0,
+    34.0
+   ],
+   [
+    -25.0,
+    34.0
+   ]
+  ],
+  "size": [
+   1594,
+   1544
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

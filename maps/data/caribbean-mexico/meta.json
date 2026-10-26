@@ -1,0 +1,36 @@
+{
+ "slug": "caribbean-mexico",
+ "name": "Caribbean & Mexico",
+ "bbox": [
+  -118.0,
+  13.5,
+  -59.0,
+  32.8
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    -118.0,
+    32.8
+   ],
+   [
+    -59.0,
+    32.8
+   ],
+   [
+    -59.0,
+    13.5
+   ],
+   [
+    -118.0,
+    13.5
+   ]
+  ],
+  "size": [
+   1343,
+   480
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

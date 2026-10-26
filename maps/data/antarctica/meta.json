@@ -1,0 +1,36 @@
+{
+ "slug": "antarctica",
+ "name": "Antarctica",
+ "bbox": [
+  -75.0,
+  -72.0,
+  -33.0,
+  -50.0
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    -75.0,
+    -50.0
+   ],
+   [
+    -33.0,
+    -50.0
+   ],
+   [
+    -33.0,
+    -72.0
+   ],
+   [
+    -75.0,
+    -72.0
+   ]
+  ],
+  "size": [
+   956,
+   1085
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

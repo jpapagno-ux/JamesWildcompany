@@ -1,0 +1,36 @@
+{
+ "slug": "africa",
+ "name": "Africa",
+ "bbox": [
+  -19.0,
+  -36.0,
+  53.0,
+  38.0
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    -19.0,
+    38.0
+   ],
+   [
+    53.0,
+    38.0
+   ],
+   [
+    53.0,
+    -36.0
+   ],
+   [
+    -19.0,
+    -36.0
+   ]
+  ],
+  "size": [
+   1639,
+   1816
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

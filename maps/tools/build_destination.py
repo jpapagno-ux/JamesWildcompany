@@ -36,6 +36,10 @@ DESTINATIONS = {
     "kenya":      ("Kenya", [33.4, -5.2, 42.2, 5.4], ["Kenya"], 6),
     "riviera-nayarit": ("Riviera Nayarit", [-106.6, 19.4, -104.2, 22.0], ["Mexico"], 7),
 }
+sys.path.insert(0, HERE)
+from regions import REGIONS   # the ten region maps share the builder
+for _s, _r in REGIONS.items():
+    DESTINATIONS[_s] = (_r["name"], _r["bbox"], _r["home"], _r["z"])
 INK = (74, 63, 51)        # land shadow ink
 HI = (251, 248, 241)      # land highlight
 SEA = (31, 86, 115)       # Voyages blue for depth
@@ -63,7 +67,7 @@ def rnd(geom, nd=4):
     return {"type": g["type"], "coordinates": r(g["coordinates"])}
 
 
-def clip_features(feats, bb, tol, layer, props=None, as_lines=False, minlen=0.0):
+def clip_features(feats, bb, tol, layer, props=None, as_lines=False, minlen=0.0, minarea=0.0, nd=4):
     out = []
     for f in feats:
         try:
@@ -84,12 +88,12 @@ def clip_features(feats, bb, tol, layer, props=None, as_lines=False, minlen=0.0)
         if as_lines and g.geom_type in ("Polygon", "MultiPolygon"):
             g = g.boundary.intersection(bb.buffer(-1e-6))
         g = g.simplify(tol, preserve_topology=True)
-        if g.is_empty or (minlen and g.length < minlen):
+        if g.is_empty or (minlen and g.length < minlen) or (minarea and g.area < minarea):
             continue
         p = {"layer": layer}
         if props:
             p.update(props(f))
-        out.append({"type": "Feature", "properties": p, "geometry": rnd(g)})
+        out.append({"type": "Feature", "properties": p, "geometry": rnd(g, nd)})
     return out
 
 
@@ -118,7 +122,7 @@ def shaded_relief(bbox, W, H, z, x0, y0, x1, y1):
     return v
 
 
-def relief(bbox, z, land_geoms):
+def relief(bbox, z, land_geoms, up=None):
     w, s, e, n = bbox
     x0, y0 = merc(w, n, z)
     x1, y1 = merc(e, s, z)
@@ -134,7 +138,7 @@ def relief(bbox, z, land_geoms):
     crop = (int(x0 - tx0 * 256), int(y0 - ty0 * 256), int(x1 - tx0 * 256), int(y1 - ty0 * 256))
     img = mosaic.crop(crop)
     # upsample 2x for smoother edges when zoomed in
-    up = 2 if img.width < 900 else 1
+    up = up or (2 if img.width < 900 else 1)
     img = img.resize((img.width * up, img.height * up), Image.BICUBIC)
     W, H = img.size
     # land mask from Natural Earth polygons, drawn in the same Mercator frame
@@ -184,27 +188,62 @@ def relief(bbox, z, land_geoms):
     return out, corners
 
 
-def build(slug):
-    name, bbox, home, z = DESTINATIONS[slug]
+def shift(feat, dx):
+    def r(c):
+        if isinstance(c[0], (int, float)):
+            return [round(c[0] + dx, 4), c[1]]
+        return [r(x) for x in c]
+    g = feat["geometry"]
+    return {"type": "Feature", "properties": feat["properties"], "geometry": {"type": g["type"], "coordinates": r(g["coordinates"])}}
+
+
+def collect(bbox, home, span):
     bb = box(*bbox)
-    span = max(bbox[2] - bbox[0], bbox[3] - bbox[1])
     tol = span / 4000
+    nd = 3 if span > 30 else 4
+    big = span > 30
     feats = []
     countries = load("countries10m")
-    land_feats = clip_features(countries, bb, tol, "land", lambda f: {"name": f["properties"]["name"], "home": f["properties"]["name"] in home})
-    feats += land_feats
-    feats += clip_features(load("ne_10m_minor_islands"), bb, tol, "land", lambda f: {"name": "", "home": True})
-    feats += clip_features(load("ne_10m_lakes"), bb, tol, "lake", lambda f: {"name": f["properties"].get("name") or ""})
-    feats += clip_features(load("ne_10m_rivers_lake_centerlines"), bb, tol, "river", lambda f: {"name": f["properties"].get("name") or ""}, minlen=span / 60)
-    feats += clip_features(load("ne_10m_reefs"), bb, tol, "reef")
+    feats += clip_features(countries, bb, tol, "land", lambda f: {"name": f["properties"]["name"], "home": f["properties"]["name"] in home}, nd=nd)
+    feats += clip_features(load("ne_10m_minor_islands"), bb, tol, "land", lambda f: {"name": "", "home": True}, nd=nd, minarea=(tol * 0.6) ** 2 if big else 0)
+    feats += clip_features(load("ne_10m_lakes"), bb, tol, "lake", lambda f: {"name": f["properties"].get("name") or ""}, nd=nd, minarea=(tol * 3) ** 2 if big else 0)
+    feats += clip_features(load("ne_10m_rivers_lake_centerlines"), bb, tol, "river", lambda f: {"name": f["properties"].get("name") or ""}, minlen=span / 60, nd=nd)
+    feats += clip_features(load("ne_10m_reefs"), bb, tol * (3 if big else 1), "reef", nd=nd, minarea=(tol * 4) ** 2 if big else 0)
     for fn, depth in [("ne_10m_bathymetry_K_200", 200), ("ne_10m_bathymetry_J_1000", 1000), ("ne_10m_bathymetry_I_2000", 2000),
                       ("ne_10m_bathymetry_H_3000", 3000), ("ne_10m_bathymetry_G_4000", 4000)]:
-        feats += clip_features(load(fn), bb, tol * 1.5, "depth", lambda f, d=depth: {"m": d}, as_lines=True, minlen=span / 40)
+        if big and depth in (1000, 4000):   # region scale: three contour levels are enough
+            continue
+        feats += clip_features(load(fn), bb, tol * (6 if big else 1.5), "depth", lambda f, d=depth: {"m": d}, as_lines=True, minlen=span / (20 if big else 40), nd=nd)
+    return feats
+
+
+def build(slug):
+    name, bbox, home, z = DESTINATIONS[slug]
+    span = max(bbox[2] - bbox[0], bbox[3] - bbox[1])
+    if bbox[2] > 180:   # crosses the antimeridian (Oceania): build both halves, shift the eastern half by +360 and join
+        a, b = [bbox[0], bbox[1], 180.0, bbox[3]], [-180.0, bbox[1], bbox[2] - 360, bbox[3]]
+        fa, fb = collect(a, home, span), collect(b, home, span)
+        feats = fa + [shift(f, 360) for f in fb]
+        ia, _ = relief(a, z, [shape(f["geometry"]) for f in fa if f["properties"]["layer"] == "land"], up=2)
+        ib, _ = relief(b, z, [shape(f["geometry"]) for f in fb if f["properties"]["layer"] == "land"], up=2)
+        img = Image.new("RGBA", (ia.width + ib.width, max(ia.height, ib.height)))
+        img.paste(ia, (0, 0)); img.paste(ib, (ia.width, 0))
+        w, s, e, n = bbox
+        corners = [[w, n], [e, n], [e, s], [w, s]]
+    else:
+        feats = collect(bbox, home, span)
+        img = None
     os.makedirs(os.path.join(OUT, slug), exist_ok=True)
     with open(os.path.join(OUT, slug, "base.geojson"), "w") as f:
         json.dump({"type": "FeatureCollection", "features": feats}, f, separators=(",", ":"), ensure_ascii=False)
-    land_geoms = [shape(f["geometry"]) for f in feats if f["properties"]["layer"] == "land"]
-    img, corners = relief(bbox, z, land_geoms)
+    if img is None:
+        land_geoms = [shape(f["geometry"]) for f in feats if f["properties"]["layer"] == "land"]
+        img, corners = relief(bbox, z, land_geoms)
+    if slug in REGIONS:   # region maps: feather the frame so the shaded area melts into the open sea
+        arr = np.asarray(img.convert("RGBA")).astype(np.float32); H, W = arr.shape[:2]; fw = max(12, int(min(W, H) * .06))
+        rx = np.clip(np.minimum(np.arange(W), W - 1 - np.arange(W)) / fw, 0, 1); ry = np.clip(np.minimum(np.arange(H), H - 1 - np.arange(H)) / fw, 0, 1)
+        ramp = np.outer(ry, rx); arr[..., 3] *= ramp * ramp * (3 - 2 * ramp)
+        img = Image.fromarray(arr.astype(np.uint8), "RGBA")
     img.save(os.path.join(OUT, slug, "relief.webp"), "WEBP", quality=70, method=6)
     meta = {"slug": slug, "name": name, "bbox": bbox, "relief": {"url": "relief.webp", "coordinates": corners, "size": list(img.size)},
             "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"}

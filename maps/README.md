@@ -53,3 +53,12 @@ Each stay page carries a "Where it is" section:
 <script src="maps/jw-embed.js" defer></script>
 ```
 Private houses add `"residence":true`: the map shows a 2 km area, never a pin. Never map anything a page says is unpublished (the Casa Koko whale shark swim).
+
+## Regions and the stays feed (26 Oct 2026)
+- Ten region pages at `/stays/<slug>/` (Africa, Asia, USA & Canada, Central America, Caribbean & Mexico, Oceania, South America,
+  Europe, Antarctica, Arctic), set in `tools/regions.py` and written by `tools/build_region_pages.py`.
+- Each has a full-width region map (`data-jw-map="region"`): every country outlined, tap a country or a chip to zoom, tap a pin for James's line.
+- Stays come from one feed: Airtable Guide Library → **Map Stays** table → `/api/stays` (live once `AIRTABLE_TOKEN` is set in Vercel,
+  5-minute cache), falling back to `data/stays.json`. Add a row in Airtable, tick **Show on Map**, and it appears on its region map.
+- Refresh the committed copy and the written lists: `AIRTABLE_TOKEN=… python3 tools/export_stays.py && python3 tools/build_region_pages.py`.
+- `data/world.geojson` is the simplified world land drawn behind every region map.

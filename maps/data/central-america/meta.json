@@ -1,0 +1,36 @@
+{
+ "slug": "central-america",
+ "name": "Central America",
+ "bbox": [
+  -93.0,
+  6.5,
+  -76.5,
+  18.8
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    -93.0,
+    18.8
+   ],
+   [
+    -76.5,
+    18.8
+   ],
+   [
+    -76.5,
+    6.5
+   ],
+   [
+    -93.0,
+    6.5
+   ]
+  ],
+  "size": [
+   1502,
+   1150
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

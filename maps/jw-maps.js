@@ -54,7 +54,7 @@
     var map = new ML.Map({
       container: el, style: { version: 8, sources: {}, layers: [{ id: "bg", type: "background", paint: { "background-color": C.sea } }] },
       bounds: o.bounds, fitBoundsOptions: { padding: o.pad || 30 }, maxBounds: o.maxBounds, attributionControl: false, cooperativeGestures: PHONE,
-      dragRotate: false, pitchWithRotate: false, maxZoom: o.maxZoom || 13, minZoom: o.minZoom || 3, renderWorldCopies: false
+      dragRotate: false, pitchWithRotate: false, maxZoom: o.maxZoom || 13, minZoom: o.minZoom || 3, renderWorldCopies: !!o.worldCopies
     });
     map.touchZoomRotate.disableRotation();
     map.addControl(new ML.NavigationControl({ showCompass: false }), "bottom-right");
@@ -67,20 +67,25 @@
           map.addImage("jw-hatch", hatch());
           map.addSource("jw-base", { type: "geojson", data: d.base });
           map.addSource("jw-relief", { type: "image", url: meta.relief.url, coordinates: meta.relief.coordinates });
-          map.addSource("jw-grat", { type: "geojson", data: grat([b[0] - 2, b[1] - 2, b[2] + 2, b[3] + 2], o.gstep || (b[2] - b[0] > 8 ? 2 : b[2] - b[0] > 3 ? .5 : .25)) });
-          map.addSource("jw-world", { type: "geojson", data: fc([{ type: "Feature", properties: {}, geometry: { type: "Polygon", coordinates: [[[b[0] - 5, b[1] - 5], [b[2] + 5, b[1] - 5], [b[2] + 5, b[3] + 5], [b[0] - 5, b[3] + 5], [b[0] - 5, b[1] - 5]]] } }]) });
+          var pad = o.wide ? 40 : 2, hp = o.wide ? 60 : 5;   // region maps: sea, grid and world land run past the data frame
+          map.addSource("jw-grat", { type: "geojson", data: grat([b[0] - pad, Math.max(b[1] - pad, -80), b[2] + pad, Math.min(b[3] + pad, 84)], o.gstep || (b[2] - b[0] > 40 ? 10 : b[2] - b[0] > 8 ? 2 : b[2] - b[0] > 3 ? .5 : .25)) });
+          map.addSource("jw-world", { type: "geojson", data: fc([{ type: "Feature", properties: {}, geometry: { type: "Polygon", coordinates: [[[b[0] - hp, Math.max(b[1] - hp, -85)], [b[2] + hp, Math.max(b[1] - hp, -85)], [b[2] + hp, Math.min(b[3] + hp, 85)], [b[0] - hp, Math.min(b[3] + hp, 85)], [b[0] - hp, Math.max(b[1] - hp, -85)]]] } }]) });
+          if (o.world) map.addSource("jw-wland", { type: "geojson", data: CFG.base + "world.geojson" });
           var L = function (id) { return ["==", ["get", "layer"], id]; };
+          var LH = o.wide ? ["all", L("land"), ["==", ["get", "home"], true]] : L("land");   // region maps outline only the region's own countries
           map.addLayer({ id: "jw-seahatch", type: "fill", source: "jw-world", paint: { "fill-pattern": "jw-hatch", "fill-opacity": .9 } });
           map.addLayer({ id: "jw-grat", type: "line", source: "jw-grat", paint: { "line-color": C.grat, "line-width": .6 } });
+          if (o.world) { map.addLayer({ id: "jw-wland", type: "fill", source: "jw-wland", paint: { "fill-color": C.linenAlt, "fill-opacity": .85 } });
+            map.addLayer({ id: "jw-wcoast", type: "line", source: "jw-wland", paint: { "line-color": C.ink, "line-width": .5, "line-opacity": .45 } }); }
           map.addLayer({ id: "jw-depth", type: "line", source: "jw-base", filter: L("depth"), paint: { "line-color": C.seaInk, "line-width": ["interpolate", ["linear"], ["get", "m"], 200, 1.1, 4000, .6], "line-opacity": ["interpolate", ["linear"], ["get", "m"], 200, .75, 4000, .35], "line-dasharray": [4, 2.5] } });
-          [[18, .07], [10, .13], [4, .28]].forEach(function (w, i) { map.addLayer({ id: "jw-halo" + i, type: "line", source: "jw-base", filter: L("land"), paint: { "line-color": C.seaInk, "line-width": ["interpolate", ["linear"], ["zoom"], 5, w[0] * .6, 10, w[0] * 1.4], "line-blur": w[0] * .5, "line-opacity": w[1] } }); });
+          [[18, .07], [10, .13], [4, .28]].forEach(function (w, i) { map.addLayer({ id: "jw-halo" + i, type: "line", source: "jw-base", filter: LH, paint: { "line-color": C.seaInk, "line-width": ["interpolate", ["linear"], ["zoom"], 5, w[0] * .6, 10, w[0] * 1.4], "line-blur": w[0] * .5, "line-opacity": w[1] } }); });
           map.addLayer({ id: "jw-land", type: "fill", source: "jw-base", filter: L("land"), paint: { "fill-color": home ? ["case", ["==", ["get", "home"], true], C.linen, C.linenAlt] : C.linen } });
           map.addLayer({ id: "jw-relief", type: "raster", source: "jw-relief", paint: { "raster-opacity": 1, "raster-fade-duration": 0, "raster-resampling": "linear" } });
-          map.addLayer({ id: "jw-lake", type: "fill", source: "jw-base", filter: L("lake"), paint: { "fill-color": C.sea, "fill-outline-color": C.seaInk } });
+          map.addLayer({ id: "jw-lake", type: "fill", source: "jw-base", filter: L("lake"), paint: { "fill-color": C.sea, "fill-outline-color": o.wide ? C.sea : C.seaInk } });
           map.addLayer({ id: "jw-river", type: "line", source: "jw-base", filter: L("river"), paint: { "line-color": C.seaInk, "line-width": ["interpolate", ["linear"], ["zoom"], 6, .7, 11, 1.6], "line-opacity": .8 } });
           map.addLayer({ id: "jw-reef", type: "line", source: "jw-base", filter: L("reef"), layout: { "line-cap": "round" }, paint: { "line-color": C.reef, "line-width": 1.8, "line-dasharray": [.2, 2] } });
-          map.addLayer({ id: "jw-coast", type: "line", source: "jw-base", filter: L("land"), paint: { "line-color": C.ink, "line-width": ["interpolate", ["linear"], ["zoom"], 5, .6, 11, 1.3], "line-opacity": .85 } });
-          map.addLayer({ id: "jw-border", type: "line", source: "jw-base", filter: ["all", L("land"), ["!=", ["get", "home"], true]], paint: { "line-color": C.border, "line-width": .8, "line-dasharray": [3, 2] } });
+          map.addLayer({ id: "jw-coast", type: "line", source: "jw-base", filter: LH, paint: { "line-color": C.ink, "line-width": ["interpolate", ["linear"], ["zoom"], 5, .6, 11, 1.3], "line-opacity": .85 } });
+          map.addLayer({ id: "jw-border", type: "line", source: "jw-base", filter: o.wide ? ["==", "x", "y"] : ["all", L("land"), ["!=", ["get", "home"], true]], paint: { "line-color": C.border, "line-width": .8, "line-dasharray": [3, 2] } });
           (o.places || []).forEach(function (p) { new ML.Marker({ element: mk("jw-place" + (p.big ? " big" : ""), esc(p.n)), anchor: "center" }).setLngLat(p.c).addTo(map); });
           if (o.coordEl) { var ce = typeof o.coordEl === "string" ? document.getElementById(o.coordEl) : o.coordEl; var upd = function () { var c = map.getCenter(); ce.textContent = dms(c.lat, "N", "S", 2) + " " + dms(c.lng, "E", "W", 3); }; map.on("move", upd); upd(); }
           res({ map: map, data: d });
@@ -117,7 +122,7 @@
 
   /* ---------- plate I · atlas ---------- */
   function atlas(el, o) {
-    return baseMap(el, { destination: o.destination, bounds: o.bounds, coordEl: o.coordEl, places: o.places, minZoom: o.minZoom || 5 }).then(function (r) {
+    return baseMap(el, { destination: o.destination, bounds: o.bounds, coordEl: o.coordEl, places: o.places, minZoom: o.minZoom || 5, maxBounds: o.maxBounds, world: o.world, wide: o.wide, worldCopies: o.worldCopies, pad: o.pad }).then(function (r) {
       var map = r.map, out = { map: map, stays: [], departures: [] };
       (o.routes || []).forEach(function (rt, i) {
         var c = rt.stops.filter(function (s) { return s.mode !== "air"; }).map(function (s) { return [s.lng, s.lat]; });

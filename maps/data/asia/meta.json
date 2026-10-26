@@ -1,0 +1,36 @@
+{
+ "slug": "asia",
+ "name": "Asia",
+ "bbox": [
+  62.0,
+  -11.5,
+  150.0,
+  46.0
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    62.0,
+    46.0
+   ],
+   [
+    150.0,
+    46.0
+   ],
+   [
+    150.0,
+    -11.5
+   ],
+   [
+    62.0,
+    -11.5
+   ]
+  ],
+  "size": [
+   1001,
+   722
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}
