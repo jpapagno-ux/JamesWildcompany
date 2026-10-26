@@ -9,7 +9,7 @@ maps/
   data/<slug>/                one folder per destination: base.geojson, relief.webp, meta.json
   routes/<id>.json            one file per program, jw-route v1 (see tools/ROUTE_FORMAT.md)
   tools/                      build_destination.py, convert_route.py, ROUTE_FORMAT.md
-  index.html                  working example of all four plates
+  jw-embed.js                 drop-in loader for site pages (data-jw-map="stay" or "atlas"), loads MapLibre only when a map scrolls near
 ```
 
 ## Use on a page
@@ -41,3 +41,15 @@ Nothing per view. Everything is static files on Vercel. Mapbox is used only for 
 
 ## Credits (keep on every map)
 Natural Earth (public domain) · NASA Earth Observatory Blue Marble (public domain), tiles via FreeTiler · MapLibre GL (BSD-3).
+
+## On the house site (jw-embed.js)
+Each stay page carries a "Where it is" section:
+```html
+<link rel="stylesheet" href="maps/jw-maps.css">            <!-- in <head> -->
+<div class="jw-maps jw-site" data-jw-map="stay"><script type="application/json">
+  {"destination":"southern-africa","name":"Monwana","c":[31.1336,-24.4372],"mark":"know","region":"…","label":"…","note":"…",
+   "country":[[16.3,-35],[33.2,-21.8]],"area":[[30.55,-25.15],[31.95,-23.95]]}
+</script></div>
+<script src="maps/jw-embed.js" defer></script>
+```
+Private houses add `"residence":true`: the map shows a 2 km area, never a pin. Never map anything a page says is unpublished (the Casa Koko whale shark swim).

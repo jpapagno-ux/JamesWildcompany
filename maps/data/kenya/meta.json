@@ -1,0 +1,36 @@
+{
+ "slug": "kenya",
+ "name": "Kenya",
+ "bbox": [
+  33.4,
+  -5.2,
+  42.2,
+  5.4
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    33.4,
+    5.4
+   ],
+   [
+    42.2,
+    5.4
+   ],
+   [
+    42.2,
+    -5.2
+   ],
+   [
+    33.4,
+    -5.2
+   ]
+  ],
+  "size": [
+   800,
+   966
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

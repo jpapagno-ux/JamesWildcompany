@@ -124,7 +124,7 @@
         map.addSource("jw-r" + i, { type: "geojson", data: fc([line(c)]) });
         map.addLayer({ id: "jw-r" + i, type: "line", source: "jw-r" + i, layout: { "line-cap": "round" }, paint: { "line-color": rt.type === "voyage" ? C.voyages : C.overland, "line-width": 2, "line-dasharray": rt.type === "voyage" ? [2, 1.6] : [.5, 2], "line-opacity": .85 } });
       });
-      (o.stays || []).forEach(function (s) { out.stays.push(pin(map, s, { label: !PHONE || s.mark === "know" || s.mark === "keep" })); });
+      (o.stays || []).forEach(function (s) { out.stays.push(pin(map, s, { label: !PHONE || (o.phoneLabels !== false && (s.mark === "know" || s.mark === "keep")) })); });
       (o.departures || []).forEach(function (d) { out.departures.push(dep(map, d)); });
       (o.highlights || []).forEach(function (h) { pin(map, h); });
       out.toggle = function (what, on) {
@@ -147,13 +147,13 @@
       map.addLayer({ id: "jw-estate-edge", type: "line", source: "jw-estate", minzoom: 10, paint: { "line-color": C.stays, "line-width": 1.2, "line-dasharray": [2, 2] } });
       map.addLayer({ id: "jw-area", type: "fill", source: "jw-area", layout: { visibility: "none" }, paint: { "fill-color": C.stays, "fill-opacity": .16 } });
       map.addLayer({ id: "jw-area-edge", type: "line", source: "jw-area", layout: { visibility: "none" }, paint: { "line-color": C.stays, "line-width": 1, "line-blur": 2 } });
-      new ML.Marker({ element: mk("jw-ring", "Private reserve (approximate)"), anchor: "bottom" }).setLngLat([c[0], c[1] + (o.estateKm || 1.4) / 110.57 + .002]).addTo(map);
+      st.ring = new ML.Marker({ element: mk("jw-ring", esc(o.ringLabel || "Private reserve (approximate)")), anchor: "bottom" }).setLngLat([c[0], c[1] + (o.estateKm || 1.4) / 110.57 + .002]).addTo(map);
       (o.others || []).forEach(function (x) { pin(map, x); });
       st.pin = pin(map, s);
       (o.nearby || []).forEach(function (x) { var e = mk("jw-pin sight", "<i></i>" + '<span class="jw-lb small">' + esc(x.name) + "</span>"); new ML.Marker({ element: e, anchor: "center" }).setLngLat(x.c || [x.lng, x.lat]).addTo(map); });
       st.step = function (i) { var b = o.steps[i]; if (b.center) map.flyTo({ center: b.center, zoom: b.zoom, duration: RM ? 0 : 1800, curve: 1.6 }); else map.fitBounds(b, { padding: 40, duration: RM ? 0 : 1600 }); };
       st.setResidence = function (on) {
-        st.residence = on; st.pin.getElement().hidden = on;
+        st.residence = on; st.pin.getElement().hidden = on; st.ring.getElement().hidden = on;
         ["jw-area", "jw-area-edge"].forEach(function (l) { map.setLayoutProperty(l, "visibility", on ? "visible" : "none"); });
         ["jw-estate", "jw-estate-edge"].forEach(function (l) { map.setLayoutProperty(l, "visibility", on ? "none" : "visible"); });
       };

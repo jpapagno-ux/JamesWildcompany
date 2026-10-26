@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:wght@400;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/ledger.css">
+<link rel="stylesheet" href="maps/jw-maps.css">
 <style>
 .fade img,img.fade{filter:saturate(.78) contrast(.94) sepia(.08)}
 .plate{border:1px solid var(--rule);background:var(--paper-card);padding:10px}
@@ -88,6 +89,15 @@
     </dl>
   </div>
 </section>
+
+<section class="section" style="padding-top:0" aria-labelledby="jw-where-h">
+  <div class="wrap">
+    <div class="sechead rv"><span class="sechead__no">&#8470;</span><h2 class="sechead__title" id="jw-where-h">Where it is</h2><span class="sechead__note">House map · position approximate</span></div>
+    <div class="jw-maps jw-site" data-jw-map="stay"><script type="application/json">{"destination":"kenya","name":"Cottar's Bush Villa","short":"Cottar's","region":"Olderkesi · Maasai Mara · Kenya","mark":"host","label":"I know the host · inspected and approved","note":"Inspected, not an overnight stay. Cottar's airstrip is about 10 minutes away.","c":[35.36,-1.61],"labelLeft":false,"country":[[33.6,-4.9],[42.0,5.2]],"area":[[34.65,-2.05],[35.85,-1.05]],"estateKm":1.2,"ringLabel":"Olderkesi (approximate)","nearby":[{"name":"Keekorok","c":[35.236,-1.586]}],"places":[{"n":"KENYA","c":[37.9,0.6],"big":1},{"n":"MAASAI MARA","c":[35.0,-1.32]},{"n":"TANZANIA","c":[35.25,-2.6],"big":1}]}</script></div>
+    <p class="jw-where"><b>Where</b>Olderkesi Conservancy, Narok County, Kenya, bordering the Maasai Mara · Cottar&rsquo;s airstrip about 10 minutes · Keekorok about 1.5 hours by road</p>
+  </div>
+</section>
+
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="sechead rv"><span class="sechead__no">03</span><h2 class="sechead__title">From the archive</h2><span class="sechead__note">Partner imagery</span></div>
@@ -191,5 +201,6 @@
   </div>
 </footer>
 <script src="js/ledger.js" defer></script>
+<script src="maps/jw-embed.js" defer></script>
 </body>
 </html>

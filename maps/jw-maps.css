@@ -65,3 +65,17 @@
 .maplibregl-ctrl-group{border-radius:0!important;box-shadow:none!important;border:1px solid #1E2A30}
 .maplibregl-ctrl-attrib{font-size:10px}
 .jw-itin{margin:0;padding-left:20px;display:grid;gap:4px}
+
+/* house site skin: Libre Caslon and the ledger paper (pages with class jw-site) */
+.jw-maps.jw-site{--jw-sheet:#f9f8f3;--jw-ink:#3c3228;--jw-mute:#6b6155;--jw-rule:#c8c0b3;
+  --jw-display:"Libre Caslon Display","Libre Caslon Text",Georgia,serif;--jw-sc:"Libre Caslon Text",Georgia,serif;--jw-ui:"Courier Prime","Courier New",monospace}
+.jw-site[data-jw-map]{min-height:420px}
+.jw-site[data-jw-map=atlas] .jw-map{height:min(82vh,760px)}
+@media (max-width:600px){.jw-site[data-jw-map=atlas] .jw-map{height:500px}}
+.jw-site .jw-card{font-family:var(--serif,Georgia,serif)}
+.jw-site.jw-failed{min-height:0}
+.jw-site.jw-failed .jw-frame{display:none}
+.jw-where{margin:.9rem 0 0;font:400 var(--t-sm,15px)/1.6 var(--serif,Georgia,serif);color:var(--ink-soft,#6b6155)}
+.jw-where b{font-family:var(--mono,monospace);font-weight:700;font-size:.78em;letter-spacing:.14em;text-transform:uppercase;color:var(--ink,#3c3228);margin-right:.5em}
+.jw-stays{list-style:none;margin:1rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:.35rem 1.4rem;font:400 var(--t-sm,15px)/1.5 var(--serif,Georgia,serif)}
+.jw-stays li span{display:block;font:700 .72em/1.4 var(--mono,monospace);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft,#6b6155)}

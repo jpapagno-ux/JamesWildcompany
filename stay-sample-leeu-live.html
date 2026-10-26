@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:wght@400;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/ledger.css">
+<link rel="stylesheet" href="maps/jw-maps.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Hotel", "name": "Leeu Estates", "identifier": "STY-2026-000148", "url": "https://james-wild-and-company.vercel.app/stay-sample-leeu-live.html", "description": "A vineyard estate hotel in the Franschhoek Valley, Cape Winelands, South Africa, shown with live room rates from the booking engine.", "address": {"@type": "PostalAddress", "streetAddress": "Dassenberg Road", "addressLocality": "Franschhoek", "addressRegion": "Western Cape", "addressCountry": "ZA"}, "geo": {"@type": "GeoCoordinates", "latitude": -33.9156, "longitude": 19.1127}, "image": "https://res.cloudinary.com/jhlnq5h5/image/upload/c_fill,ar_21:9,g_auto,w_1920/f_webp,q_auto/wildco/south-africa/leeu-estates-franschhoek/leeu-estates-franschhoek-01", "priceRange": "Live rates in USD, excluding taxes and fees", "amenityFeature": [{"@type": "LocationFeatureSpecification", "name": "Spa", "value": true}, {"@type": "LocationFeatureSpecification", "name": "Wine studio", "value": true}, {"@type": "LocationFeatureSpecification", "name": "Art gallery", "value": true}, {"@type": "LocationFeatureSpecification", "name": "Fine dining", "value": true}, {"@type": "LocationFeatureSpecification", "name": "Kitchen gardens", "value": true}, {"@type": "LocationFeatureSpecification", "name": "Vineyard views", "value": true}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are the prices on this page live?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. When you change the dates, the page reads the booking engine for Leeu Estates and shows the Best Available Rate per room, per night, in US dollars, excluding taxes and fees. Results are cached for up to fifteen minutes."}}, {"@type": "Question", "name": "Is the price shown the final price?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is the nightly room rate before taxes and fees. The booking page shows the full total, and we confirm inclusions and policies with you before anything is charged."}}, {"@type": "Question", "name": "How far is Leeu Estates from Cape Town?", "acceptedAnswer": {"@type": "Answer", "text": "About 70 km from Cape Town International Airport (CPT), roughly 60 to 75 minutes by car depending on traffic."}}, {"@type": "Question", "name": "When is the best time to visit Franschhoek?", "acceptedAnswer": {"@type": "Answer", "text": "October to April: warm days, vineyards in leaf, harvest from late summer, and long lunches outdoors."}}, {"@type": "Question", "name": "What is there to do at the estate?", "acceptedAnswer": {"@type": "Answer", "text": "Wine tastings at the Mullineux & Leeu wine studio, the Leeu Spa, the Everard Read gallery, the kitchen gardens, the Conservatory dining room and La Petite Colombe, and Franschhoek village a short drive away."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "James Wild & Company", "item": "https://james-wild-and-company.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "James Wild Stays", "item": "https://james-wild-and-company.vercel.app/stays.html"}, {"@type": "ListItem", "position": 3, "name": "Leeu Estates", "item": "https://james-wild-and-company.vercel.app/stay-sample-leeu-live.html"}]}]}</script>
 </head>
 <body>
@@ -109,6 +110,15 @@
     </dl>
   </div>
 </section>
+
+<section class="section" style="padding-top:0" aria-labelledby="jw-where-h">
+  <div class="wrap">
+    <div class="sechead rv"><span class="sechead__no">&#8470;</span><h2 class="sechead__title" id="jw-where-h">Where it is</h2><span class="sechead__note">House map · position approximate</span></div>
+    <div class="jw-maps jw-site" data-jw-map="stay"><script type="application/json">{"destination":"southern-africa","name":"Leeu Estates","region":"Franschhoek · Western Cape · South Africa","mark":"know","label":"I know a place · visited and vetted","note":"Cape Town International (CPT) is 60 to 75 minutes by car.","c":[19.1127,-33.9156],"country":[[16.3,-35.0],[33.2,-21.8]],"area":[[18.25,-34.3],[19.55,-33.55]],"estateKm":1.0,"ringLabel":"The estate (approximate)","others":[{"name":"Ellerman House","c":[18.3786,-33.9246],"mark":"know","labelLeft":true}],"nearby":[{"name":"Cape Town International · CPT","c":[18.6017,-33.9715]},{"name":"Stellenbosch","c":[18.86,-33.934]}],"places":[{"n":"SOUTH AFRICA","c":[25.5,-29.5],"big":1},{"n":"ATLANTIC OCEAN","c":[17.9,-33.4]},{"n":"FALSE BAY","c":[18.68,-34.2]}]}</script></div>
+    <p class="jw-where"><b>Where</b>Dassenberg Road, Franschhoek Valley, Western Cape, South Africa · Cape Town International (CPT), about 70 km, 60 to 75 minutes by car</p>
+  </div>
+</section>
+
 
 <section class="section" style="padding-top:0">
   <div class="wrap">
@@ -221,5 +231,6 @@
 </footer>
 <script src="js/ledger.js" defer></script>
 <script src="js/live-rates.js" defer></script>
+<script src="maps/jw-embed.js" defer></script>
 </body>
 </html>

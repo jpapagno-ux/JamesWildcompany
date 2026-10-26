@@ -32,6 +32,9 @@ DESTINATIONS = {
     "greenland":  ("Greenland", [-75.0, 58.5, -14.0, 79.5], ["Greenland"], 5),
     "indonesia":  ("Raja Ampat, Komodo & Bali", [113.8, -10.6, 135.2, 1.2], ["Indonesia"], 6),
     "raja-ampat": ("Raja Ampat", [129.4, -2.6, 132.1, 0.8], ["Indonesia"], 7),
+    "southern-africa": ("South Africa & Botswana", [10.0, -36.5, 40.0, -15.0], ["South Africa", "Botswana"], 6),
+    "kenya":      ("Kenya", [33.4, -5.2, 42.2, 5.4], ["Kenya"], 6),
+    "riviera-nayarit": ("Riviera Nayarit", [-106.6, 19.4, -104.2, 22.0], ["Mexico"], 7),
 }
 INK = (74, 63, 51)        # land shadow ink
 HI = (251, 248, 241)      # land highlight

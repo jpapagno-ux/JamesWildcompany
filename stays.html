@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:wght@400;700&family=Courier+Prime:wght@400;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/ledger.css">
+<link rel="stylesheet" href="maps/jw-maps.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -139,6 +140,9 @@
     <div class="grid rv" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,195px),1fr))">
       <div class="card"><div class="card__no">01</div><h3>Africa</h3><p class="mono" style="font-size:var(--t-2xs);letter-spacing:0.14em;text-transform:uppercase;color:var(--oxblood);margin-bottom:0.7rem">93 entries</p><p>South Africa · Tanzania · Botswana · Kenya · Zambia · Namibia · Rwanda · Zimbabwe · Madagascar</p></div><div class="card"><div class="card__no">02</div><h3>South-East Asia</h3><p class="mono" style="font-size:var(--t-2xs);letter-spacing:0.14em;text-transform:uppercase;color:var(--oxblood);margin-bottom:0.7rem">10 entries</p><p>Indonesia — Bali, Ubud, Sanur, Jimbaran</p></div><div class="card"><div class="card__no">03</div><h3>The Pacific</h3><p class="mono" style="font-size:var(--t-2xs);letter-spacing:0.14em;text-transform:uppercase;color:var(--oxblood);margin-bottom:0.7rem">8 entries</p><p>French Polynesia — Society Islands, Tuamotus, Marquesas · Maldives</p></div><div class="card"><div class="card__no">04</div><h3>Central America</h3><p class="mono" style="font-size:var(--t-2xs);letter-spacing:0.14em;text-transform:uppercase;color:var(--oxblood);margin-bottom:0.7rem">8 entries</p><p>Costa Rica · Panama · Nicaragua · Guatemala</p></div><div class="card"><div class="card__no">05</div><h3>Europe &amp; the Arctic</h3><p class="mono" style="font-size:var(--t-2xs);letter-spacing:0.14em;text-transform:uppercase;color:var(--oxblood);margin-bottom:0.7rem">5 entries</p><p>Ireland · Greenland and the high Arctic · United States</p></div>
     </div>
+    <div class="sechead rv" style="margin-top:clamp(2rem,4vw,3rem)"><span class="sechead__no">&#8470;</span><h3 class="sechead__title" id="jw-atlas-h">On the map: Southern Africa</h3><span class="sechead__note">Positions approximate</span></div>
+    <div class="jw-maps jw-site" data-jw-map="atlas" aria-labelledby="jw-atlas-h"><script type="application/json">{"destination":"southern-africa","phoneLabels":false,"title":"Southern Africa","subtitle":"Where James has slept · 2012 to 2026","bounds":[[16.4,-34.9],[33.2,-16.9]],"stays":[{"name":"Monwana","c":[31.1336,-24.4372],"mark":"know","url":"stay-sample-monwana.html"},{"name":"Kirkman's Kamp","c":[31.47,-24.88],"mark":"know"},{"name":"Lion Sands Ivory Lodge","c":[31.555,-24.972],"mark":"know","labelLeft":true},{"name":"Jaci's Lodges","c":[26.3,-24.73],"mark":"host","labelLeft":true},{"name":"Tswalu Kalahari","c":[22.4,-27.27],"mark":"know"},{"name":"Ellerman House","c":[18.3786,-33.9246],"mark":"know","labelLeft":true},{"name":"Leeu Estates","c":[19.1127,-33.9156],"mark":"know","url":"stay-sample-leeu-live.html"},{"name":"DumaTau","c":[23.52,-18.58],"mark":"know"},{"name":"Mombo","c":[22.78,-19.21],"mark":"know","labelLeft":true},{"name":"Qorokwe","c":[23.3,-19.52],"mark":"know"},{"name":"Tongabezi","c":[25.77,-17.82],"mark":"know"}],"places":[{"n":"SOUTH AFRICA","c":[24.5,-30.3],"big":1},{"n":"BOTSWANA","c":[24.2,-22.4],"big":1},{"n":"NAMIBIA","c":[17.8,-23.0],"big":1},{"n":"ZIMBABWE","c":[29.8,-19.6],"big":1},{"n":"OKAVANGO DELTA","c":[22.7,-20.05]},{"n":"GREATER KRUGER","c":[31.0,-23.75]}]}</script></div>
+    <ul class="jw-stays"><li><a href="stay-sample-monwana.html">Monwana</a><span>Thornybush, Greater Kruger · 2026</span></li><li>Kirkman's Kamp<span>Sabi Sand, Greater Kruger · 2026</span></li><li>Lion Sands Ivory Lodge<span>Sabi Sand, Greater Kruger · 2026</span></li><li>Jaci's Lodges<span>Madikwe · 2026 · met the host</span></li><li>Tswalu Kalahari<span>Kalahari · 2012</span></li><li>Ellerman House<span>Bantry Bay, Cape Town · 2026</span></li><li><a href="stay-sample-leeu-live.html">Leeu Estates</a><span>Franschhoek · 2026</span></li><li>DumaTau<span>Linyanti, Botswana · 2026</span></li><li>Mombo<span>Chief&rsquo;s Island, Okavango Delta, Botswana · 2026</span></li><li>Qorokwe<span>Okavango Delta, Botswana · 2026</span></li><li>Tongabezi<span>Zambezi River, Zambia · 2012</span></li></ul>
   </div>
 </section>
 
@@ -330,5 +334,6 @@
   </div>
 </footer>
 <script src="js/ledger.js" defer></script>
+<script src="maps/jw-embed.js" defer></script>
 </body>
 </html>

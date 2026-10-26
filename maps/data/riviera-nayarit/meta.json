@@ -1,0 +1,36 @@
+{
+ "slug": "riviera-nayarit",
+ "name": "Riviera Nayarit",
+ "bbox": [
+  -106.6,
+  19.4,
+  -104.2,
+  22.0
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    -106.6,
+    22.0
+   ],
+   [
+    -104.2,
+    22.0
+   ],
+   [
+    -104.2,
+    19.4
+   ],
+   [
+    -106.6,
+    19.4
+   ]
+  ],
+  "size": [
+   436,
+   506
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}
