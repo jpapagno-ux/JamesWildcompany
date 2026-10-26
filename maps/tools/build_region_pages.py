@@ -292,7 +292,7 @@ def main():
     today = date.today().isoformat()
     public = ["stays.html", "safaris.html", "gatherings.html", "founder.html", "advisors.html", "advisor-james-papagno.html", "captains-log.html",
               "captains-log-antarctica-2020.html", "stay-sample-monwana.html", "stay-sample-leeu-live.html", "gathering-casa-koko.html", "gatherings-cottars-bush-villa.html"]
-    urls = [ORIGIN + "/"] + [f"{ORIGIN}/{f}" for f in public if os.path.exists(os.path.join(ROOT, f))] + [f"{ORIGIN}/stays/{k}/" for k in REGIONS]
+    urls = [ORIGIN + "/"] + [f"{ORIGIN}/{f}" for f in public if os.path.exists(os.path.join(ROOT, f))] + [f"{ORIGIN}/stays/{k}/" for k in list(REGIONS) + sorted(x for x in os.listdir(os.path.join(ROOT, "stays")) if x not in REGIONS and os.path.isdir(os.path.join(ROOT, "stays", x)))]
     open(os.path.join(ROOT, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "".join(f"  <url><loc>{u}</loc><lastmod>{today}</lastmod></url>\n" for u in urls) + "</urlset>\n")
     rb = os.path.join(ROOT, "robots.txt"); t = open(rb).read()
