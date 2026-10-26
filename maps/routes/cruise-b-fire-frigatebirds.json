@@ -1,0 +1,97 @@
+{
+ "id": "cruise-b-fire-frigatebirds",
+ "type": "voyage",
+ "destination": "galapagos",
+ "title": "Fire & Frigatebirds",
+ "subtitle": "5 days · Sunday to Thursday · Baltra round trip",
+ "code": "B",
+ "days": {
+  "1": "Straight to Dragon Hill",
+  "2": "Black Turtle Cove & Chinese Hat",
+  "3": "Genovesa, the Bird Island",
+  "4": "Bartholomew & Sullivan Bay",
+  "5": "The Highlands, Then Home"
+ },
+ "stops": [
+  {
+   "day": 1,
+   "name": "Baltra — airport arrival",
+   "lat": -0.453,
+   "lng": -90.266,
+   "mode": "air",
+   "kind": "airstrip"
+  },
+  {
+   "day": 1,
+   "name": "Santa Cruz — Dragon Hill",
+   "lat": -0.54,
+   "lng": -90.475,
+   "mode": "sea",
+   "time": "PM"
+  },
+  {
+   "day": 2,
+   "name": "Santa Cruz — Black Turtle Cove",
+   "lat": -0.497,
+   "lng": -90.33,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 2,
+   "name": "Santiago — Chinese Hat Islet",
+   "lat": -0.36,
+   "lng": -90.585,
+   "mode": "sea",
+   "time": "PM"
+  },
+  {
+   "day": 3,
+   "name": "Genovesa — El Barranco",
+   "lat": 0.316,
+   "lng": -89.954,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 3,
+   "name": "Genovesa — Darwin Bay",
+   "lat": 0.309,
+   "lng": -89.963,
+   "mode": "sea",
+   "time": "PM"
+  },
+  {
+   "day": 4,
+   "name": "Bartholomew",
+   "lat": -0.282,
+   "lng": -90.55,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 4,
+   "name": "Santiago — Sullivan Bay",
+   "lat": -0.288,
+   "lng": -90.566,
+   "mode": "sea",
+   "time": "PM"
+  },
+  {
+   "day": 5,
+   "name": "Santa Cruz — the Highlands",
+   "lat": -0.625,
+   "lng": -90.385,
+   "mode": "land",
+   "time": "AM"
+  },
+  {
+   "day": 5,
+   "name": "Baltra — airport transfer",
+   "lat": -0.453,
+   "lng": -90.266,
+   "mode": "land",
+   "kind": "airstrip"
+  }
+ ]
+}

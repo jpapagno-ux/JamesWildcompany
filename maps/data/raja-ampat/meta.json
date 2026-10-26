@@ -1,0 +1,36 @@
+{
+ "slug": "raja-ampat",
+ "name": "Raja Ampat",
+ "bbox": [
+  129.4,
+  -2.6,
+  132.1,
+  0.8
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    129.4,
+    0.8
+   ],
+   [
+    132.1,
+    0.8
+   ],
+   [
+    132.1,
+    -2.6
+   ],
+   [
+    129.4,
+    -2.6
+   ]
+  ],
+  "size": [
+   492,
+   618
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

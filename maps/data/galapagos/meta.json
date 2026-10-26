@@ -1,0 +1,36 @@
+{
+ "slug": "galapagos",
+ "name": "Galápagos",
+ "bbox": [
+  -92.3,
+  -1.9,
+  -88.9,
+  0.9
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    -92.3,
+    0.9
+   ],
+   [
+    -88.9,
+    0.9
+   ],
+   [
+    -88.9,
+    -1.9
+   ],
+   [
+    -92.3,
+    -1.9
+   ]
+  ],
+  "size": [
+   620,
+   508
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

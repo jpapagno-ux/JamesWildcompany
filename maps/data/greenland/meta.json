@@ -1,0 +1,36 @@
+{
+ "slug": "greenland",
+ "name": "Greenland",
+ "bbox": [
+  -75.0,
+  58.5,
+  -14.0,
+  79.5
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    -75.0,
+    79.5
+   ],
+   [
+    -14.0,
+    79.5
+   ],
+   [
+    -14.0,
+    58.5
+   ],
+   [
+    -75.0,
+    58.5
+   ]
+  ],
+  "size": [
+   1388,
+   1462
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

@@ -1,0 +1,36 @@
+{
+ "slug": "iceland",
+ "name": "Iceland",
+ "bbox": [
+  -25.2,
+  62.8,
+  -12.6,
+  67.2
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    -25.2,
+    67.2
+   ],
+   [
+    -12.6,
+    67.2
+   ],
+   [
+    -12.6,
+    62.8
+   ],
+   [
+    -25.2,
+    62.8
+   ]
+  ],
+  "size": [
+   1146,
+   950
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

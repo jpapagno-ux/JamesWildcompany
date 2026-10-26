@@ -1,0 +1,36 @@
+{
+ "slug": "belize",
+ "name": "Belize",
+ "bbox": [
+  -91.4,
+  14.8,
+  -85.6,
+  19.4
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    -91.4,
+    19.4
+   ],
+   [
+    -85.6,
+    19.4
+   ],
+   [
+    -85.6,
+    14.8
+   ],
+   [
+    -91.4,
+    14.8
+   ]
+  ],
+  "size": [
+   1056,
+   876
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

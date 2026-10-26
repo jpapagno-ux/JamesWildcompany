@@ -1,0 +1,114 @@
+{
+ "id": "the-maya-road",
+ "type": "overland",
+ "destination": "belize",
+ "title": "The Maya road",
+ "subtitle": "Belize & Tikal · 10 days · private guide",
+ "days": {
+  "1": "Altun Ha",
+  "2": "Lamanai",
+  "3": "Into Cayo",
+  "4": "Xunantunich",
+  "5": "Tikal",
+  "6": "Caracol",
+  "7": "Hidden Valley",
+  "8": "Cockscomb",
+  "9": "Hopkins",
+  "10": "Placencia, then home"
+ },
+ "stops": [
+  {
+   "day": 1,
+   "name": "Belize City · airport",
+   "lat": 17.539,
+   "lng": -88.308
+  },
+  {
+   "day": 1,
+   "name": "Altun Ha",
+   "lat": 17.764,
+   "lng": -88.347,
+   "mode": "road"
+  },
+  {
+   "day": 2,
+   "name": "Lamanai, up the New River",
+   "lat": 17.765,
+   "lng": -88.654,
+   "mode": "boat"
+  },
+  {
+   "day": 3,
+   "name": "Chaa Creek, Cayo",
+   "lat": 17.11,
+   "lng": -89.073,
+   "mode": "road"
+  },
+  {
+   "day": 4,
+   "name": "Xunantunich",
+   "lat": 17.089,
+   "lng": -89.141,
+   "mode": "road"
+  },
+  {
+   "day": 5,
+   "name": "Tikal, Guatemala",
+   "lat": 17.222,
+   "lng": -89.6237,
+   "mode": "road"
+  },
+  {
+   "day": 5,
+   "name": "Back to Chaa Creek",
+   "lat": 17.11,
+   "lng": -89.073,
+   "mode": "road",
+   "nolabel": true
+  },
+  {
+   "day": 6,
+   "name": "Caracol",
+   "lat": 16.763,
+   "lng": -89.118,
+   "mode": "road"
+  },
+  {
+   "day": 7,
+   "name": "Hidden Valley",
+   "lat": 17.05,
+   "lng": -88.85,
+   "mode": "road"
+  },
+  {
+   "day": 8,
+   "name": "Cockscomb Basin",
+   "lat": 16.778,
+   "lng": -88.459,
+   "mode": "road"
+  },
+  {
+   "day": 9,
+   "name": "Hopkins",
+   "lat": 16.856,
+   "lng": -88.281,
+   "mode": "road"
+  },
+  {
+   "day": 10,
+   "name": "Placencia",
+   "lat": 16.514,
+   "lng": -88.366,
+   "mode": "road"
+  },
+  {
+   "day": 10,
+   "name": "Fly home from Belize City",
+   "lat": 17.539,
+   "lng": -88.308,
+   "mode": "air",
+   "nolabel": true
+  }
+ ],
+ "mark": "know"
+}

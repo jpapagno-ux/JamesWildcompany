@@ -1,0 +1,118 @@
+{
+ "id": "10-day-raja-ampat-north",
+ "type": "voyage",
+ "destination": "raja-ampat",
+ "title": "10 Day Raja Ampat North",
+ "subtitle": "10 days · 9 nights · Sorong round trip aboard Aliikai",
+ "code": "N",
+ "days": {
+  "1": "Embarkation & Arrival",
+  "2": "Set Sail · Kri Peninsula",
+  "3": "The Passage",
+  "4": "Penemu",
+  "5": "Wayag Islands",
+  "6": "Wofoh Islands",
+  "7": "Arborek",
+  "8": "Mansuar Island",
+  "9": "Waterfalls & Jungle",
+  "10": "Disembarkation"
+ },
+ "stops": [
+  {
+   "day": 1,
+   "name": "Sorong — met at the airport",
+   "lat": -0.876,
+   "lng": 131.255,
+   "mode": "air",
+   "kind": "airstrip"
+  },
+  {
+   "day": 1,
+   "name": "Sorong harbour — board Aliikai",
+   "lat": -0.86,
+   "lng": 131.24,
+   "mode": "land",
+   "time": "PM"
+  },
+  {
+   "day": 2,
+   "name": "Mioskon Bay & the Kri peninsula",
+   "lat": -0.556,
+   "lng": 130.685,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 3,
+   "name": "The Passage — Red Bird of Paradise at dawn",
+   "lat": -0.43,
+   "lng": 130.54,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 3,
+   "name": "Kabui Bay — the mushroom islands",
+   "lat": -0.4,
+   "lng": 130.6,
+   "mode": "sea",
+   "time": "PM"
+  },
+  {
+   "day": 4,
+   "name": "Penemu — the limestone domes",
+   "lat": -0.565,
+   "lng": 130.27,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 5,
+   "name": "Wayag — the classic view",
+   "lat": 0.17,
+   "lng": 130.03,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 6,
+   "name": "Wofoh — reef wall and sandbar",
+   "lat": -0.1,
+   "lng": 130.28,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 7,
+   "name": "Arborek — the manta ballet",
+   "lat": -0.565,
+   "lng": 130.52,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 8,
+   "name": "Mansuar — turtles and a village",
+   "lat": -0.6,
+   "lng": 130.6,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 9,
+   "name": "Batanta — jungle waterfalls",
+   "lat": -0.83,
+   "lng": 130.75,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 10,
+   "name": "Sorong — farewell breakfast, ashore",
+   "lat": -0.86,
+   "lng": 131.24,
+   "mode": "sea",
+   "time": "AM"
+  }
+ ]
+}

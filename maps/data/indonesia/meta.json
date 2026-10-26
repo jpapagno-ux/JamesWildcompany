@@ -1,0 +1,36 @@
+{
+ "slug": "indonesia",
+ "name": "Raja Ampat, Komodo & Bali",
+ "bbox": [
+  113.8,
+  -10.6,
+  135.2,
+  1.2
+ ],
+ "relief": {
+  "url": "relief.webp",
+  "coordinates": [
+   [
+    113.8,
+    1.2
+   ],
+   [
+    135.2,
+    1.2
+   ],
+   [
+    135.2,
+    -10.6
+   ],
+   [
+    113.8,
+    -10.6
+   ]
+  ],
+  "size": [
+   974,
+   540
+  ]
+ },
+ "attribution": "Land and depth: Natural Earth · Relief: NASA Earth Observatory via FreeTiler"
+}

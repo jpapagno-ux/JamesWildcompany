@@ -1,0 +1,114 @@
+{
+ "id": "cruise-a-the-old-south",
+ "type": "voyage",
+ "destination": "galapagos",
+ "title": "The Old South",
+ "subtitle": "6 days · Tuesday to Sunday · San Cristóbal to Baltra",
+ "code": "A",
+ "days": {
+  "1": "Wheels Down on San Cristóbal",
+  "2": "Española, the Elder",
+  "3": "Floreana, Pirates and Post",
+  "4": "Santa Fe & South Plaza",
+  "5": "Frigatebirds & Turtle Beach",
+  "6": "Mosquera, Then Home"
+ },
+ "stops": [
+  {
+   "day": 1,
+   "name": "San Cristóbal — airport arrival",
+   "lat": -0.91,
+   "lng": -89.617,
+   "mode": "air",
+   "kind": "airstrip"
+  },
+  {
+   "day": 1,
+   "name": "San Cristóbal — David Rodríguez Breeding Center",
+   "lat": -0.889,
+   "lng": -89.44,
+   "mode": "land",
+   "time": "PM"
+  },
+  {
+   "day": 2,
+   "name": "Española — Suárez Point",
+   "lat": -1.371,
+   "lng": -89.743,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 2,
+   "name": "Española — Gardner Bay & Osborn Islet",
+   "lat": -1.348,
+   "lng": -89.655,
+   "mode": "sea",
+   "time": "PM"
+  },
+  {
+   "day": 3,
+   "name": "Floreana — Cormorant Point & Devil's Crown",
+   "lat": -1.22,
+   "lng": -90.422,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 3,
+   "name": "Floreana — Baroness Viewpoint & Post Office Bay",
+   "lat": -1.236,
+   "lng": -90.453,
+   "mode": "sea",
+   "time": "PM"
+  },
+  {
+   "day": 4,
+   "name": "Santa Fe",
+   "lat": -0.803,
+   "lng": -90.04,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 4,
+   "name": "South Plaza",
+   "lat": -0.583,
+   "lng": -90.165,
+   "mode": "sea",
+   "time": "PM"
+  },
+  {
+   "day": 5,
+   "name": "North Seymour",
+   "lat": -0.396,
+   "lng": -90.288,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 5,
+   "name": "Santa Cruz — Bachas Beach",
+   "lat": -0.489,
+   "lng": -90.336,
+   "mode": "sea",
+   "time": "PM"
+  },
+  {
+   "day": 6,
+   "name": "Mosquera Islet",
+   "lat": -0.405,
+   "lng": -90.274,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 6,
+   "name": "Baltra — airport transfer",
+   "lat": -0.453,
+   "lng": -90.266,
+   "mode": "land",
+   "kind": "airstrip"
+  }
+ ]
+}

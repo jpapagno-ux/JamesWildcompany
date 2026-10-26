@@ -1,0 +1,114 @@
+{
+ "id": "cruise-c-the-young-west",
+ "type": "voyage",
+ "destination": "galapagos",
+ "title": "The Young West",
+ "subtitle": "6 days · Thursday to Tuesday · Baltra to San Cristóbal",
+ "code": "C",
+ "days": {
+  "1": "Puerto Ayora & the Tortoise Nursery",
+  "2": "Isabela Begins",
+  "3": "Moreno Point & Elizabeth Bay",
+  "4": "Fernandina, the Youngest",
+  "5": "Santiago, Two Shores",
+  "6": "Lobos Island & Home"
+ },
+ "stops": [
+  {
+   "day": 1,
+   "name": "Baltra — airport arrival",
+   "lat": -0.453,
+   "lng": -90.266,
+   "mode": "air",
+   "kind": "airstrip"
+  },
+  {
+   "day": 1,
+   "name": "Santa Cruz — Fausto Llerena Breeding Center",
+   "lat": -0.741,
+   "lng": -90.303,
+   "mode": "land",
+   "time": "PM"
+  },
+  {
+   "day": 2,
+   "name": "Isabela — Tintoreras Islet & Sierra Negra",
+   "lat": -0.966,
+   "lng": -90.958,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 2,
+   "name": "Isabela — the Wetlands",
+   "lat": -0.955,
+   "lng": -90.99,
+   "mode": "land",
+   "time": "PM"
+  },
+  {
+   "day": 3,
+   "name": "Isabela — Moreno Point",
+   "lat": -0.712,
+   "lng": -91.33,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 3,
+   "name": "Isabela — Elizabeth Bay",
+   "lat": -0.592,
+   "lng": -91.105,
+   "mode": "sea",
+   "time": "PM"
+  },
+  {
+   "day": 4,
+   "name": "Fernandina — Espinoza Point",
+   "lat": -0.266,
+   "lng": -91.44,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 4,
+   "name": "Isabela — Tagus Cove",
+   "lat": -0.268,
+   "lng": -91.372,
+   "mode": "sea",
+   "time": "PM"
+  },
+  {
+   "day": 5,
+   "name": "Santiago — Espumilla Beach or Buccaneer Cove",
+   "lat": -0.205,
+   "lng": -90.825,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 5,
+   "name": "Santiago — Egas Port",
+   "lat": -0.248,
+   "lng": -90.862,
+   "mode": "sea",
+   "time": "PM"
+  },
+  {
+   "day": 6,
+   "name": "San Cristóbal — Lobos Island",
+   "lat": -0.857,
+   "lng": -89.566,
+   "mode": "sea",
+   "time": "AM"
+  },
+  {
+   "day": 6,
+   "name": "San Cristóbal — airport transfer",
+   "lat": -0.91,
+   "lng": -89.617,
+   "mode": "land",
+   "kind": "airstrip"
+  }
+ ]
+}
