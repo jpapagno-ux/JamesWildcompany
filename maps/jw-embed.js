@@ -13,7 +13,9 @@
  *                 country:[[w,s],[e,n]], area:[[w,s],[e,n]], zoom, residence, others:[], nearby:[], places:[] }
  * atlas config: { destination, title, subtitle, bounds:[[w,s],[e,n]], stays:[], places:[] }
  * region config: { destination, region, title, subtitle, bounds, countries, listId, palette: { accent, terrain_key: [[colour, name]…] } }
- * itinerary config (journey and voyage pages): { route: "<id>" or the jw-route object inline, accent, region: { name, bounds }, context, autoplay }
+ * itinerary config (journey and voyage pages): { route: "<id>" | routes: ["<id>", …], destination, kind: "voyage"|"overland", kicker, caption }
+ *   Draws the animated chart (jw-chart.js + d3, about 300 KB, loaded on approach). Add "engine": "maplibre" for the
+ *   older MapLibre itinerary: { route, accent, region: { name, bounds }, context, autoplay }.
  *   context (default on): every stay, vessel launch, reserve and family residence in the region's feed is drawn too.
  *   Stop cards: any element with data-jw-day="<day>" (and data-jw-for="<map id>") flies the map to that day.
  *   Put the engraved fallback (<figure class="jw-fallback">) inside <div class="jw-frame chart|survey"> in the page HTML:
@@ -238,7 +240,26 @@
   // config: { route: "<id>" | {jw-route}, accent, region: { name, bounds }, context: true, autoplay }
   // Controls: Route · Country · Region zoom steps (top left), layer toggles in the legend, and any [data-day] button
   // on the page (the stop cards under the map) flies the map to that day.
+  // HJW-01: itinerary maps are the animated chart (maps/jw-chart.js, d3). The MapLibre version stays available
+  // as { "engine": "maplibre" } in the config.
+  var chartReady = null;
+  function chartLib() {
+    if (!chartReady) {
+      css(BASE + "jw-chart.css");
+      chartReady = (window.d3 && window.d3.geoOrthographic ? Promise.resolve() : js(BASE + "vendor/d3.min.js"))
+        .then(function () { return window.JWChart ? 0 : js(BASE + "jw-chart.js"); });
+    }
+    return chartReady;
+  }
   function itinerary(root, o) {
+    if (o.engine === "maplibre") return itineraryMapLibre(root, o);
+    var ids = o.routes || (o.route ? [o.route] : []);
+    chartLib().then(function () {
+      return window.JWChart.mount(root, { routes: ids, dest: o.destination, kind: o.kind, kicker: o.kicker, caption: o.caption, alt: o.alt, cartouche: o.cartouche, palette: o.palette, chart: o.chart });
+    }).then(function () { root.classList.add("jw-live"); })
+      .catch(function (e) { root.classList.add("jw-failed"); if (window.console) console.warn("jw-chart", e); });
+  }
+  function itineraryMapLibre(root, o) {
     var frame = root.querySelector(".jw-frame") || root.appendChild(el("div", "jw-frame survey"));
     var fb = frame.querySelector(".jw-fallback"), art = fb && fb.querySelector("svg");
     var getRoute = typeof o.route === "string" ? fetch(BASE + "routes/" + o.route + ".json").then(function (r) { return r.json(); }) : Promise.resolve(o.route);

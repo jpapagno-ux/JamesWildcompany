@@ -62,3 +62,14 @@ Private houses add `"residence":true`: the map shows a 2 km area, never a pin. N
   5-minute cache), falling back to `data/stays.json`. Add a row in Airtable, tick **Show on Map**, and it appears on its region map.
 - Refresh the committed copy and the written lists: `AIRTABLE_TOKEN=… python3 tools/export_stays.py && python3 tools/build_region_pages.py`.
 - `data/world.geojson` is the simplified world land drawn behind every region map.
+
+## Itinerary charts (HJW-01)
+
+`data-jw-map="itinerary"` now draws the animated chart (`jw-chart.js` + `jw-chart.css`, with d3 7.8.5 vendored in `vendor/d3.min.js`) instead of MapLibre. Same jw-route v1 files in `routes/`; the region outline comes from `data/<destination>/base.geojson`, the globe from `data/world.geojson`.
+
+```html
+<div data-jw-map="itinerary"><script type="application/json">{"route":"magellan-discoverer-inaugural","kind":"voyage"}</script></div>
+<script src="maps/jw-embed.js" defer></script>
+```
+
+Config: `route` or `routes:[…]` (several give route buttons), `destination`, `kind` (`voyage` | `overland`, sets the HJW-01 palette), `kicker`, `caption`, `alt`. Stops with `"nolabel": true` are steering points: the line bends through them without a hold. Add `"places"` to a route for engraved sea and land names. One chart per page. `"engine":"maplibre"` keeps the old MapLibre itinerary.
