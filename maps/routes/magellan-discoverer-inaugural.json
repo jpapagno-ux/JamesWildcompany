@@ -1,0 +1,193 @@
+{
+ "id": "magellan-discoverer-inaugural",
+ "type": "voyage",
+ "destination": "antarctica",
+ "title": "Magellan Discoverer Inaugural Air-Cruise",
+ "short": "Inaugural Air-Cruise · 10 days",
+ "subtitle": "10 days · Punta Arenas by sea, King George Island by air · Antarctica21",
+ "code": "Antarctica21 · Magellan Discoverer",
+ "days": {
+  "1": "Punta Arenas & the Strait",
+  "2": "Glacier Alley",
+  "3": "Ushuaia & the Beagle Channel",
+  "4": "The Drake Passage",
+  "5": "Into the South Shetlands",
+  "6": "The Antarctic Peninsula",
+  "7": "Ice, Zodiacs and the Gerlache",
+  "8": "Last Landings",
+  "9": "The Flight North",
+  "10": "Onward"
+ },
+ "stops": [
+  {
+   "day": 1,
+   "name": "Punta Arenas · board Magellan Discoverer",
+   "lat": -53.163,
+   "lng": -70.917,
+   "kind": "port",
+   "time": "PM"
+  },
+  {
+   "day": 1,
+   "name": "Strait of Magellan",
+   "lat": -53.55,
+   "lng": -70.85,
+   "mode": "sea",
+   "nolabel": true
+  },
+  {
+   "day": 1,
+   "name": "Strait of Magellan · toward Cape Froward",
+   "lat": -53.9,
+   "lng": -71.3,
+   "mode": "sea"
+  },
+  {
+   "day": 2,
+   "name": "Cockburn Channel",
+   "lat": -54.3,
+   "lng": -71.9,
+   "mode": "sea",
+   "nolabel": true
+  },
+  {
+   "day": 2,
+   "name": "Outer coast of Tierra del Fuego",
+   "lat": -55.0,
+   "lng": -71.1,
+   "mode": "sea",
+   "nolabel": true
+  },
+  {
+   "day": 2,
+   "name": "Beagle Channel · northwest arm",
+   "lat": -54.93,
+   "lng": -70.3,
+   "mode": "sea",
+   "nolabel": true
+  },
+  {
+   "day": 2,
+   "name": "Glacier Alley · Garibaldi Glacier",
+   "lat": -54.74,
+   "lng": -69.95,
+   "mode": "sea",
+   "time": "PM"
+  },
+  {
+   "day": 3,
+   "name": "Ushuaia · free time ashore",
+   "lat": -54.801,
+   "lng": -68.303,
+   "mode": "sea",
+   "kind": "port",
+   "time": "AM"
+  },
+  {
+   "day": 3,
+   "name": "Beagle Channel · outbound",
+   "lat": -55.05,
+   "lng": -66.9,
+   "mode": "sea",
+   "time": "PM",
+   "nolabel": true
+  },
+  {
+   "day": 4,
+   "name": "The Drake Passage",
+   "lat": -58.0,
+   "lng": -63.0,
+   "mode": "sea"
+  },
+  {
+   "day": 5,
+   "name": "South Shetland Islands",
+   "lat": -62.15,
+   "lng": -58.5,
+   "mode": "sea"
+  },
+  {
+   "day": 6,
+   "name": "Antarctic Peninsula · by ship and Zodiac",
+   "lat": -63.25,
+   "lng": -61.0,
+   "mode": "sea"
+  },
+  {
+   "day": 7,
+   "name": "Antarctic Peninsula · Gerlache Strait",
+   "lat": -64.25,
+   "lng": -63.3,
+   "mode": "sea"
+  },
+  {
+   "day": 8,
+   "name": "Antarctic Peninsula · last landings",
+   "lat": -63.5,
+   "lng": -61.5,
+   "mode": "sea"
+  },
+  {
+   "day": 9,
+   "name": "King George Island · Frei airfield",
+   "lat": -62.191,
+   "lng": -58.986,
+   "mode": "sea",
+   "kind": "airstrip",
+   "time": "AM"
+  },
+  {
+   "day": 9,
+   "name": "Punta Arenas · the flight north",
+   "lat": -53.003,
+   "lng": -70.855,
+   "mode": "air",
+   "kind": "airstrip",
+   "time": "PM"
+  },
+  {
+   "day": 10,
+   "name": "Punta Arenas · breakfast, then onward",
+   "lat": -53.163,
+   "lng": -70.917,
+   "mode": "road",
+   "time": "AM"
+  }
+ ],
+ "places": [
+  {
+   "name": "DRAKE PASSAGE",
+   "lat": -59.3,
+   "lng": -65.2,
+   "size": 16
+  },
+  {
+   "name": "TIERRA DEL FUEGO",
+   "lat": -53.9,
+   "lng": -68.2,
+   "minR": 2500,
+   "size": 12
+  },
+  {
+   "name": "ANTARCTIC PENINSULA",
+   "lat": -66.2,
+   "lng": -64.6,
+   "size": 14
+  },
+  {
+   "name": "SOUTH SHETLAND IS.",
+   "lat": -61.6,
+   "lng": -56.4,
+   "minR": 2500,
+   "size": 12
+  },
+  {
+   "name": "SCOTIA SEA",
+   "lat": -57.5,
+   "lng": -52.0,
+   "size": 15
+  }
+ ],
+ "map_note": "Illustrative route after Antarctica21’s published itinerary · land after Natural Earth · not a navigational chart",
+ "source": "https://www.antarctica21.com/our-expeditions/inaugural-air-cruise#itinerary"
+}
